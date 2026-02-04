@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bkept | Discovery Engine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bkept-gold: #C5A059;
@@ -19,10 +19,10 @@
             font-family: 'Inter', sans-serif; 
             color: var(--deep-slate); 
             margin: 0; 
-            padding: 0; /* Reset for header */
+            padding: 0;
         }
 
-        /* --- ADDED NAV HEADER --- */
+        /* NAVIGATION HEADER */
         .nav-header {
             background: #fff;
             padding: 20px 0;
@@ -53,8 +53,8 @@
             text-decoration: none;
             font-weight: 700;
         }
-        /* ------------------------ */
 
+        /* AUDIT FORM STYLING */
         .audit-wrapper {
             display: flex; 
             justify-content: center;
@@ -123,7 +123,7 @@
             background: var(--surface); 
             font-family: 'Inter'; 
             font-size: 10pt; 
-            box-sizing: border-box; /* Fix width issues */
+            box-sizing: border-box;
         }
         
         .glass-card { 
@@ -172,11 +172,11 @@
             <form id="auditForm">
                 <h2>01. Legal Structure</h2>
                 <div class="form-section">
-                    <div><label>Legal Business Name *</label><input type="text" name="q1" required=""></div>
-                    <div><label>DBA / Trade Name</label><input type="text" name="q2"></div>
+                    <div><label>Legal Business Name *</label><input type="text" name="Legal_Name" required></div>
+                    <div><label>DBA / Trade Name</label><input type="text" name="DBA"></div>
                     <div class="full-width">
                         <label>Entity Legal Structure *</label>
-                        <select name="q3" required="">
+                        <select name="Entity_Type" required>
                             <option value="SoleProp">Sole Proprietorship</option>
                             <option value="Partnership">Partnership</option>
                             <option value="LLC">LLC</option>
@@ -185,33 +185,33 @@
                             <option value="Nonprofit">Nonprofit</option>
                         </select>
                     </div>
-                    <div class="full-width"><label>State of Incorporation *</label><input type="text" name="q4" required=""></div>
+                    <div class="full-width"><label>State of Incorporation *</label><input type="text" name="State_Incorp" required></div>
                 </div>
 
                 <h2>02. Revenue Channels</h2>
                 <div class="glass-card">
                     <div class="form-section">
-                        <div><label>Prior Year Revenue</label><input type="text" name="q7" placeholder="$"></div>
-                        <div><label>Projected Annual Revenue</label><input type="text" name="q8" placeholder="$"></div>
+                        <div><label>Prior Year Revenue</label><input type="text" name="Rev_Prior" placeholder="$"></div>
+                        <div><label>Projected Annual Revenue</label><input type="text" name="Rev_Proj" placeholder="$"></div>
                     </div>
                     <label>Payment Processors (Check all that apply)</label>
-                    <input type="text" name="q10" placeholder="e.g. Stripe, PayPal, Square, Venmo">
+                    <input type="text" name="Processors" placeholder="e.g. Stripe, PayPal, Square, Venmo">
                 </div>
 
-                <h2>03. Banking &amp; Volume</h2>
+                <h2>03. Banking & Volume</h2>
                 <div class="form-section">
-                    <div class="glass-card"><label>Total # Bank Accounts</label><input type="number" name="q13"></div>
-                    <div class="glass-card"><label>Total # Credit Cards</label><input type="number" name="q14"></div>
-                    <div class="glass-card full-width"><label>Avg. Monthly Transactions (Line Items)</label><input type="number" name="q15"></div>
+                    <div class="glass-card"><label>Total # Bank Accounts</label><input type="number" name="Count_Bank"></div>
+                    <div class="glass-card"><label>Total # Credit Cards</label><input type="number" name="Count_CC"></div>
+                    <div class="glass-card full-width"><label>Avg. Monthly Transactions (Line Items)</label><input type="number" name="Txn_Volume"></div>
                 </div>
 
-                <h2>04. Workforce &amp; Payroll</h2>
+                <h2>04. Workforce & Payroll</h2>
                 <div class="form-section">
-                    <div><label># of Employees (W2)</label><input type="number" name="q17"></div>
-                    <div><label># of Contractors (1099)</label><input type="number" name="q18"></div>
+                    <div><label># of Employees (W2)</label><input type="number" name="Count_W2"></div>
+                    <div><label># of Contractors (1099)</label><input type="number" name="Count_1099"></div>
                     <div class="full-width">
                         <label>Payroll Frequency</label>
-                        <select name="q23">
+                        <select name="Pay_Freq">
                             <option value="Weekly">Weekly</option>
                             <option value="Biweekly">Biweekly</option>
                             <option value="Semimonthly">Semimonthly</option>
@@ -220,30 +220,30 @@
                     </div>
                 </div>
 
-                <h2>05. Tech Stack &amp; Compliance</h2>
+                <h2>05. Tech Stack & Compliance</h2>
                 <div class="form-section">
                     <div>
                         <label>Current Accounting System</label>
-                        <select name="q24">
+                        <select name="Software_Current">
                             <option value="QuickBooks">QuickBooks</option>
                             <option value="Xero">Xero</option>
                             <option value="None">None / Manual</option>
                             <option value="Other">Other</option>
                         </select>
                     </div>
-                    <div><label>Income Tax Returns Current?</label><select name="q26"><option>Yes</option><option>No</option></select></div>
+                    <div><label>Income Tax Returns Current?</label><select name="Tax_Current"><option>Yes</option><option>No</option></select></div>
                 </div>
 
                 <h2>06. Strategic Objectives</h2>
                 <div class="glass-card">
-                    <label>Current Pain Points &amp; Service Needs</label>
-                    <textarea name="q28" rows="4" placeholder="What keeps you up at night regarding your books?"></textarea>
+                    <label>Current Pain Points & Service Needs</label>
+                    <textarea name="Pain_Points" rows="4" placeholder="What keeps you up at night regarding your books?"></textarea>
                 </div>
 
                 <h2>07. Primary Lead</h2>
                 <div class="form-section">
-                    <div><label>Full Name *</label><input type="text" name="q31" required=""></div>
-                    <div><label>Email *</label><input type="email" name="q32" required=""></div>
+                    <div><label>Full Name *</label><input type="text" name="Full_Name" required></div>
+                    <div><label>Email *</label><input type="email" name="Email_Address" required></div>
                 </div>
 
                 <button type="submit" class="submit-btn">Initialize Performance Sync</button>
@@ -252,27 +252,31 @@
     </div>
 
     <script>
-        // BKEPT SERVER HOOK
+        // PDF TRIGGER WEBHOOK
+        const PDF_WEBHOOK = 'https://hooks.zapier.com/hooks/catch/26262080/ulpgf3q/';
+
         document.getElementById('auditForm').onsubmit = function(e) {
             e.preventDefault();
             const btn = this.querySelector('button');
             const originalText = btn.innerText;
-            btn.innerText = "Transmitting Data...";
+            btn.innerText = "Generating Audit File...";
+            btn.disabled = true;
             
             const formData = new FormData(this);
             const data = Object.fromEntries(formData.entries());
 
-            fetch('https://hooks.zapier.com/hooks/catch/26262080/ul9kwo5/', {
+            fetch(PDF_WEBHOOK, {
                 method: 'POST',
                 mode: 'no-cors',
                 body: JSON.stringify(data),
                 headers: {'Content-Type': 'application/json'}
             }).then(() => {
-                alert('Bkept Architecture Initialized. We will provision your secure folder shortly.');
-                window.location.href = "/"; // Send them home after success
+                alert('Audit Profile Created. A PDF copy is being generated and will be emailed to you shortly.');
+                window.location.href = "/"; // Redirect home
             }).catch(err => {
                 alert('Connection Error. Please try again.');
                 btn.innerText = originalText;
+                btn.disabled = false;
             });
         };
     </script>
