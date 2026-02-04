@@ -799,14 +799,27 @@
     </section>
 </div>
 
-<footer>
-    <div class="container">
-        <h2 style="font-size: 2.5rem; color: #fff; margin-bottom: 20px;">Ready for clarity?</h2>
-        <p style="color: #BDC3C7; margin-bottom: 30px;">Let's discuss if "The Concierge" or "The Kept" is right for you.</p>
-        <button class="cta-btn open-bk-form" style="background:var(--bk-gradient);">Book a Consultation</button>
-        <p style="margin-top: 50px; opacity: 0.5;">© 2026 BKEPT.CO | PERFORMANCE BOOKKEEPING</p>
+<footer style="background: #1A1A1A; padding: 40px 0; border-top: 4px solid var(--bk-gold-solid);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+        
+        <div style="text-align: left;">
+            <span style="font-weight: 800; color: #fff; letter-spacing: 1px; font-size: 1.2rem; display: block; margin-bottom: 5px;">bkept.</span>
+            <span style="color: #636E72; font-size: 0.75rem; letter-spacing: 0.5px;">© 2026 PERFORMANCE BOOKKEEPING</span>
+        </div>
+
+        <div>
+            <button class="cta-btn open-bk-form" style="background: var(--bk-gradient); padding: 12px 30px; font-size: 0.8rem;">Book Consultation</button>
+        </div>
+
     </div>
 </footer>
+
+<style>
+    @media (max-width: 600px) {
+        footer .container { flex-direction: column; text-align: center; }
+        footer div { text-align: center !important; }
+    }
+</style>
 
 <div id="inquiryModal" class="bk-modal">
     <div class="modal-content">
