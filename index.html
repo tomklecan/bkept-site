@@ -683,39 +683,55 @@
     </section>
 </div>
 
-<div class="workflow-wrapper">
+<div class="workflow-wrapper" style="background: #1A1A1A; padding: 60px 0; margin-bottom: 80px;">
     <div class="container">
-        <span class="hero-tag" style="border-color: #555; color: #BDC3C7;">The Ecosystem</span>
-        <h2 style="color: #fff; margin-top: 20px;">The One-Way Sync.</h2>
-        <p style="opacity: 0.7; max-width: 600px; margin: 0 auto;">We architect a closed-loop system where data flows automatically from the source to the report. Zero manual entry. Zero errors.</p>
         
-        <div class="workflow-steps">
-            <div class="step-card">
-                <div class="step-icon">
-                   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+        <div style="text-align: center; margin-bottom: 40px;">
+            <span class="hero-tag" style="border-color: #555; color: #BDC3C7; background: transparent;">The Ecosystem</span>
+            <h2 style="color: #fff; margin: 15px 0 10px 0; font-size: 2rem;">The One-Way Sync.</h2>
+            <p style="color: #636E72; font-size: 0.9rem;">Closed-loop architecture. Zero manual entry. Zero errors.</p>
+        </div>
+
+        <div class="workflow-steps" style="display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 20px; align-items: center;">
+            
+            <div class="step-card" style="padding: 25px; text-align: left;">
+                <div class="step-icon" style="font-size: 1.5rem; color: var(--bk-gold-solid); margin-bottom: 10px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
                 </div>
-                <div class="step-title">The Sources</div>
-                <div class="step-desc">Banks, Credit Cards & Payroll sync via encrypted, read-only feeds.</div>
+                <div class="step-title" style="font-size: 0.9rem;">01. The Sources</div>
+                <div class="step-desc" style="font-size: 0.8rem;">Encrypted, read-only bank feeds.</div>
             </div>
-            <div class="step-arrow">→</div>
-            <div class="step-card">
-                <div class="step-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+
+            <div class="step-arrow" style="color: #333; font-size: 1.5rem;">→</div>
+
+            <div class="step-card" style="padding: 25px; text-align: left;">
+                <div class="step-icon" style="font-size: 1.5rem; color: var(--bk-gold-solid); margin-bottom: 10px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                 </div>
-                <div class="step-title">The Engine</div>
-                <div class="step-desc">Our team validates, categorizes, and reconciles every transaction.</div>
+                <div class="step-title" style="font-size: 0.9rem;">02. The Engine</div>
+                <div class="step-desc" style="font-size: 0.8rem;">Validation & reconciliation.</div>
             </div>
-            <div class="step-arrow">→</div>
-            <div class="step-card">
-                <div class="step-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+
+            <div class="step-arrow" style="color: #333; font-size: 1.5rem;">→</div>
+
+            <div class="step-card" style="padding: 25px; text-align: left;">
+                <div class="step-icon" style="font-size: 1.5rem; color: var(--bk-gold-solid); margin-bottom: 10px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
                 </div>
-                <div class="step-title">The Kept Memo</div>
-                <div class="step-desc">You receive "The Kept Memo" monthly—actionable data, no jargon.</div>
+                <div class="step-title" style="font-size: 0.9rem;">03. The Kept Memo</div>
+                <div class="step-desc" style="font-size: 0.8rem;">Actionable monthly intel.</div>
             </div>
+
         </div>
     </div>
 </div>
+
+<style>
+    @media (max-width: 900px) {
+        .workflow-steps { display: flex !important; flex-direction: column; gap: 15px; }
+        .step-arrow { transform: rotate(90deg); margin: 5px 0; }
+    }
+</style>
 
 <div class="container">
     <section id="services">
