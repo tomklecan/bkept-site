@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bkept | Performance Bookkeeping & Operational Clarity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bk-gradient: linear-gradient(110deg, #8E7338 0%, #D6B569 35%, #F9E7BA 50%, #D6B569 65%, #8E7338 100%);
+            --bk-gold-solid: #C5A059;
+            --bk-dark: #2D3436;
+            --bk-surface: #FFFFFF;
+            --bk-font: 'Inter', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: var(--bk-font); 
+            background: var(--bk-surface); 
+            color: var(--bk-dark); 
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .gold-text { 
+            background: var(--bk-gradient); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            font-weight: 800;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 2px solid;
+            border-image: var(--bk-gradient) 1;
+        }
+
+        h1 { font-size: 4rem; letter-spacing: -2px; margin-bottom: 10px; }
+        p { font-size: 1.25rem; font-weight: 300; letter-spacing: 1px; color: #636e72; }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #f1f2f6;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="hero-tag">Operational Clarity</span>
+        <h1 class="gold-text">Impeccably Kept.</h1>
+        <p>Performance Bookkeeping for Modern Business.</p>
+    </header>
+
+</body>
+</html>
