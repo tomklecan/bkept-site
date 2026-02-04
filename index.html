@@ -2,212 +2,943 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
     <title>Bkept | Performance Bookkeeping & Operational Clarity</title>
     
+    <meta name="description" content="Bkept delivers Performance Bookkeeping and operational clarity for growing businesses. We architect financial systems that turn messy data into actionable insights.">
+    <meta name="keywords" content="Performance Bookkeeping, Operational Clarity, QuickBooks Online, Fractional Finance, Startup Bookkeeping NYC">
+    <meta name="author" content="Bkept Financial Operations">
+
+    <meta property="og:title" content="Bkept | Performance Bookkeeping">
+    <meta property="og:description" content="Operational clarity for modern business. Stop managing spreadsheets and start driving growth.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bkept.co">
+    <meta property="og:site_name" content="Bkept">
+    <meta property="og:image" content="https://bkept.co/wp-content/uploads/2026/01/FAVICON.jpg"> 
+
+    <link rel="icon" href="https://bkept.co/wp-content/uploads/2026/01/FAVICON.jpg" type="image/jpeg" sizes="1024x1024">
+    <link rel="shortcut icon" href="https://bkept.co/wp-content/uploads/2026/01/FAVICON.jpg" type="image/jpeg" sizes="1024x1024">
+    <link apple-touch-icon href="https://bkept.co/wp-content/uploads/2026/01/FAVICON.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "Bkept",
+      "url": "https://bkept.co",
+      "logo": "https://bkept.co/wp-content/uploads/2026/01/FAVICON.jpg",
+      "description": "Bkept provides Performance Bookkeeping and financial architecture for growing businesses and tech startups.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New York",
+        "addressRegion": "NY"
+      }
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* [SECTION] BKEPT DESIGN SYSTEM */
-        :root {
-            --bk-gradient: linear-gradient(110deg, #8E7338 0%, #D6B569 35%, #F9E7BA 50%, #D6B569 65%, #8E7338 100%);
-            --bk-gold-solid: #C5A059;
-            --bk-dark: #2D3436;
-            --bk-surface: #FFFFFF;
-            --bk-light-grey: #F9FAFB;
-            --bk-font: 'Inter', sans-serif;
-        }
-
-        /* GLOBAL RESET */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        /* --- GLOBAL RESET & THEME --- */
+        * { box-sizing: border-box; }
         
-        body { 
-            font-family: var(--bk-font); 
-            background: var(--bk-surface); 
-            color: var(--bk-dark); 
+        body, html {
+            background-color: #FFFFFF;
+            color: #2D3436;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
 
-        /* UTILITIES */
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        .gold-text { 
-            background: var(--bk-gradient); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-            font-weight: 800;
-        }
-        .hero-tag {
-            display: inline-block;
-            padding: 5px 15px;
-            background: #f1f2f6;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            color: var(--bk-dark);
+        :root {
+            --bk-gradient: linear-gradient(110deg, #8E7338 0%, #D6B569 35%, #F9E7BA 50%, #D6B569 65%, #8E7338 100%);
+            --bk-metal: linear-gradient(110deg, #7F8C8D 0%, #BDC3C7 50%, #7F8C8D 100%);
+            --bk-gold-solid: #C5A059; 
+            --bk-surface: #F9FAFB;
+            --bk-border: #E2E8F0;
         }
 
-        /* HEADER & HERO */
-        header {
-            height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            border-bottom: 2px solid;
-            border-image: var(--bk-gradient) 1;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
             position: relative;
         }
 
-        h1 { font-size: 4.5rem; letter-spacing: -2px; margin-bottom: 15px; line-height: 1.1; }
-        p.hero-sub { font-size: 1.5rem; font-weight: 300; letter-spacing: 0.5px; color: #636e72; max-width: 600px; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; padding: 0; margin: 0; }
 
-        /* CTA BUTTON */
-        .btn-gold {
-            margin-top: 40px;
-            padding: 15px 40px;
+        /* --- HEADER --- */
+        .bk-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px; 
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--bk-border);
+            position: relative;
+            background: #fff;
+            z-index: 1000;
+        }
+
+        .bk-header::after {
+            content: ""; position: absolute; left: 0; bottom: -1px;
+            height: 2px; width: 100%; background: var(--bk-gradient);
+        }
+
+        .bk-logo {
+            font-size: 24px; 
             background: var(--bk-gradient);
-            color: #1a1a1a;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px; 
+            font-weight: 700; 
+            text-transform: lowercase;
+            z-index: 1001;
+        }
+
+        .bk-nav { display: flex; gap: 15px; align-items: center; }
+
+        .bk-btn-nav {
+            color: #2D3436;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 700;
+            border: 1px solid var(--bk-border);
+            padding: 10px 20px;
+            background: #fff;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .bk-btn-nav:hover { 
+            background: var(--bk-metal); 
+            color: #fff; 
+            border-color: transparent;
+        }
+
+        /* --- MOBILE TOGGLE --- */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+        .mobile-toggle span {
+            width: 25px; height: 2px; background: var(--bk-gold-solid); transition: 0.3s;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            padding: 140px 0 100px 0;
+            max-width: 950px;
+        }
+        .hero-tag {
+            color: var(--bk-gold-solid);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-            text-decoration: none;
+            letter-spacing: 5px;
+            font-size: 0.85rem;
+            margin-bottom: 25px;
             display: inline-block;
+            border: 1px solid var(--bk-gold-solid);
+            padding: 5px 12px;
+            border-radius: 4px;
         }
-        .btn-gold:hover { transform: scale(1.02); }
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin: 0 0 30px 0;
+            font-weight: 800; 
+            letter-spacing: -1.5px;
+            color: #1A1A1A;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: #636E72;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
 
-        /* SECTION: ONE-WAY SYNC */
-        .section-sync { padding: 100px 0; background: var(--bk-light-grey); }
-        .sync-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .sync-card { background: white; padding: 40px; border-left: 4px solid var(--bk-gold-solid); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .cta-btn {
+            display: inline-block;
+            background: #1A1A1A;
+            color: #fff;
+            padding: 18px 40px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .cta-btn:hover {
+            background: var(--bk-gradient);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
+        }
         
-        h2 { font-size: 2.5rem; letter-spacing: -1px; margin-bottom: 20px; }
-        h3 { font-size: 1.25rem; margin-bottom: 10px; font-weight: 600; }
+        .cta-outline {
+            background: #fff;
+            color: #1A1A1A;
+            border: 1px solid var(--bk-border);
+        }
+        .cta-outline:hover {
+            background: var(--bk-metal);
+            color: #fff;
+        }
+
+        /* --- CREDENTIALS (SEO BAR) --- */
+        .seo-bar {
+            border-top: 1px solid var(--bk-border);
+            border-bottom: 1px solid var(--bk-border);
+            background: var(--bk-surface);
+            padding: 40px 0;
+            margin-bottom: 100px;
+        }
         
-        /* SECTION: PRICING TIERS */
-        .section-pricing { padding: 100px 0; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-        .price-card { 
-            border: 1px solid #e1e1e1; 
-            padding: 40px; 
-            transition: all 0.3s ease; 
+        .credential-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            gap: 60px; /* Force spacing */
         }
-        .price-card:hover { border-color: var(--bk-gold-solid); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-        .price-header { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: #b2bec3; margin-bottom: 20px; }
-        .price-amount { font-size: 3rem; font-weight: 800; color: var(--bk-dark); }
-        .price-sub { font-size: 1rem; color: #636e72; font-weight: 400; }
-        .feature-list { list-style: none; margin-top: 30px; }
-        .feature-list li { margin-bottom: 15px; font-size: 0.95rem; display: flex; align-items: center; }
-        .feature-list li::before { content: "•"; color: var(--bk-gold-solid); margin-right: 10px; font-size: 1.5rem; line-height: 0; }
-
-        /* FOOTER */
-        footer { background: #1a1a1a; color: white; padding: 60px 0; text-align: center; }
-        .footer-logo { font-weight: 800; letter-spacing: 1px; margin-bottom: 20px; display: block; }
-        .footer-copy { color: #636e72; font-size: 0.85rem; }
-
-        /* MOBILE RESPONSIVE */
-        @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
-            .sync-grid { grid-template-columns: 1fr; }
-            .container { padding: 0 20px; }
+        
+        .credential-img {
+            height: 45px;
+            filter: grayscale(100%) contrast(1.2); 
+            opacity: 0.6;
         }
+
+        .credential-text {
+            color: #636E72;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        .industry-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 100px;
+            align-items: center;
+        }
+        .ind-list li {
+            border-bottom: 1px solid var(--bk-border);
+            padding: 25px 0;
+            color: #2D3436;
+            font-size: 1.2rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            transition: 0.3s;
+        }
+        .ind-list li::after {
+            content: "→";
+            opacity: 0;
+            transition: 0.3s;
+            color: var(--bk-gold-solid);
+        }
+        .ind-list li:hover {
+            padding-left: 10px;
+        }
+        .ind-list li:hover::after {
+            opacity: 1;
+            transform: translateX(-10px);
+        }
+        
+        .workflow-wrapper {
+            background: #1A1A1A;
+            padding: 80px 0;
+            margin-bottom: 100px;
+            color: #fff;
+            text-align: center;
+            width: 100%;
+        }
+        .workflow-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            position: relative;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .step-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid #333;
+            padding: 30px;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+            transition: 0.3s;
+        }
+        .step-card:hover {
+            border-color: var(--bk-gold-solid);
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.08);
+        }
+        .step-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--bk-gold-solid);
+        }
+        .step-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #fff;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .step-desc {
+            font-size: 0.9rem;
+            color: #BDC3C7;
+            line-height: 1.5;
+        }
+        .step-arrow {
+            color: #333;
+            font-size: 2rem;
+        }
+
+        .section-title { font-size: 3rem; color: #1A1A1A; margin-bottom: 60px; font-weight: 800; }
+        .gold-text { background: var(--bk-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .bk-card {
+            background: #FFFFFF;
+            padding: 40px;
+            border: 1px solid var(--bk-border);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+        .bk-card:hover { 
+            border-top: 1px solid var(--bk-border);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transform: translateY(-5px);
+        }
+
+        .bk-card-bar {
+            height: 4px;
+            width: 50px;
+            background: var(--bk-gradient);
+            margin-bottom: 25px;
+        }
+
+        .bk-tag { color: #BDC3C7; font-weight: 800; letter-spacing: 2px; font-size: 0.75rem; }
+        
+        h4 { 
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1A1A1A; 
+            margin: 0 0 20px 0;
+            padding-bottom: 0;
+            border: none;
+            background: none;
+            -webkit-text-fill-color: #1A1A1A;
+        }
+
+        .bk-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .bk-service-list li {
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.9rem;
+            color: #636E72;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        .bk-service-list li span.dot {
+            color: var(--bk-gold-solid);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .bk-service-list strong { color: #1A1A1A; }
+
+        .bk-pricing {
+            background: var(--bk-surface);
+            border: 1px solid var(--bk-border);
+            padding: 20px 40px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .bk-divider { border-top: 1px solid var(--bk-border); margin: 100px 0; }
+
+        footer {
+            background: #1A1A1A; 
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+        footer a { color: #BDC3C7; }
+
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            padding: 100px 0;
+            align-items: start;
+        }
+        .bio-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #1A1A1A;
+            font-weight: 700;
+        }
+        .bio-text p {
+            margin-bottom: 30px;
+            color: #636E72;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        .timeline-wrapper {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid var(--bk-border);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-dot {
+            position: absolute;
+            left: -37px; top: 5px;
+            width: 12px; height: 12px;
+            background: var(--bk-gold-solid);
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px var(--bk-gold-solid);
+            border-radius: 50%;
+        }
+        .role-year {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            color: #BDC3C7;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .role-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin: 0 0 5px 0;
+        }
+        .role-company {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--bk-gold-solid);
+            margin-bottom: 15px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .role-desc {
+            font-size: 0.95rem;
+            color: #636E72;
+            margin: 0;
+        }
+
+        /* --- MOBILE OVERRIDES --- */
+        @media(max-width: 900px) {
+            .mobile-toggle { display: flex; }
+            
+            .bk-nav { 
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 80%;
+                background: #fff;
+                flex-direction: column;
+                padding: 100px 40px;
+                transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+                z-index: 999;
+                gap: 20px;
+                align-items: flex-start;
+            }
+            .bk-nav.active { right: 0; }
+            .bk-btn-nav { width: 100%; border: none; border-bottom: 1px solid var(--bk-border); padding: 15px 0; font-size: 14px; }
+
+            .hero h1 { font-size: 2.2rem; }
+            .industry-section { grid-template-columns: 1fr; gap: 40px; }
+            
+            /* Mobile SEO Bar Stack */
+            .credential-container { flex-direction: column; gap: 30px; }
+            
+            .bk-grid-3 { grid-template-columns: 1fr; gap: 20px; }
+            .split-section { grid-template-columns: 1fr; gap: 50px; }
+            
+            .workflow-steps { flex-direction: column; }
+            .step-arrow { transform: rotate(90deg); margin: 10px 0; }
+        }
+
+        /* --- BESPOKE INQUIRY MODAL STYLING --- */
+        .bk-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(5px);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: #FFFFFF;
+            margin: 5vh auto;
+            padding: 50px;
+            border-radius: 4px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border-top: 4px solid var(--bk-gold-solid);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 25px;
+            top: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #BDC3C7;
+            cursor: pointer;
+        }
+
+        .form-group { margin-bottom: 25px; }
+        .form-group label {
+            display: block;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #636E72;
+            margin-bottom: 8px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--bk-border);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            background: #F9FAFB;
+            transition: 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--bk-gold-solid); background: #fff; }
+
     </style>
 </head>
-
 <body>
 
-    <header>
-        <div class="container">
-            <span class="hero-tag">Bkept Business OS v1.0</span>
-            <h1 class="gold-text">Impeccably Kept.</h1>
-            <p class="hero-sub">We bridge the gap between "messy DIY chaos" and a full-time CFO. This is Performance Bookkeeping.</p>
-            <a href="mailto:hello@bkept.co" class="btn-gold">Initiate Protocol</a>
+<div class="container">
+    <header class="bk-header">
+        <a href="/" class="bk-logo">bkept.</a>
+        
+        <div class="mobile-toggle" id="mobileToggle">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
+
+        <nav class="bk-nav" id="mainNav">
+            <a href="#services" class="bk-btn-nav">Services</a>
+            <a href="#founder" class="bk-btn-nav">The Founder</a> 
+            <a href="https://bkept.co/pricing/" class="bk-btn-nav">Pricing</a>
+            <a href="https://bkept.co/the-library/" class="bk-btn-nav">The Library</a>
+            <a href="https://bkept.co/partners/" class="bk-btn-nav">Partners</a>
+            <button class="bk-btn-nav open-bk-form" style="background: var(--bk-gradient); color: #fff; border:none;">Contact</button>
+        </nav>
     </header>
 
-    <section class="section-sync">
-        <div class="container">
-            <div class="sync-grid">
-                <div>
-                    <span class="hero-tag">The Philosophy</span>
-                    <h2>We Do Not Record History. <br>We Architect the Future.</h2>
-                    <p>Standard bookkeeping is a commodity. It is reactive, compliance-focused, and cheap. Bkept is an operational nervous system designed for high-margin businesses.</p>
+    <section class="hero">
+        <span class="hero-tag">The New Standard</span>
+        <h1><span class="gold-text">Performance</span> Bookkeeping</h1>
+        <p>
+            Operational clarity for today. Strategic insights for tomorrow.<br>
+        </p>
+        <div class="hero-actions">
+            <button class="cta-btn open-bk-form">Get a Proposal</button>
+            <a href="#services" class="cta-btn cta-outline">How We Work</a>
+        </div>
+    </section>
+</div>
+
+<div class="seo-bar">
+    <div class="container credential-container">
+        <div class="credential-group" style="display:flex; align-items:center; gap:10px;">
+            <img src="https://bkept.co/wp-content/uploads/2026/01/QBO-PROAD.png" class="credential-img" alt="QBO ProAdvisor" loading="lazy">
+            <span class="credential-text">Elite ProAdvisor</span>
+        </div>
+        <div class="credential-group" style="display:flex; align-items:center; gap:10px;">
+            <img src="https://bkept.co/wp-content/uploads/2026/01/qbo-PAYROLL-BASDE.png" class="credential-img" alt="QBO Payroll Certified" loading="lazy">
+            <span class="credential-text">Payroll Certified</span>
+        </div>
+        <div class="credential-group" style="display:flex; align-items:center; gap:10px;">
+            <img src="https://bkept.co/wp-content/uploads/2026/01/CERTIFIED-BOOKKEEPER.png" class="credential-img" alt="Intuit Certified" loading="lazy">
+            <span class="credential-text">Intuit Certified</span>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <section class="industry-section" id="backoffice">
+        <div>
+            <span class="hero-tag">A Better Way</span>
+            <h2 class="section-title">The Modern <span class="gold-text">Back-Office.</span></h2>
+            <span class="sub-header-wide">Real-time visibility. Engineered for momentum.</span>
+            <p style="color: #636E72;">
+                bkept simplifies your business bookkeeping with modern integrations that reduce the operational friction from communications and manual workflows. we capture financial activity in real-time, delivering clarity and insights to move your business forward with confidence. 
+            </p>
+        </div>
+        <div>
+            <ul class="ind-list">
+                <li><strong>Built for Your Future</strong></li>
+                <li><strong>Team Acceleration</strong></li>
+                <li><strong>Empowered Decisions</strong></li>
+            </ul>
+        </div>
+    </section>
+
+    <hr class="bk-divider">
+
+    <section id="founder">
+        <span class="hero-tag">The Background</span>
+        <h2 class="section-title">The Founder’s <span class="gold-text">Advocacy.</span></h2>
+
+        <div class="split-section">
+            <div class="bio-text">
+               <h3>Built on Entrepreneurial Spirit.</h3> 
+                <p>
+                    My career has been a deliberate bridge between two worlds: the <strong>high-velocity agility</strong> of early-stage startups and the <strong>uncompromising precision</strong> of the global luxury sector. Bkept is the synthesis of these experiences—applying Fortune 500 rigor to the businesses that truly move the needle shaping the future.                 </p>
+                <p>
+                   Bkept was built on a deep respect for the resilience and gumption of entrepreneurs and their business endeavors. I don’t just record history; I am an advocate for your reputation and a partner in your growth. I am obsessed with seeing well-run businesses thrive and aim to deliver the right support to build your business in the best direction. I see bkept as a full spectrum partner to your business, offering proactive engagement toward your success. I take pride in the trust delegated to me managing your books and delivering the support needed as your business continues to evolve. 
+                </p>
+
+                <div style="margin-top: 40px;">
+                    <a href="https://www.linkedin.com/in/tommyklecan" target="_blank" class="cta-btn cta-outline">Connect on LinkedIn</a>
                 </div>
-                <div class="sync-card">
-                    <h3>The One-Way Sync</h3>
-                    <p>We never manually enter data that can be fetched automatically. By integrating directly with your bank feeds and receipts, we build a "Closed Loop" ecosystem where your General Ledger is the single source of truth.</p>
+            </div>
+
+            <div class="timeline-wrapper">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="role-year">PRESENT</span>
+                    <h4 class="role-title">Founder & Principal</h4>
+                    <span class="role-company">Bkept. Financial Operations</span>
+                    <p class="role-desc">
+                        Leading a premium financial operations firm for private businesses, with specialized focus on tech startups. Setting a new standard with "Performance Bookkeeping". 
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="role-year">PREVIOUS</span>
+                    <h4 class="role-title">Accounting Operations & Reporting </h4>
+                    <span class="role-company">Global Luxury Conglomerate LVMH</span>
+                    <p class="role-desc">
+                        Managed operational accounting activities with the LVMH Holding Group and lead accounting operations for internal e-commerce startup entities. 
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="role-year">PREVIOUS</span>
+                    <h4 class="role-title">Accounting & Administrative Lead</h4>
+                    <span class="role-company">NYC Tech Startups</span>
+                    <p class="role-desc">
+                        Managed operations for venture-backed organizations including Offerpop, Movable Ink, Axial, & Knock.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
+</div>
 
-    <section class="section-pricing">
-        <div class="container">
-            <center>
-                <span class="hero-tag">Investment Logic</span>
-                <h2>Transparent Architecture</h2>
-            </center>
-            <div class="pricing-grid">
-                
-                <div class="price-card">
-                    <div class="price-header">01 // The Fix</div>
-                    <div class="price-amount">Custom</div>
-                    <div class="price-sub">Historical Cleanup</div>
-                    <ul class="feature-list">
-                        <li>Forensic Audit of Past Data</li>
-                        <li>Categorization Correction</li>
-                        <li>Balance Sheet Reconciliation</li>
-                        <li>Tax-Ready Financial Packet</li>
-                    </ul>
+<div class="workflow-wrapper">
+    <div class="container">
+        <span class="hero-tag" style="border-color: #555; color: #BDC3C7;">The Ecosystem</span>
+        <h2 style="color: #fff; margin-top: 20px;">The One-Way Sync.</h2>
+        <p style="opacity: 0.7; max-width: 600px; margin: 0 auto;">We architect a closed-loop system where data flows automatically from the source to the report. Zero manual entry. Zero errors.</p>
+        
+        <div class="workflow-steps">
+            <div class="step-card">
+                <div class="step-icon">
+                   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
                 </div>
-
-                <div class="price-card">
-                    <div class="price-header">02 // The Flow</div>
-                    <div class="price-amount">$650<span style="font-size:1rem;">/mo</span></div>
-                    <div class="price-sub">Monthly Retainer (Base)</div>
-                    <ul class="feature-list">
-                        <li>Bank Feed Reconciliation</li>
-                        <li>Receipt Matching (Hubdoc/Dext)</li>
-                        <li>Monthly "Truth Memo" Report</li>
-                        <li>Quarterly Strategy Call</li>
-                    </ul>
+                <div class="step-title">The Sources</div>
+                <div class="step-desc">Banks, Credit Cards & Payroll sync via encrypted, read-only feeds.</div>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step-card">
+                <div class="step-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                 </div>
-
-                <div class="price-card">
-                    <div class="price-header">03 // The Scale</div>
-                    <div class="price-amount">Custom</div>
-                    <div class="price-sub">High Volume Ops</div>
-                    <ul class="feature-list">
-                        <li>Weekly Cash Flow Updates</li>
-                        <li>AP/AR Management</li>
-                        <li>Payroll Administration</li>
-                        <li>Custom KPI Dashboarding</li>
-                    </ul>
+                <div class="step-title">The Engine</div>
+                <div class="step-desc">Our team validates, categorizes, and reconciles every transaction.</div>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step-card">
+                <div class="step-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
                 </div>
+                <div class="step-title">The Kept Memo</div>
+                <div class="step-desc">You receive "The Kept Memo" monthly—actionable data, no jargon.</div>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="container">
+    <section id="services">
+        <div style="display:block; max-width: 650px; margin-bottom: 60px;">
+            <span class="bk-tag">Tier 01 // The Fix</span>
+            <h2 class="section-title" style="margin-bottom: 20px;">The <span class="gold-text">Concierge</span></h2>
+            <p style="font-size: 1.1rem; color: #636E72;">
+                Tactical, project-based execution. Whether it is complex financial modeling, operational data scrubs, or HR infrastructure, we step in, execute the project with precision, and step out.
+            </p>
+        </div>
+        
+        <div class="bk-grid-3">
+            <div class="bk-card">
+                <div class="bk-card-bar"></div>
+                <h4>Financial & Admin Projects</h4>
+                <ul class="bk-service-list">
+                    <li><span class="dot">•</span><span><strong>Historical Cleanups:</strong> Untangling legacy ledger data.</span></li>
+                    <li><span class="dot">•</span><span><strong>Spreadsheet Architecture:</strong> Complex formatting & formula modeling.</span></li>
+                    <li><span class="dot">•</span><span><strong>Audit Defense:</strong> Rebuilding records for compliance.</span></li>
+                    <li><span class="dot">•</span><span><strong>One-Time Accounting:</strong> Specific project-based ledger work.</span></li>
+                </ul>
+            </div>
+            <div class="bk-card">
+                <div class="bk-card-bar"></div>
+                <h4>Data & Sales Operations</h4>
+                <ul class="bk-service-list">
+                    <li><span class="dot">•</span><span><strong>CRM Data Scrubs:</strong> Cleaning pipeline data (HubSpot/Salesforce).</span></li>
+                    <li><span class="dot">•</span><span><strong>Database Standardization:</strong> Formatting inconsistent data sets.</span></li>
+                    <li><span class="dot">•</span><span><strong>Migration Audits:</strong> Verifying data integrity during software moves.</span></li>
+                    <li><span class="dot">•</span><span><strong>Vendor Audits:</strong> Identifying SaaS waste and duplicate billing.</span></li>
+                </ul>
+            </div>
+            <div class="bk-card">
+                <div class="bk-card-bar"></div>
+                <h4>People Operations</h4>
+                <ul class="bk-service-list">
+                    <li><span class="dot">•</span><span><strong>Payroll Migration:</strong> Moving teams to modern platforms.</span></li>
+                    <li><span class="dot">•</span><span><strong>Commission Tracking:</strong> Verifying sales payouts and structures.</span></li>
+                    <li><span class="dot">•</span><span><strong>Onboarding Systems:</strong> Building standardized hiring workflows.</span></li>
+                    <li><span class="dot">•</span><span><strong>Handbook Drafting:</strong> Creating clear, non-corporate operational manuals.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <div class="bk-pricing">
+                <strong style="color: #1A1A1A;">Pricing:</strong> <span style="color: #636E72;">Flat Project Fee (Based on complexity).</span>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <span class="footer-logo">bkept.</span>
-            <div class="footer-copy">
-                &copy; 2025 Bkept Financial Architecture.<br>
-                Powered by the One-Way Sync Protocol.
+    <hr class="bk-divider">
+
+    <section style="margin-bottom: 100px;">
+        <span class="bk-tag">Tier 02 // The Flow</span>
+        <h2 class="section-title">The <span class="gold-text">Kept</span></h2>
+        <p style="max-width: 600px; color: #636E72; margin-bottom: 40px;">Your outsourced financial back-office. We handle the day-to-day so you can focus on the big picture.</p>
+        
+        <div class="bk-grid-3">
+            <div class="bk-card" style="border-top: 4px solid #BDC3C7;"> 
+                <h3 style="color: #1A1A1A; font-size: 1.5rem; font-weight: 700;">The Monthly Close</h3>
+                <p style="color:#636E72; font-size: 0.95rem;">Reconciliations, categorization, and payroll sync. We ensure your books are closed and audit-ready by the 15th.</p>
+            </div>
+            <div class="bk-card" style="border-top: 4px solid #BDC3C7;">
+                <h3 style="color: #1A1A1A; font-size: 1.5rem; font-weight: 700;">The Kept Memo</h3>
+                <p style="color:#636E72; font-size: 0.95rem;">No confusing spreadsheets. You get a concise executive summary of your financial performance.</p>
+            </div>
+            <div class="bk-card" style="border-top: 4px solid #BDC3C7;">
+                <h3 style="color: #1A1A1A; font-size: 1.5rem; font-weight: 700;">The CFO Track</h3>
+                <p style="color:#636E72; font-size: 0.95rem;">Proactive advisory. We identify red flags, forecast cash flow, and help you prepare for fundraising or acquisition.</p>
             </div>
         </div>
-    </footer>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <div class="bk-pricing" style="margin-bottom: 25px;">
+                <strong style="color: #1A1A1A;">Pricing:</strong> <span style="color: #636E72;">Fixed Monthly Retainer (Volume-based).</span>
+            </div>
+            <br>
+            <a href="https://bkept.co/pricing/" class="cta-btn cta-outline">View Pricing Tiers →</a>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="container">
+        <h2 style="font-size: 2.5rem; color: #fff; margin-bottom: 20px;">Ready for clarity?</h2>
+        <p style="color: #BDC3C7; margin-bottom: 30px;">Let's discuss if "The Concierge" or "The Kept" is right for you.</p>
+        <button class="cta-btn open-bk-form" style="background:var(--bk-gradient);">Book a Consultation</button>
+        <p style="margin-top: 50px; opacity: 0.5;">© 2026 BKEPT.CO | PERFORMANCE BOOKKEEPING</p>
+    </div>
+</footer>
+
+<div id="inquiryModal" class="bk-modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 style="margin-top:0;">Let's talk <span class="gold-text">Order.</span></h2>
+        <p style="color:#636E72; font-size:0.9rem; margin-bottom:30px;">Complete the details below to initialize contact. We respond within 24 hours.</p>
+        
+        <form id="bespokeInquiryForm">
+            <div class="form-group">
+                <label>Business Name *</label>
+                <input type="text" name="lead_biz_name" required placeholder="e.g. Acme Operations LLC">
+            </div>
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" name="lead_name" required placeholder="Jane Doe">
+            </div>
+            <div class="form-group">
+                <label>Email Address *</label>
+                <input type="email" name="lead_email" required placeholder="jane@company.com">
+            </div>
+            <div class="form-group">
+                <label>Business Type</label>
+                <select name="lead_type">
+                    <option value="SaaS/Tech">SaaS / Tech</option>
+                    <option value="Agency/Service">Agency / Service</option>
+                    <option value="eCommerce">eCommerce</option>
+                    <option value="Local Business">Local Small Business</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Service Tier of Interest</label>
+                <select name="lead_interest">
+                    <option value="Concierge">The Concierge (Project Fix)</option>
+                    <option value="Kept">The Kept (Monthly Retainer)</option>
+                    <option value="Undecided">Undecided / Inquiry</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Brief Context</label>
+                <textarea name="lead_context" rows="4" placeholder="Briefly describe your current operational friction..."></textarea>
+            </div>
+            <div style="margin-top: 10px;">
+                <button type="submit" class="cta-btn" style="width:100%; display: block;">Initialize Contact</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById("inquiryModal");
+    const btns = document.querySelectorAll(".open-bk-form");
+    const span = document.querySelector(".close-modal");
+    
+    // MOBILE NAV LOGIC (RESTORED)
+    const mobileToggle = document.getElementById("mobileToggle");
+    const mainNav = document.getElementById("mainNav");
+    
+    mobileToggle.onclick = function() {
+        mainNav.classList.toggle("active");
+    };
+
+    // BKEPT CENTRAL NERVOUS SYSTEM WEBHOOK
+    const WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26262080/ul576pd/';
+
+    function openModal() {
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
+        // Close nav if open
+        mainNav.classList.remove("active");
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    btns.forEach(btn => {
+        btn.onclick = function(e) { 
+            e.preventDefault();
+            openModal();
+        }
+    });
+
+    span.onclick = closeModal;
+
+    window.onclick = function(event) {
+        if (event.target == modal) { closeModal(); }
+    }
+
+    // NATIVE BKEPT FORM SUBMISSION LOGIC
+    document.getElementById('bespokeInquiryForm').onsubmit = function(e) {
+        e.preventDefault();
+        const submitBtn = this.querySelector('button');
+        const originalBtnText = submitBtn.innerText;
+        
+        // Visual Feedback
+        submitBtn.innerText = "SYNCING...";
+        submitBtn.style.opacity = "0.7";
+        submitBtn.disabled = true;
+
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+
+        fetch(WEBHOOK_URL, {
+            method: 'POST',
+            mode: 'no-cors', // standard for Zapier webhooks
+            body: JSON.stringify(data),
+            headers: {'Content-Type': 'application/json'}
+        }).then(() => {
+            alert('Bkept OS Sync Initialized. Our office will contact you within 24 hours.');
+            closeModal();
+            // Reset button
+            submitBtn.innerText = originalBtnText;
+            submitBtn.style.opacity = "1";
+            submitBtn.disabled = false;
+            this.reset();
+        }).catch(err => {
+            console.error('Bkept OS Sync Error:', err);
+            alert('Initialization Error. Please try again or email direct.');
+            submitBtn.innerText = originalBtnText;
+            submitBtn.disabled = false;
+        });
+    };
+
+    window.onload = function() {
+        if(window.location.hash === "#inquiry") {
+            openModal();
+        }
+    };
+</script>
 
 </body>
 </html>
+
+
