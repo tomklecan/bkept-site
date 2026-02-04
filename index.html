@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bkept | Performance Bookkeeping & Operational Clarity</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
     <style>
+        /* [SECTION] BKEPT DESIGN SYSTEM */
         :root {
             --bk-gradient: linear-gradient(110deg, #8E7338 0%, #D6B569 35%, #F9E7BA 50%, #D6B569 65%, #8E7338 100%);
             --bk-gold-solid: #C5A059;
             --bk-dark: #2D3436;
             --bk-surface: #FFFFFF;
+            --bk-light-grey: #F9FAFB;
             --bk-font: 'Inter', sans-serif;
         }
 
+        /* GLOBAL RESET */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body { 
@@ -23,30 +28,17 @@
             background: var(--bk-surface); 
             color: var(--bk-dark); 
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
+        /* UTILITIES */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         .gold-text { 
             background: var(--bk-gradient); 
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent; 
             font-weight: 800;
         }
-
-        header {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            border-bottom: 2px solid;
-            border-image: var(--bk-gradient) 1;
-        }
-
-        h1 { font-size: 4rem; letter-spacing: -2px; margin-bottom: 10px; }
-        p { font-size: 1.25rem; font-weight: 300; letter-spacing: 1px; color: #636e72; }
-
         .hero-tag {
             display: inline-block;
             padding: 5px 15px;
@@ -57,16 +49,165 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 20px;
+            color: var(--bk-dark);
+        }
+
+        /* HEADER & HERO */
+        header {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 2px solid;
+            border-image: var(--bk-gradient) 1;
+            position: relative;
+        }
+
+        h1 { font-size: 4.5rem; letter-spacing: -2px; margin-bottom: 15px; line-height: 1.1; }
+        p.hero-sub { font-size: 1.5rem; font-weight: 300; letter-spacing: 0.5px; color: #636e72; max-width: 600px; }
+
+        /* CTA BUTTON */
+        .btn-gold {
+            margin-top: 40px;
+            padding: 15px 40px;
+            background: var(--bk-gradient);
+            color: #1a1a1a;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-gold:hover { transform: scale(1.02); }
+
+        /* SECTION: ONE-WAY SYNC */
+        .section-sync { padding: 100px 0; background: var(--bk-light-grey); }
+        .sync-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .sync-card { background: white; padding: 40px; border-left: 4px solid var(--bk-gold-solid); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        
+        h2 { font-size: 2.5rem; letter-spacing: -1px; margin-bottom: 20px; }
+        h3 { font-size: 1.25rem; margin-bottom: 10px; font-weight: 600; }
+        
+        /* SECTION: PRICING TIERS */
+        .section-pricing { padding: 100px 0; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .price-card { 
+            border: 1px solid #e1e1e1; 
+            padding: 40px; 
+            transition: all 0.3s ease; 
+        }
+        .price-card:hover { border-color: var(--bk-gold-solid); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .price-header { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: #b2bec3; margin-bottom: 20px; }
+        .price-amount { font-size: 3rem; font-weight: 800; color: var(--bk-dark); }
+        .price-sub { font-size: 1rem; color: #636e72; font-weight: 400; }
+        .feature-list { list-style: none; margin-top: 30px; }
+        .feature-list li { margin-bottom: 15px; font-size: 0.95rem; display: flex; align-items: center; }
+        .feature-list li::before { content: "•"; color: var(--bk-gold-solid); margin-right: 10px; font-size: 1.5rem; line-height: 0; }
+
+        /* FOOTER */
+        footer { background: #1a1a1a; color: white; padding: 60px 0; text-align: center; }
+        .footer-logo { font-weight: 800; letter-spacing: 1px; margin-bottom: 20px; display: block; }
+        .footer-copy { color: #636e72; font-size: 0.85rem; }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .sync-grid { grid-template-columns: 1fr; }
+            .container { padding: 0 20px; }
         }
     </style>
 </head>
+
 <body>
 
     <header>
-        <span class="hero-tag">Operational Clarity</span>
-        <h1 class="gold-text">Impeccably Managed.</h1>
-        <p>Performance Bookkeeping for Modern Business.</p>
+        <div class="container">
+            <span class="hero-tag">Bkept Business OS v1.0</span>
+            <h1 class="gold-text">Impeccably Kept.</h1>
+            <p class="hero-sub">We bridge the gap between "messy DIY chaos" and a full-time CFO. This is Performance Bookkeeping.</p>
+            <a href="mailto:hello@bkept.co" class="btn-gold">Initiate Protocol</a>
+        </div>
     </header>
+
+    <section class="section-sync">
+        <div class="container">
+            <div class="sync-grid">
+                <div>
+                    <span class="hero-tag">The Philosophy</span>
+                    <h2>We Do Not Record History. <br>We Architect the Future.</h2>
+                    <p>Standard bookkeeping is a commodity. It is reactive, compliance-focused, and cheap. Bkept is an operational nervous system designed for high-margin businesses.</p>
+                </div>
+                <div class="sync-card">
+                    <h3>The One-Way Sync</h3>
+                    <p>We never manually enter data that can be fetched automatically. By integrating directly with your bank feeds and receipts, we build a "Closed Loop" ecosystem where your General Ledger is the single source of truth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-pricing">
+        <div class="container">
+            <center>
+                <span class="hero-tag">Investment Logic</span>
+                <h2>Transparent Architecture</h2>
+            </center>
+            <div class="pricing-grid">
+                
+                <div class="price-card">
+                    <div class="price-header">01 // The Fix</div>
+                    <div class="price-amount">Custom</div>
+                    <div class="price-sub">Historical Cleanup</div>
+                    <ul class="feature-list">
+                        <li>Forensic Audit of Past Data</li>
+                        <li>Categorization Correction</li>
+                        <li>Balance Sheet Reconciliation</li>
+                        <li>Tax-Ready Financial Packet</li>
+                    </ul>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-header">02 // The Flow</div>
+                    <div class="price-amount">$650<span style="font-size:1rem;">/mo</span></div>
+                    <div class="price-sub">Monthly Retainer (Base)</div>
+                    <ul class="feature-list">
+                        <li>Bank Feed Reconciliation</li>
+                        <li>Receipt Matching (Hubdoc/Dext)</li>
+                        <li>Monthly "Truth Memo" Report</li>
+                        <li>Quarterly Strategy Call</li>
+                    </ul>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-header">03 // The Scale</div>
+                    <div class="price-amount">Custom</div>
+                    <div class="price-sub">High Volume Ops</div>
+                    <ul class="feature-list">
+                        <li>Weekly Cash Flow Updates</li>
+                        <li>AP/AR Management</li>
+                        <li>Payroll Administration</li>
+                        <li>Custom KPI Dashboarding</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <span class="footer-logo">bkept.</span>
+            <div class="footer-copy">
+                &copy; 2025 Bkept Financial Architecture.<br>
+                Powered by the One-Way Sync Protocol.
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
