@@ -4,180 +4,243 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bkept | Investment Architecture</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* [SECTION] BRAND PROTOCOLS */
+        /* [SECTION] BKEPT IDENTITY PROTOCOL */
         :root {
+            /* Palette [cite: 16] */
             --bk-gradient: linear-gradient(110deg, #8E7338 0%, #D6B569 35%, #F9E7BA 50%, #D6B569 65%, #8E7338 100%);
             --bk-gold-solid: #C5A059;
             --bk-dark: #2D3436;
             --bk-void: #1A1A1A;
-            --bk-surface: #FFFFFF;
+            --bk-surface: #F9FAFB;
+            --bk-white: #FFFFFF;
             --bk-border: #E2E8F0;
             --bk-font: 'Inter', sans-serif;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body { 
             font-family: var(--bk-font); 
             color: var(--bk-dark); 
-            background: #F0F2F5; 
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
+            background: var(--bk-surface); 
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* CARD CONTAINER */
-        .pricing-card {
-            background: #FFFFFF;
-            width: 100%;
-            max-width: 500px;
-            border-radius: 8px;
-            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.15);
+        /* [SECTION] LAYOUT & STRUCTURE */
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .header-section {
+            text-align: left;
+            margin-bottom: 60px;
+            border-bottom: 2px solid var(--bk-border);
+            padding-bottom: 20px;
+            position: relative;
+        }
+        
+        /* The Gold Line Protocol [cite: 52] */
+        .header-section::after {
+            content: ""; position: absolute; left: 0; bottom: -2px;
+            height: 2px; width: 100px; background: var(--bk-gradient);
+        }
+
+        /* Typography Specs [cite: 31] */
+        h1 { 
+            font-size: 42px; font-weight: 800; letter-spacing: -1.5px; 
+            color: var(--bk-void); margin: 10px 0; text-transform: uppercase; line-height: 1;
+        }
+        
+        .hero-tag {
+            font-size: 0.85rem; font-weight: 800; text-transform: uppercase; 
+            letter-spacing: 3px; color: var(--bk-gold-solid); 
+            border: 1px solid var(--bk-gold-solid); padding: 4px 12px; 
+            border-radius: 100px; display: inline-block; margin-bottom: 15px;
+        }
+
+        .sub-text { font-size: 16px; color: #636E72; max-width: 600px; margin-top: 10px; }
+
+        /* [SECTION] THE DASHBOARD (Split Layout) */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* LEFT PANEL: INPUTS */
+        .config-panel {
+            background: var(--bk-white);
             border: 1px solid var(--bk-border);
-            overflow: hidden;
-        }
-
-        /* HEADER */
-        .card-header {
-            background: var(--bk-void);
             padding: 40px;
-            text-align: center;
-            border-bottom: 4px solid var(--bk-gold-solid);
+            border-radius: 4px; /* Industrial Corner */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-        .bk-logo {
-            font-size: 24px; font-weight: 800; letter-spacing: -1px;
-            background: var(--bk-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin-bottom: 10px; display: inline-block; text-transform: lowercase;
-        }
-        .card-header h1 { font-size: 14px; color: #BDC3C7; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin: 0; }
 
-        /* CONFIGURATION BODY */
-        .card-body { padding: 40px; }
-
-        /* TOGGLE SWITCH */
-        .toggle-container {
-            display: flex; justify-content: center; align-items: center; gap: 15px;
-            margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid var(--bk-border);
+        /* Seasonal Toggle (The Mode Switch) */
+        .mode-switch-container {
+            display: flex; align-items: center; gap: 20px;
+            margin-bottom: 40px; padding: 20px; background: #F0F2F5; border-radius: 4px;
         }
-        .mode-label { font-size: 12px; font-weight: 800; text-transform: uppercase; color: #BDC3C7; transition: 0.3s; }
-        .mode-label.active { color: var(--bk-dark); }
         
-        .switch { position: relative; display: inline-block; width: 48px; height: 24px; }
-        .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #E2E8F0; transition: .4s; border-radius: 34px; }
-        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-        input:checked + .slider { background-color: var(--bk-gold-solid); }
-        input:checked + .slider:before { transform: translateX(24px); }
+        .switch-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #BDC3C7; transition: 0.3s; }
+        .switch-label.active { color: var(--bk-dark); }
 
-        /* INPUT GROUPS */
-        .input-group { margin-bottom: 25px; }
-        .label-row { display: block; margin-bottom: 8px; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #636E72; }
+        .toggle-checkbox { display: none; }
+        .toggle-slot {
+            position: relative; height: 28px; width: 54px;
+            border: 2px solid var(--bk-border); border-radius: 100px;
+            background-color: white; transition: 0.3s; cursor: pointer;
+        }
+        .toggle-button {
+            transform: translate(3px, 3px); position: absolute; height: 18px; width: 18px;
+            border-radius: 50%; background-color: #BDC3C7; transition: 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        /* Active State */
+        .toggle-checkbox:checked ~ .toggle-slot .toggle-button {
+            transform: translate(29px, 3px); background-color: var(--bk-gold-solid);
+        }
 
+        /* Direct Inputs */
+        .input-block { margin-bottom: 30px; }
+        .input-label { 
+            display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; 
+            letter-spacing: 2px; color: #636E72; margin-bottom: 10px; 
+        }
+        
         .bk-input {
-            width: 100%; padding: 14px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
-            border: 1px solid var(--bk-border); border-radius: 4px; outline: none; transition: 0.3s;
-            color: var(--bk-dark);
+            width: 100%; padding: 18px; font-size: 16px; font-weight: 600; color: var(--bk-dark);
+            background: var(--bk-white); border: 1px solid var(--bk-border); border-radius: 2px;
+            font-family: 'Inter', sans-serif; transition: 0.2s;
         }
-        .bk-input:focus { border-color: var(--bk-gold-solid); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1); }
-        /* Remove arrows from number inputs */
-        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        .bk-input:focus { 
+            outline: none; border-color: var(--bk-gold-solid); 
+            box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.1); 
+        }
 
-        /* OUTPUT DISPLAY */
-        .output-section {
-            background: #F9FAFB;
+        .helper-text { font-size: 12px; color: #B2BEC3; margin-top: 8px; font-style: italic; }
+
+        /* RIGHT PANEL: OUTPUT & LOCK */
+        .investment-panel {
+            background: var(--bk-void);
+            color: white;
+            padding: 40px;
             border-radius: 4px;
-            padding: 25px;
-            margin-bottom: 30px;
-            border: 1px solid var(--bk-border);
+            position: sticky; top: 40px;
         }
-        .result-row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 15px; }
-        .result-row:last-child { margin-bottom: 0; padding-top: 15px; border-top: 1px dashed #D1D5DB; }
-        
-        .res-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #636E72; }
-        .res-value { font-size: 24px; font-weight: 800; color: var(--bk-dark); line-height: 1; }
-        .res-sub { font-size: 10px; color: #A0AEC0; font-weight: 500; text-align: right; margin-top: 4px; }
 
-        /* LOCK FORM */
-        .lock-form { margin-top: 20px; }
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+        .price-block { margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 30px; }
+        .price-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--bk-gold-solid); margin-bottom: 5px; display: block; }
         
-        .lock-input {
-            width: 100%; padding: 12px; font-family: 'Inter', sans-serif; font-size: 13px;
-            border: 1px solid var(--bk-border); border-radius: 4px; outline: none;
+        .price-display { 
+            font-size: 48px; font-weight: 800; letter-spacing: -2px; line-height: 1; 
+            background: var(--bk-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        .lock-input:focus { border-color: var(--bk-gold-solid); }
+        .price-sub { font-size: 12px; color: #BDC3C7; margin-top: 5px; }
+
+        /* Lock Form */
+        .lock-form { margin-top: 30px; }
+        .lock-input {
+            width: 100%; padding: 15px; margin-bottom: 15px; background: #2D3436; 
+            border: 1px solid #444; color: white; font-family: 'Inter', sans-serif; font-size: 14px;
+        }
+        .lock-input:focus { border-color: var(--bk-gold-solid); outline: none; }
 
         .btn-lock {
-            width: 100%; background: var(--bk-void); color: white; border: none; padding: 18px;
-            font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
-            cursor: pointer; border-radius: 4px; transition: 0.3s;
+            width: 100%; padding: 20px; background: var(--bk-gradient); 
+            border: none; color: var(--bk-void); font-weight: 800; 
+            text-transform: uppercase; letter-spacing: 2px; cursor: pointer; 
+            transition: transform 0.2s;
         }
-        .btn-lock:hover { background: var(--bk-gold-solid); transform: translateY(-2px); }
+        .btn-lock:hover { transform: translateY(-2px); }
 
+        /* Seasonal Context Box */
+        .seasonal-alert {
+            margin-top: 40px; background: #FFFBF2; border-left: 3px solid var(--bk-gold-solid); padding: 20px;
+        }
+        .alert-title { font-size: 13px; font-weight: 800; color: var(--bk-dark); text-transform: uppercase; margin-bottom: 5px; }
+        .alert-body { font-size: 13px; color: #555; line-height: 1.5; }
+
+        @media(max-width: 900px) {
+            .dashboard-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-<div class="pricing-card">
-    <div class="card-header">
-        <span class="bk-logo">bkept.</span>
-        <h1>Pricing Architecture</h1>
+<div class="page-container">
+    
+    <div class="header-section">
+        <span class="hero-tag">Transparent Architecture</span>
+        <h1>Investment Protocol</h1>
+        <p class="sub-text">We do not hide behind "Call for Quote" buttons. Use the dashboard below to architect your monthly investment.</p>
     </div>
 
-    <div class="card-body">
+    <div class="dashboard-grid">
         
-        <div class="toggle-container">
-            <span class="mode-label active" id="lblStandard">Standard</span>
-            <label class="switch">
-                <input type="checkbox" id="seasonalToggle" onchange="calculate()">
-                <span class="slider"></span>
-            </label>
-            <span class="mode-label" id="lblSeasonal">Seasonal (LBI)</span>
-        </div>
-
-        <div class="input-group">
-            <label class="label-row">Monthly Transactions</label>
-            <input type="number" id="txnInput" class="bk-input" value="75" min="0" placeholder="e.g. 75" oninput="calculate()">
-        </div>
-
-        <div class="input-group">
-            <label class="label-row">Number of Bank/CC Accounts</label>
-            <input type="number" id="acctInput" class="bk-input" value="1" min="1" placeholder="e.g. 1" oninput="calculate()">
-        </div>
-
-        <div class="input-group">
-            <label class="label-row">Months Behind (Cleanup)</label>
-            <input type="number" id="monthInput" class="bk-input" value="0" min="0" placeholder="e.g. 0" oninput="calculate()">
-        </div>
-
-        <div class="output-section">
-            <div class="result-row">
-                <div>
-                    <div class="res-label">Monthly Retainer</div>
-                    <div class="res-sub">Ongoing Management</div>
-                </div>
-                <div class="res-value" id="outRetainer">$650</div>
-            </div>
+        <div class="config-panel">
             
-            <div class="result-row">
-                <div>
-                    <div class="res-label">One-Time Cleanup</div>
-                    <div class="res-sub">Historical Architecture</div>
-                </div>
-                <div class="res-value" id="outCleanup">$500</div>
+            <div class="mode-switch-container">
+                <span class="switch-label active" id="lblStandard">Standard Ops</span>
+                <label class="toggle-slot">
+                    <input type="checkbox" class="toggle-checkbox" id="seasonalToggle" onchange="calculate()">
+                    <div class="toggle-button"></div>
+                </label>
+                <span class="switch-label" id="lblSeasonal">Seasonal (LBI)</span>
             </div>
+
+            <div class="input-block">
+                <label class="input-label">Monthly Transaction Volume</label>
+                <input type="number" id="txnInput" class="bk-input" value="75" min="0" placeholder="e.g. 75" oninput="calculate()">
+                <div class="helper-text">Average combined volume across all connected accounts.</div>
+            </div>
+
+            <div class="input-block">
+                <label class="input-label">Data Feeds (Bank/CC Accounts)</label>
+                <input type="number" id="acctInput" class="bk-input" value="1" min="1" placeholder="e.g. 1" oninput="calculate()">
+            </div>
+
+            <div class="input-block">
+                <label class="input-label">Historical Catch-Up (Months Behind)</label>
+                <input type="number" id="monthInput" class="bk-input" value="0" min="0" placeholder="e.g. 0" oninput="calculate()">
+            </div>
+
+            <div class="seasonal-alert">
+                <div class="alert-title">The Off-Season Myth</div>
+                <div class="alert-body">Just because revenue pauses doesn't mean operations stop. The off-season is the time to architect the new season. We keep you ready for Opening Day.</div>
+            </div>
+
         </div>
 
-        <form class="lock-form" id="lockForm">
-            <div class="form-grid">
-                <input type="text" name="name" class="lock-input" placeholder="Full Name" required>
-                <input type="email" name="email" class="lock-input" placeholder="Email Address" required>
+        <div class="investment-panel">
+            
+            <div class="price-block">
+                <span class="price-label">The Kept Retainer (Monthly)</span>
+                <div class="price-display" id="outRetainer">$650</div>
+                <div class="price-sub">Includes Tech Stack & Truth Memo</div>
             </div>
-            <button type="submit" class="btn-lock">Lock in Rate</button>
-        </form>
+
+            <div class="price-block" style="border-bottom: none; padding-bottom: 0;">
+                <span class="price-label">The Concierge (Cleanup)</span>
+                <div class="price-display" id="outCleanup">$500</div>
+                <div class="price-sub" id="cleanupMeta">One-Time Setup Fee</div>
+            </div>
+
+            <form class="lock-form" id="lockForm">
+                <div style="margin-bottom: 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; color: #636E72;">Secure this Architecture</div>
+                <input type="text" name="lead_name" class="lock-input" placeholder="FULL NAME" required>
+                <input type="email" name="lead_email" class="lock-input" placeholder="WORK EMAIL" required>
+                <button type="submit" class="btn-lock">Lock in Rate</button>
+            </form>
+
+        </div>
 
     </div>
 </div>
@@ -192,10 +255,9 @@
         const months = parseInt(document.getElementById('monthInput').value) || 0;
         const isSeasonal = document.getElementById('seasonalToggle').checked;
 
-        // 2. Toggle Styling
+        // 2. Visual Toggle State
         const lblStandard = document.getElementById('lblStandard');
         const lblSeasonal = document.getElementById('lblSeasonal');
-        
         if(isSeasonal) {
             lblStandard.classList.remove('active');
             lblSeasonal.classList.add('active');
@@ -204,57 +266,64 @@
             lblSeasonal.classList.remove('active');
         }
 
-        // 3. Logic Engine
-        [cite_start]// Base Price Toggle: $650 vs $450 [cite: 301, 310]
+        // 3. Logic Engine [cite: 300-310]
+        // Base Price: Standard ($650) vs Seasonal ($450)
         let base = isSeasonal ? 450 : 650;
         
-        [cite_start]// Volume Tiers [cite: 304, 305]
+        // Volume: 0-100 (Free), 101-250 (+$250), 251-500 (+$500)
         let volCharge = 0;
         if (txn > 100 && txn <= 250) volCharge = 250;
         if (txn > 250 && txn <= 500) volCharge = 500;
         
-        [cite_start]// Account Tiers [cite: 307, 308]
+        // Accounts: 1-3 (Free), 4+ (+$50 each)
         let acctCharge = 0;
         if (accts > 3) acctCharge = (accts - 3) * 50;
 
-        // Totals
+        // Monthly Total
         const monthlyTotal = base + volCharge + acctCharge;
         
-        // Cleanup: $500 Setup + (50% of Monthly * Months Behind)
+        // Cleanup: $500 Setup + (50% Monthly Rate * Months Behind)
         const cleanupTotal = 500 + (monthlyTotal * 0.5 * months);
 
-        // 4. Render
+        // 4. Render Output
         const retainerEl = document.getElementById('outRetainer');
         const cleanupEl = document.getElementById('outCleanup');
+        const cleanupMeta = document.getElementById('cleanupMeta');
 
         if (txn > 500) {
             retainerEl.innerText = "Custom";
             cleanupEl.innerText = "Custom";
+            retainerEl.style.fontSize = "32px"; 
         } else {
             retainerEl.innerText = "$" + monthlyTotal.toLocaleString();
             cleanupEl.innerText = "$" + cleanupTotal.toLocaleString();
+            retainerEl.style.fontSize = "48px";
+        }
+
+        // Update Cleanup Context
+        if (months > 0) {
+            cleanupMeta.innerText = `Setup + ${months} Months Catch-Up`;
+        } else {
+            cleanupMeta.innerText = "One-Time Setup Fee";
         }
     }
 
-    // Initialize
     calculate();
 
-    // 5. Submit Handler
+    // 5. Submit Handler (Zapier Webhook)
     document.getElementById('lockForm').onsubmit = function(e) {
         e.preventDefault();
         const btn = this.querySelector('button');
         const origText = btn.innerText;
-        btn.innerText = "Securing...";
+        btn.innerText = "SECURING...";
         btn.disabled = true;
 
         const formData = new FormData(this);
-        
-        // Add calculated values to the payload
         formData.append('retainer_quote', document.getElementById('outRetainer').innerText);
         formData.append('cleanup_quote', document.getElementById('outCleanup').innerText);
-        formData.append('seasonal_mode', document.getElementById('seasonalToggle').checked ? "Yes" : "No");
+        formData.append('is_seasonal', document.getElementById('seasonalToggle').checked ? "YES" : "NO");
 
-        // Convert to URL params for robust Zapier catching
+        // Convert to URLSearchParams for robust Zapier POST
         const data = new URLSearchParams(formData);
 
         fetch(WEBHOOK_URL, {
@@ -262,11 +331,11 @@
             body: data,
             mode: 'no-cors'
         }).then(() => {
-            alert("Rate Locked. We've sent a confirmation to your inbox.");
-            btn.innerText = "Locked";
-            window.location.href = "/"; 
+            alert("Rate Locked. Protocol initiated.");
+            btn.innerText = "LOCKED";
+            window.location.href = "/";
         }).catch(err => {
-            alert("Connection error. Please try again.");
+            alert("Connection Error. Please try again.");
             btn.innerText = origText;
             btn.disabled = false;
         });
