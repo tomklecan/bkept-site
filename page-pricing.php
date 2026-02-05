@@ -197,8 +197,8 @@
 
     <script>
         // ZAPIER PRICING HOOK
-        // Logic Source: SOP - Client Acquisition Lifecycle 
-        const PRICING_WEBHOOK = 'https://hooks.zapier.com/hooks/catch/26262080/ulp6kfx/';
+        [cite_start]// Logic Source: SOP - Client Acquisition Lifecycle [cite: 130, 131]
+        const PRICING_WEBHOOK = 'https://hooks.zapier.com/hooks/catch/26262080/ulvega2/';
 
         function calculate() {
             // INPUTS
@@ -208,14 +208,14 @@
             const isSeasonal = document.getElementById('seasonalToggle').checked;
 
             // LOGIC - BASE RATE SWITCH
-            // Standard: $650 | Seasonal: $450
+            // Standard: $650 | [cite_start]Seasonal: $450 [cite: 301, 310]
             let baseRate = isSeasonal ? 450 : 650;
             
-            // Volume Surcharge
+            [cite_start]// Volume Surcharge [cite: 302, 303, 304, 305]
             if (txn > 100 && txn <= 250) baseRate += 250;
             if (txn > 250 && txn <= 500) baseRate += 500;
             
-            // Account Surcharge (First 3 free)
+            [cite_start]// Account Surcharge (First 3 free) [cite: 306, 307, 308]
             let acctSurcharge = 0;
             if (accts > 3) acctSurcharge = (accts - 3) * 50;
 
