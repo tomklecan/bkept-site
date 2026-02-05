@@ -33,12 +33,11 @@
         .pricing-card {
             background: #FFFFFF;
             width: 100%;
-            max-width: 600px;
+            max-width: 500px;
             border-radius: 8px;
             box-shadow: 0 40px 80px -20px rgba(0,0,0,0.15);
             border: 1px solid var(--bk-border);
             overflow: hidden;
-            position: relative;
         }
 
         /* HEADER */
@@ -66,7 +65,6 @@
         .mode-label { font-size: 12px; font-weight: 800; text-transform: uppercase; color: #BDC3C7; transition: 0.3s; }
         .mode-label.active { color: var(--bk-dark); }
         
-        /* Custom Switch */
         .switch { position: relative; display: inline-block; width: 48px; height: 24px; }
         .switch input { opacity: 0; width: 0; height: 0; }
         .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #E2E8F0; transition: .4s; border-radius: 34px; }
@@ -76,20 +74,16 @@
 
         /* INPUT GROUPS */
         .input-group { margin-bottom: 25px; }
-        .label-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #636E72; }
-        .value-tag { color: var(--bk-gold-solid); }
+        .label-row { display: block; margin-bottom: 8px; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #636E72; }
 
-        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 18px; width: 18px; border-radius: 50%; background: var(--bk-dark); cursor: pointer; margin-top: -7px; transition: 0.2s; }
-        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); background: var(--bk-gold-solid); }
-        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; background: #E2E8F0; border-radius: 2px; }
-
-        /* Direct Input for Volume */
-        .vol-input {
-            width: 100%; padding: 12px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+        .bk-input {
+            width: 100%; padding: 14px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
             border: 1px solid var(--bk-border); border-radius: 4px; outline: none; transition: 0.3s;
+            color: var(--bk-dark);
         }
-        .vol-input:focus { border-color: var(--bk-gold-solid); }
+        .bk-input:focus { border-color: var(--bk-gold-solid); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1); }
+        /* Remove arrows from number inputs */
+        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
         /* OUTPUT DISPLAY */
         .output-section {
@@ -145,27 +139,18 @@
         </div>
 
         <div class="input-group">
-            <div class="label-row">
-                <span>Monthly Transactions</span>
-                <span class="value-tag">Direct Input</span>
-            </div>
-            <input type="number" id="txnInput" class="vol-input" value="75" placeholder="e.g. 75" oninput="calculate()">
+            <label class="label-row">Monthly Transactions</label>
+            <input type="number" id="txnInput" class="bk-input" value="75" min="0" placeholder="e.g. 75" oninput="calculate()">
         </div>
 
         <div class="input-group">
-            <div class="label-row">
-                <span>Bank/CC Accounts</span>
-                <span class="value-tag" id="txtAccts">1</span>
-            </div>
-            <input type="range" id="rngAccts" min="1" max="10" value="1" oninput="calculate()">
+            <label class="label-row">Number of Bank/CC Accounts</label>
+            <input type="number" id="acctInput" class="bk-input" value="1" min="1" placeholder="e.g. 1" oninput="calculate()">
         </div>
 
         <div class="input-group">
-            <div class="label-row">
-                <span>Months Behind (Cleanup)</span>
-                <span class="value-tag" id="txtMonths">0</span>
-            </div>
-            <input type="range" id="rngMonths" min="0" max="12" value="0" oninput="calculate()">
+            <label class="label-row">Months Behind (Cleanup)</label>
+            <input type="number" id="monthInput" class="bk-input" value="0" min="0" placeholder="e.g. 0" oninput="calculate()">
         </div>
 
         <div class="output-section">
@@ -203,14 +188,11 @@
     function calculate() {
         // 1. Get Values
         const txn = parseInt(document.getElementById('txnInput').value) || 0;
-        const accts = parseInt(document.getElementById('rngAccts').value);
-        const months = parseInt(document.getElementById('rngMonths').value);
+        const accts = parseInt(document.getElementById('acctInput').value) || 1;
+        const months = parseInt(document.getElementById('monthInput').value) || 0;
         const isSeasonal = document.getElementById('seasonalToggle').checked;
 
-        // 2. Update Labels
-        document.getElementById('txtAccts').innerText = accts;
-        document.getElementById('txtMonths').innerText = months + " Months";
-        
+        // 2. Toggle Styling
         const lblStandard = document.getElementById('lblStandard');
         const lblSeasonal = document.getElementById('lblSeasonal');
         
@@ -223,15 +205,15 @@
         }
 
         // 3. Logic Engine
-        // Base Price Toggle: $650 vs $450
+        [cite_start]// Base Price Toggle: $650 vs $450 [cite: 301, 310]
         let base = isSeasonal ? 450 : 650;
         
-        // Volume Tiers (0-100: +0 | 101-250: +250 | 251-500: +500)
+        [cite_start]// Volume Tiers [cite: 304, 305]
         let volCharge = 0;
         if (txn > 100 && txn <= 250) volCharge = 250;
         if (txn > 250 && txn <= 500) volCharge = 500;
         
-        // Account Tiers (1-3: +0 | 4+: +50 each)
+        [cite_start]// Account Tiers [cite: 307, 308]
         let acctCharge = 0;
         if (accts > 3) acctCharge = (accts - 3) * 50;
 
@@ -282,7 +264,7 @@
         }).then(() => {
             alert("Rate Locked. We've sent a confirmation to your inbox.");
             btn.innerText = "Locked";
-            window.location.href = "/"; // Redirect home or success page
+            window.location.href = "/"; 
         }).catch(err => {
             alert("Connection error. Please try again.");
             btn.innerText = origText;
