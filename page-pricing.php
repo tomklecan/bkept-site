@@ -6,8 +6,9 @@
     <title>Pricing | Bkept Financial Architecture</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* BKEPT GLOBAL STYLES IMPORT */
+        /* [SECTION] BKEPT GLOBAL STYLES IMPORT */
         :root {
+            [cite_start]/* Branding Source: [cite: 20, 27, 216] */
             --bk-gradient: linear-gradient(110deg, #8E7338 0%, #D6B569 35%, #F9E7BA 50%, #D6B569 65%, #8E7338 100%);
             --bk-gold-solid: #C5A059;
             --bk-dark: #2D3436;
@@ -64,16 +65,15 @@
         .out-price { font-size: 2.8rem; font-weight: 800; color: #fff; display: block; letter-spacing: -1px; line-height: 1; }
         .out-meta { font-size: 0.8rem; color: #BDC3C7; margin-top: 8px; display: block; font-style: italic; }
 
-        /* SEASONAL BLURB BOX */
+        /* [SECTION] SEASONAL BLURB BOX */
         .seasonal-context { 
             background: #FFFBF2; 
             border-left: 4px solid var(--bk-gold-solid); 
             padding: 30px; 
             margin-bottom: 40px; 
-            display: none; /* Hidden by default */
-            animation: fadeIn 0.5s ease;
+            /* VISIBILITY LOCKED: Always On */
+            display: block;
         }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         .seasonal-tag { 
             display: inline-block; font-size: 0.65rem; border: 1px solid var(--bk-gold-solid); color: var(--bk-gold-solid); 
@@ -209,14 +209,14 @@
             const isSeasonal = document.getElementById('seasonalToggle').checked;
 
             // LOGIC - BASE RATE SWITCH
-            // Standard: $650 | Seasonal: $450 [cite: 301, 310]
+            // Standard: $650 | [cite_start]Seasonal: $450 [cite: 301, 310]
             let baseRate = isSeasonal ? 450 : 650;
             
-            // Volume Surcharge
+            [cite_start]// Volume Surcharge [cite: 302, 303, 304, 305]
             if (txn > 100 && txn <= 250) baseRate += 250;
             if (txn > 250 && txn <= 500) baseRate += 500;
             
-            // Account Surcharge (First 3 free)
+            [cite_start]// Account Surcharge (First 3 free) [cite: 307, 308]
             let acctSurcharge = 0;
             if (accts > 3) acctSurcharge = (accts - 3) * 50;
 
@@ -232,22 +232,20 @@
             document.getElementById('labelAccts').innerText = accts;
             document.getElementById('labelMonths').innerText = months + " Months";
 
-            // Toggle Visuals
+            // Toggle Visuals (Labels Only)
             const lblStandard = document.getElementById('lblStandard');
             const lblSeasonal = document.getElementById('lblSeasonal');
-            const seasonalBlurb = document.getElementById('seasonalBlurb');
 
             if (isSeasonal) {
                 lblStandard.classList.remove('active');
                 lblSeasonal.classList.add('active');
-                seasonalBlurb.style.display = 'block';
                 document.getElementById('hiddenSeasonal').value = "true";
             } else {
                 lblStandard.classList.add('active');
                 lblSeasonal.classList.remove('active');
-                seasonalBlurb.style.display = 'none';
                 document.getElementById('hiddenSeasonal').value = "false";
             }
+            // Removed blurb display toggling logic here to keep it "Always On"
 
             let retainerDisplay, cleanupDisplay;
 
