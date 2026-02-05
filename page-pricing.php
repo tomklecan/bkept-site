@@ -6,7 +6,7 @@
     <title>Pricing | Bkept Financial Architecture</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        [cite_start]/* [SECTION] BKEPT GLOBAL STYLES IMPORT [cite: 75] */
+        /* [SECTION] BKEPT GLOBAL STYLES IMPORT */
         :root {
             --bk-gradient: linear-gradient(110deg, #8E7338 0%, #D6B569 35%, #F9E7BA 50%, #D6B569 65%, #8E7338 100%);
             --bk-gold-solid: #C5A059;
@@ -47,10 +47,20 @@
         input:checked + .slider-toggle { background-color: var(--bk-gold-solid); }
         input:checked + .slider-toggle:before { transform: translateX(24px); }
 
-        /* SLIDERS */
-        .slider-group { margin-bottom: 30px; }
+        /* INPUTS & SLIDERS */
+        .input-group { margin-bottom: 30px; }
+        .input-label { display: block; margin-bottom: 10px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #636E72; }
         .slider-label { display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #636E72; }
+
+        /* Standard Text Input Styling */
+        .text-input { 
+            width: 100%; padding: 15px; border: 1px solid var(--bk-border); background: #F9FAFB; 
+            font-family: 'Inter', sans-serif; font-size: 1rem; color: var(--bk-dark); outline: none; 
+            transition: 0.3s; border-radius: 4px; font-weight: 600;
+        }
+        .text-input:focus { border-color: var(--bk-gold-solid); background: #fff; box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1); }
         
+        /* Range Slider Styling */
         input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
         input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 24px; width: 24px; border-radius: 50%; background: var(--bk-gold-solid); cursor: pointer; margin-top: -10px; box-shadow: 0 0 0 4px #fff, 0 0 0 5px var(--bk-gold-solid); transition: transform 0.2s; }
         input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.1); }
@@ -85,8 +95,6 @@
         .contact-header { text-align:center; margin-bottom:20px; font-weight:800; color:var(--bk-gold-solid); font-size:0.8rem; text-transform:uppercase; letter-spacing:2px; }
         
         .form-row { display: grid; grid-template-columns: 1fr 1fr 200px; gap: 15px; align-items: center; }
-        .form-input { width: 100%; padding: 15px; border: 1px solid var(--bk-border); background: #F9FAFB; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--bk-dark); outline: none; transition: 0.3s; border-radius: 4px; }
-        .form-input:focus { border-color: var(--bk-gold-solid); background: #fff; box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1); }
         
         .btn-submit { background: var(--bk-gradient); color: #1A1A1A; border: none; padding: 15px; height: 100%; font-weight: 800; text-transform: uppercase; cursor: pointer; width: 100%; letter-spacing: 1px; display: block; text-align: center; text-decoration: none; transition: 0.3s; border-radius: 4px; font-size: 0.9rem; }
         .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2); }
@@ -127,16 +135,10 @@
                 <span class="toggle-label" id="lblSeasonal">Seasonal (LBI)</span>
             </div>
 
-            <div class="slider-group">
-                <div class="slider-label">
-                    <span>Monthly Transaction Volume</span>
-                    <span id="labelTxn">0 - 100</span>
-                </div>
-                <input type="range" name="volume" id="rangeTxn" min="0" max="600" step="50" value="100" oninput="calculate()">
-                <div style="display:flex; justify-content:space-between; font-size:0.7rem; color:#b2bec3; margin-top:10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">
-                    <span>Low Vol</span>
-                    <span>High Vol</span>
-                </div>
+            <div class="input-group">
+                <label class="input-label">Monthly Transaction Volume</label>
+                <input type="number" id="inputTxn" class="text-input" value="75" placeholder="e.g. 75" oninput="calculate()">
+                <div style="font-size: 0.7rem; color: #b2bec3; margin-top: 5px; font-style: italic;">Enter the average number of transactions per month.</div>
             </div>
 
             <div class="slider-group">
@@ -199,12 +201,13 @@
         const PRICING_WEBHOOK = 'https://hooks.zapier.com/hooks/catch/26262080/ulvega2/';
 
         function calculate() {
-            const txn = parseInt(document.getElementById('rangeTxn').value);
+            // INPUTS
+            const txn = parseInt(document.getElementById('inputTxn').value) || 0;
             const accts = parseInt(document.getElementById('rangeAccts').value);
             const months = parseInt(document.getElementById('rangeMonths').value);
             const isSeasonal = document.getElementById('seasonalToggle').checked;
 
-            [cite_start]// PRICE LOGIC [cite: 301, 310]
+            // PRICE LOGIC
             let baseRate = isSeasonal ? 450 : 650;
             if (txn > 100 && txn <= 250) baseRate += 250;
             if (txn > 250 && txn <= 500) baseRate += 500;
@@ -218,7 +221,6 @@
             const totalCleanup = setupFee + cleanupRate;
 
             // UI UPDATES
-            document.getElementById('labelTxn').innerText = txn >= 600 ? "500+ (Custom)" : txn;
             document.getElementById('labelAccts').innerText = accts;
             document.getElementById('labelMonths').innerText = months + " Months";
 
