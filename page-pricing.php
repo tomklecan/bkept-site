@@ -3,286 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing | Bkept Financial Architecture</title>
+    <title>Bkept | Investment Architecture</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* [SECTION] BKEPT GLOBAL STYLES IMPORT */
+        /* [SECTION] BRAND PROTOCOLS */
         :root {
             --bk-gradient: linear-gradient(110deg, #8E7338 0%, #D6B569 35%, #F9E7BA 50%, #D6B569 65%, #8E7338 100%);
             --bk-gold-solid: #C5A059;
             --bk-dark: #2D3436;
             --bk-void: #1A1A1A;
             --bk-surface: #FFFFFF;
-            --bk-font: 'Inter', sans-serif;
             --bk-border: #E2E8F0;
+            --bk-font: 'Inter', sans-serif;
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: var(--bk-font); color: var(--bk-dark); background: #F9FAFB; line-height: 1.6; }
-        
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        
+        body { 
+            font-family: var(--bk-font); 
+            color: var(--bk-dark); 
+            background: #F0F2F5; 
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* CARD CONTAINER */
+        .pricing-card {
+            background: #FFFFFF;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.15);
+            border: 1px solid var(--bk-border);
+            overflow: hidden;
+            position: relative;
+        }
+
         /* HEADER */
-        header { background: #fff; padding: 20px 0; border-bottom: 2px solid; border-image: var(--bk-gradient) 1; }
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; text-decoration: none; color: var(--bk-dark); }
-        .back-link { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #636E72; text-decoration: none; font-weight: 700; }
+        .card-header {
+            background: var(--bk-void);
+            padding: 40px;
+            text-align: center;
+            border-bottom: 4px solid var(--bk-gold-solid);
+        }
+        .bk-logo {
+            font-size: 24px; font-weight: 800; letter-spacing: -1px;
+            background: var(--bk-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 10px; display: inline-block; text-transform: lowercase;
+        }
+        .card-header h1 { font-size: 14px; color: #BDC3C7; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin: 0; }
 
-        /* HERO */
-        .page-hero { text-align: center; padding: 60px 0 40px 0; }
-        h1 { font-size: 3rem; margin-bottom: 20px; letter-spacing: -2px; font-weight: 800; text-transform: uppercase; color: var(--bk-void); }
-        .gold-text { background: var(--bk-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        /* CONFIGURATION BODY */
+        .card-body { padding: 40px; }
 
-        /* CALCULATOR MODULE */
-        .calc-wrapper { background: #fff; border: 1px solid var(--bk-border); padding: 50px; box-shadow: 0 30px 60px rgba(0,0,0,0.08); margin-bottom: 60px; max-width: 900px; margin: 0 auto 60px auto; border-top: 4px solid var(--bk-gold-solid); position: relative; }
+        /* TOGGLE SWITCH */
+        .toggle-container {
+            display: flex; justify-content: center; align-items: center; gap: 15px;
+            margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid var(--bk-border);
+        }
+        .mode-label { font-size: 12px; font-weight: 800; text-transform: uppercase; color: #BDC3C7; transition: 0.3s; }
+        .mode-label.active { color: var(--bk-dark); }
         
-        /* SEASONAL TOGGLE SWITCH */
-        .toggle-row { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 40px; padding-bottom: 30px; border-bottom: 1px solid var(--bk-border); }
-        .toggle-label { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #BDC3C7; transition: 0.3s; }
-        .toggle-label.active { color: var(--bk-dark); }
-        
-        .switch { position: relative; display: inline-block; width: 50px; height: 26px; }
+        /* Custom Switch */
+        .switch { position: relative; display: inline-block; width: 48px; height: 24px; }
         .switch input { opacity: 0; width: 0; height: 0; }
-        .slider-toggle { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #E2E8F0; transition: .4s; border-radius: 34px; }
-        .slider-toggle:before { position: absolute; content: ""; height: 18px; width: 18px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-        input:checked + .slider-toggle { background-color: var(--bk-gold-solid); }
-        input:checked + .slider-toggle:before { transform: translateX(24px); }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #E2E8F0; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        input:checked + .slider { background-color: var(--bk-gold-solid); }
+        input:checked + .slider:before { transform: translateX(24px); }
 
-        /* INPUTS & SLIDERS */
-        .input-group { margin-bottom: 30px; }
-        .input-label { display: block; margin-bottom: 10px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #636E72; }
-        .slider-label { display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #636E72; }
+        /* INPUT GROUPS */
+        .input-group { margin-bottom: 25px; }
+        .label-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #636E72; }
+        .value-tag { color: var(--bk-gold-solid); }
 
-        /* Standard Text Input Styling */
-        .text-input { 
-            width: 100%; padding: 15px; border: 1px solid var(--bk-border); background: #F9FAFB; 
-            font-family: 'Inter', sans-serif; font-size: 1rem; color: var(--bk-dark); outline: none; 
-            transition: 0.3s; border-radius: 4px; font-weight: 600;
-        }
-        .text-input:focus { border-color: var(--bk-gold-solid); background: #fff; box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1); }
-        
-        /* Range Slider Styling */
         input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 24px; width: 24px; border-radius: 50%; background: var(--bk-gold-solid); cursor: pointer; margin-top: -10px; box-shadow: 0 0 0 4px #fff, 0 0 0 5px var(--bk-gold-solid); transition: transform 0.2s; }
-        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.1); }
-        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; background: #e1e1e1; border-radius: 2px; }
-        
-        /* OUTPUT BOARD */
-        .output-board { background: var(--bk-void); color: #fff; padding: 40px; border-radius: 4px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; margin-top: 50px; }
-        .out-col { text-align: center; position: relative; }
-        .out-col:first-child { border-right: 1px solid #333; }
-        .out-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #BDC3C7; margin-bottom: 10px; display: block; }
-        .out-price { font-size: 2.8rem; font-weight: 800; color: #fff; display: block; letter-spacing: -1px; line-height: 1; }
-        .out-meta { font-size: 0.8rem; color: #BDC3C7; margin-top: 8px; display: block; font-style: italic; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 18px; width: 18px; border-radius: 50%; background: var(--bk-dark); cursor: pointer; margin-top: -7px; transition: 0.2s; }
+        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); background: var(--bk-gold-solid); }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; background: #E2E8F0; border-radius: 2px; }
 
-        /* SEASONAL BLURB BOX */
-        .seasonal-context { 
-            background: #FFFBF2; 
-            border-left: 4px solid var(--bk-gold-solid); 
-            padding: 20px 30px; 
-            margin-bottom: 30px; 
-            display: block;
+        /* Direct Input for Volume */
+        .vol-input {
+            width: 100%; padding: 12px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+            border: 1px solid var(--bk-border); border-radius: 4px; outline: none; transition: 0.3s;
         }
-        .seasonal-tag { display: inline-block; font-size: 0.65rem; border: 1px solid var(--bk-gold-solid); color: var(--bk-gold-solid); padding: 2px 8px; border-radius: 100px; text-transform: uppercase; font-weight: 800; margin-bottom: 10px; }
-        .seasonal-context h3 { font-size: 1rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; color: var(--bk-dark); letter-spacing: -0.5px; }
-        .seasonal-context p { font-size: 0.85rem; color: #4A5568; margin: 0; line-height: 1.5; }
+        .vol-input:focus { border-color: var(--bk-gold-solid); }
 
-        /* CONTACT CAPTURE (INTEGRATED) */
-        .contact-capture { 
-            margin-top: 0; 
-            padding-top: 20px; 
-            border-top: 1px dashed var(--bk-border);
+        /* OUTPUT DISPLAY */
+        .output-section {
+            background: #F9FAFB;
+            border-radius: 4px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid var(--bk-border);
         }
-        .contact-header { text-align:center; margin-bottom:20px; font-weight:800; color:var(--bk-gold-solid); font-size:0.8rem; text-transform:uppercase; letter-spacing:2px; }
+        .result-row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 15px; }
+        .result-row:last-child { margin-bottom: 0; padding-top: 15px; border-top: 1px dashed #D1D5DB; }
         
-        .form-row { display: grid; grid-template-columns: 1fr 1fr 200px; gap: 15px; align-items: center; }
+        .res-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #636E72; }
+        .res-value { font-size: 24px; font-weight: 800; color: var(--bk-dark); line-height: 1; }
+        .res-sub { font-size: 10px; color: #A0AEC0; font-weight: 500; text-align: right; margin-top: 4px; }
+
+        /* LOCK FORM */
+        .lock-form { margin-top: 20px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
         
-        .btn-submit { background: var(--bk-gradient); color: #1A1A1A; border: none; padding: 15px; height: 100%; font-weight: 800; text-transform: uppercase; cursor: pointer; width: 100%; letter-spacing: 1px; display: block; text-align: center; text-decoration: none; transition: 0.3s; border-radius: 4px; font-size: 0.9rem; }
-        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2); }
-
-        .simple-footer { text-align: center; padding: 60px 20px; font-size: 0.75rem; color: #636E72; background: #1A1A1A; text-transform: uppercase; letter-spacing: 1px; }
-
-        @media(max-width: 768px) {
-            .output-board { grid-template-columns: 1fr; gap: 30px; }
-            .out-col:first-child { border-right: none; border-bottom: 1px solid #333; padding-bottom: 30px; }
-            .form-row { grid-template-columns: 1fr; }
-            h1 { font-size: 2.2rem; }
+        .lock-input {
+            width: 100%; padding: 12px; font-family: 'Inter', sans-serif; font-size: 13px;
+            border: 1px solid var(--bk-border); border-radius: 4px; outline: none;
         }
+        .lock-input:focus { border-color: var(--bk-gold-solid); }
+
+        .btn-lock {
+            width: 100%; background: var(--bk-void); color: white; border: none; padding: 18px;
+            font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+            cursor: pointer; border-radius: 4px; transition: 0.3s;
+        }
+        .btn-lock:hover { background: var(--bk-gold-solid); transform: translateY(-2px); }
+
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container nav-flex">
-            <a href="/" class="logo">bkept.</a>
-            <a href="/" class="back-link">← Return to OS</a>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="page-hero">
-            <h1>Transparent <span class="gold-text">Architecture.</span></h1>
-            <p style="color: #636E72; max-width: 600px; margin: 0 auto; font-weight: 500;">Estimate your investment. We do not hide behind "Call for Quote" buttons unless complexity demands it.</p>
-        </div>
-
-        <form id="pricingForm" class="calc-wrapper">
-            
-            <div class="toggle-row">
-                <span class="toggle-label active" id="lblStandard">Standard Business</span>
-                <label class="switch">
-                    <input type="checkbox" id="seasonalToggle" onchange="calculate()">
-                    <span class="slider-toggle"></span>
-                </label>
-                <span class="toggle-label" id="lblSeasonal">Seasonal (LBI)</span>
-            </div>
-
-            <div class="input-group">
-                <label class="input-label">Monthly Transaction Volume</label>
-                <input type="number" id="inputTxn" class="text-input" value="75" placeholder="e.g. 75" oninput="calculate()">
-                <div style="font-size: 0.7rem; color: #b2bec3; margin-top: 5px; font-style: italic;">Enter the average number of transactions per month.</div>
-            </div>
-
-            <div class="slider-group">
-                <div class="slider-label">
-                    <span>Number of Bank/CC Accounts</span>
-                    <span id="labelAccts">1</span>
-                </div>
-                <input type="range" name="accounts" id="rangeAccts" min="1" max="10" step="1" value="1" oninput="calculate()">
-            </div>
-
-            <div class="slider-group">
-                <div class="slider-label">
-                    <span>Months Behind (Cleanup)</span>
-                    <span id="labelMonths">0 Months</span>
-                </div>
-                <input type="range" name="months_behind" id="rangeMonths" min="0" max="12" step="1" value="0" oninput="calculate()">
-            </div>
-            
-            <div class="seasonal-context" id="seasonalBlurb">
-                <span class="seasonal-tag">Strategic Advantage</span>
-                <h3>The Off-Season Myth</h3>
-                <p>Just because revenue pauses doesn't mean operations stop. The off-season is the only time to re-organize, architect the new season, and put business changes into motion without the noise of daily operations. We keep you ready for Opening Day.</p>
-            </div>
-
-            <div class="output-board">
-                <div class="out-col">
-                    <span class="out-label">Monthly Retainer</span>
-                    <span class="out-price" id="outRetainer">$650</span>
-                    <span class="out-meta">The "Kept" Standard</span>
-                </div>
-                <div class="out-col">
-                    <span class="out-label">One-Time Cleanup</span>
-                    <span class="out-price" id="outCleanup">$500</span>
-                    <span class="out-meta" id="cleanupMeta">Setup Fee Only</span>
-                </div>
-            </div>
-
-            <input type="hidden" name="estimated_retainer" id="hiddenRetainer" value="$650">
-            <input type="hidden" name="estimated_cleanup" id="hiddenCleanup" value="$500">
-            <input type="hidden" name="is_seasonal" id="hiddenSeasonal" value="false">
-
-            <div class="contact-capture">
-                <div class="contact-header">Lock in this Rate</div>
-                <div class="form-row">
-                    <input type="text" name="lead_name" class="form-input" placeholder="Full Name" required>
-                    <input type="email" name="lead_email" class="form-input" placeholder="Email Address" required>
-                    <button type="submit" class="btn-submit">Lock Rate</button>
-                </div>
-            </div>
-
-        </form>
+<div class="pricing-card">
+    <div class="card-header">
+        <span class="bk-logo">bkept.</span>
+        <h1>Pricing Architecture</h1>
     </div>
 
-    <footer class="simple-footer">
-        &copy; 2026 Bkept Financial Architecture. <br>Calculations are estimates. Final pricing subject to detailed audit.
-    </footer>
+    <div class="card-body">
+        
+        <div class="toggle-container">
+            <span class="mode-label active" id="lblStandard">Standard</span>
+            <label class="switch">
+                <input type="checkbox" id="seasonalToggle" onchange="calculate()">
+                <span class="slider"></span>
+            </label>
+            <span class="mode-label" id="lblSeasonal">Seasonal (LBI)</span>
+        </div>
 
-    <script>
-        // ZAPIER PRICING HOOK
-        const PRICING_WEBHOOK = 'https://hooks.zapier.com/hooks/catch/26262080/ulvega2/';
+        <div class="input-group">
+            <div class="label-row">
+                <span>Monthly Transactions</span>
+                <span class="value-tag">Direct Input</span>
+            </div>
+            <input type="number" id="txnInput" class="vol-input" value="75" placeholder="e.g. 75" oninput="calculate()">
+        </div>
 
-        function calculate() {
-            // INPUTS
-            const txn = parseInt(document.getElementById('inputTxn').value) || 0;
-            const accts = parseInt(document.getElementById('rangeAccts').value);
-            const months = parseInt(document.getElementById('rangeMonths').value);
-            const isSeasonal = document.getElementById('seasonalToggle').checked;
+        <div class="input-group">
+            <div class="label-row">
+                <span>Bank/CC Accounts</span>
+                <span class="value-tag" id="txtAccts">1</span>
+            </div>
+            <input type="range" id="rngAccts" min="1" max="10" value="1" oninput="calculate()">
+        </div>
 
-            // PRICE LOGIC
-            let baseRate = isSeasonal ? 450 : 650;
-            if (txn > 100 && txn <= 250) baseRate += 250;
-            if (txn > 250 && txn <= 500) baseRate += 500;
+        <div class="input-group">
+            <div class="label-row">
+                <span>Months Behind (Cleanup)</span>
+                <span class="value-tag" id="txtMonths">0</span>
+            </div>
+            <input type="range" id="rngMonths" min="0" max="12" value="0" oninput="calculate()">
+        </div>
+
+        <div class="output-section">
+            <div class="result-row">
+                <div>
+                    <div class="res-label">Monthly Retainer</div>
+                    <div class="res-sub">Ongoing Management</div>
+                </div>
+                <div class="res-value" id="outRetainer">$650</div>
+            </div>
             
-            let acctSurcharge = 0;
-            if (accts > 3) acctSurcharge = (accts - 3) * 50;
+            <div class="result-row">
+                <div>
+                    <div class="res-label">One-Time Cleanup</div>
+                    <div class="res-sub">Historical Architecture</div>
+                </div>
+                <div class="res-value" id="outCleanup">$500</div>
+            </div>
+        </div>
 
-            const monthlyTotal = baseRate + acctSurcharge;
-            const setupFee = 500;
-            const cleanupRate = (monthlyTotal * 0.5) * months;
-            const totalCleanup = setupFee + cleanupRate;
+        <form class="lock-form" id="lockForm">
+            <div class="form-grid">
+                <input type="text" name="name" class="lock-input" placeholder="Full Name" required>
+                <input type="email" name="email" class="lock-input" placeholder="Email Address" required>
+            </div>
+            <button type="submit" class="btn-lock">Lock in Rate</button>
+        </form>
 
-            // UI UPDATES
-            document.getElementById('labelAccts').innerText = accts;
-            document.getElementById('labelMonths').innerText = months + " Months";
+    </div>
+</div>
 
-            const lblStandard = document.getElementById('lblStandard');
-            const lblSeasonal = document.getElementById('lblSeasonal');
+<script>
+    const WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/26262080/ulvega2/";
 
-            if (isSeasonal) {
-                lblStandard.classList.remove('active');
-                lblSeasonal.classList.add('active');
-                document.getElementById('hiddenSeasonal').value = "true";
-            } else {
-                lblStandard.classList.add('active');
-                lblSeasonal.classList.remove('active');
-                document.getElementById('hiddenSeasonal').value = "false";
-            }
+    function calculate() {
+        // 1. Get Values
+        const txn = parseInt(document.getElementById('txnInput').value) || 0;
+        const accts = parseInt(document.getElementById('rngAccts').value);
+        const months = parseInt(document.getElementById('rngMonths').value);
+        const isSeasonal = document.getElementById('seasonalToggle').checked;
 
-            let retainerDisplay, cleanupDisplay;
-            if (txn >= 600) {
-                retainerDisplay = "Custom";
-                cleanupDisplay = "Custom";
-            } else {
-                retainerDisplay = "$" + monthlyTotal.toLocaleString();
-                cleanupDisplay = "$" + totalCleanup.toLocaleString();
-            }
-
-            document.getElementById('outRetainer').innerText = retainerDisplay;
-            document.getElementById('outCleanup').innerText = cleanupDisplay;
-            document.getElementById('hiddenRetainer').value = retainerDisplay;
-            document.getElementById('hiddenCleanup').value = cleanupDisplay;
-            document.getElementById('cleanupMeta').innerText = months === 0 ? "Setup Fee Only" : months + " Months Catch-up + Setup";
+        // 2. Update Labels
+        document.getElementById('txtAccts').innerText = accts;
+        document.getElementById('txtMonths').innerText = months + " Months";
+        
+        const lblStandard = document.getElementById('lblStandard');
+        const lblSeasonal = document.getElementById('lblSeasonal');
+        
+        if(isSeasonal) {
+            lblStandard.classList.remove('active');
+            lblSeasonal.classList.add('active');
+        } else {
+            lblStandard.classList.add('active');
+            lblSeasonal.classList.remove('active');
         }
 
-        calculate();
+        // 3. Logic Engine
+        // Base Price Toggle: $650 vs $450
+        let base = isSeasonal ? 450 : 650;
+        
+        // Volume Tiers (0-100: +0 | 101-250: +250 | 251-500: +500)
+        let volCharge = 0;
+        if (txn > 100 && txn <= 250) volCharge = 250;
+        if (txn > 250 && txn <= 500) volCharge = 500;
+        
+        // Account Tiers (1-3: +0 | 4+: +50 each)
+        let acctCharge = 0;
+        if (accts > 3) acctCharge = (accts - 3) * 50;
 
-        // ROBUST FORM SUBMISSION (URL-ENCODED)
-        document.getElementById('pricingForm').onsubmit = function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('button');
-            const originalText = btn.innerText;
-            btn.innerText = "Securing...";
-            btn.disabled = true;
+        // Totals
+        const monthlyTotal = base + volCharge + acctCharge;
+        
+        // Cleanup: $500 Setup + (50% of Monthly * Months Behind)
+        const cleanupTotal = 500 + (monthlyTotal * 0.5 * months);
 
-            const formData = new FormData(this);
-            const data = new URLSearchParams();
-            for (const pair of formData) {
-                data.append(pair[0], pair[1]);
-            }
+        // 4. Render
+        const retainerEl = document.getElementById('outRetainer');
+        const cleanupEl = document.getElementById('outCleanup');
 
-            fetch(PRICING_WEBHOOK, {
-                method: 'POST',
-                mode: 'no-cors', // Essential for Client-to-Zapier
-                body: data // Sends as application/x-www-form-urlencoded
-            }).then(() => {
-                alert('Rate Locked. A confirmation has been sent to your inbox.');
-                btn.innerText = "Locked";
-                window.location.href = "/"; 
-            }).catch(err => {
-                alert('Connection Error. Please try again.');
-                btn.innerText = originalText;
-                btn.disabled = false;
-            });
-        };
-    </script>
+        if (txn > 500) {
+            retainerEl.innerText = "Custom";
+            cleanupEl.innerText = "Custom";
+        } else {
+            retainerEl.innerText = "$" + monthlyTotal.toLocaleString();
+            cleanupEl.innerText = "$" + cleanupTotal.toLocaleString();
+        }
+    }
+
+    // Initialize
+    calculate();
+
+    // 5. Submit Handler
+    document.getElementById('lockForm').onsubmit = function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('button');
+        const origText = btn.innerText;
+        btn.innerText = "Securing...";
+        btn.disabled = true;
+
+        const formData = new FormData(this);
+        
+        // Add calculated values to the payload
+        formData.append('retainer_quote', document.getElementById('outRetainer').innerText);
+        formData.append('cleanup_quote', document.getElementById('outCleanup').innerText);
+        formData.append('seasonal_mode', document.getElementById('seasonalToggle').checked ? "Yes" : "No");
+
+        // Convert to URL params for robust Zapier catching
+        const data = new URLSearchParams(formData);
+
+        fetch(WEBHOOK_URL, {
+            method: 'POST',
+            body: data,
+            mode: 'no-cors'
+        }).then(() => {
+            alert("Rate Locked. We've sent a confirmation to your inbox.");
+            btn.innerText = "Locked";
+            window.location.href = "/"; // Redirect home or success page
+        }).catch(err => {
+            alert("Connection error. Please try again.");
+            btn.innerText = origText;
+            btn.disabled = false;
+        });
+    };
+</script>
+
 </body>
 </html>
