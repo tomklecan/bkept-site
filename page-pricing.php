@@ -125,7 +125,7 @@
                     <input type="checkbox" id="seasonalToggle" onchange="calculate()">
                     <span class="slider"></span>
                 </label>
-                <span class="toggle-label" id="lblSeasonal">Seasonal (LBI)</span>
+                <span class="toggle-label" id="lblSeasonal">Seasonal Business</span>
             </div>
 
             <div class="slider-group">
