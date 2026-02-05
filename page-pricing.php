@@ -8,7 +8,7 @@
     <style>
         /* [SECTION] BKEPT IDENTITY PROTOCOL */
         :root {
-            /* Palette [cite: 16] */
+            /* Palette */
             --bk-gradient: linear-gradient(110deg, #8E7338 0%, #D6B569 35%, #F9E7BA 50%, #D6B569 65%, #8E7338 100%);
             --bk-gold-solid: #C5A059;
             --bk-dark: #2D3436;
@@ -29,6 +29,46 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* [SECTION] GLOBAL NAVIGATION */
+        .site-header {
+            background: var(--bk-white);
+            width: 100%;
+            border-bottom: 2px solid;
+            border-image: var(--bk-gradient) 1; /* The Gold Line Protocol */
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-decoration: none;
+            background: var(--bk-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: lowercase; /* Brand Spec */
+        }
+
+        .nav-link {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #636E72;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .nav-link:hover { color: var(--bk-gold-solid); }
+
         /* [SECTION] LAYOUT & STRUCTURE */
         .page-container {
             max-width: 1200px;
@@ -44,13 +84,11 @@
             position: relative;
         }
         
-        /* The Gold Line Protocol [cite: 52] */
         .header-section::after {
             content: ""; position: absolute; left: 0; bottom: -2px;
             height: 2px; width: 100px; background: var(--bk-gradient);
         }
 
-        /* Typography Specs [cite: 31] */
         h1 { 
             font-size: 42px; font-weight: 800; letter-spacing: -1.5px; 
             color: var(--bk-void); margin: 10px 0; text-transform: uppercase; line-height: 1;
@@ -65,7 +103,7 @@
 
         .sub-text { font-size: 16px; color: #636E72; max-width: 600px; margin-top: 10px; }
 
-        /* [SECTION] THE DASHBOARD (Split Layout) */
+        /* [SECTION] THE DASHBOARD */
         .dashboard-grid {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
@@ -78,11 +116,11 @@
             background: var(--bk-white);
             border: 1px solid var(--bk-border);
             padding: 40px;
-            border-radius: 4px; /* Industrial Corner */
+            border-radius: 4px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        /* Seasonal Toggle (The Mode Switch) */
+        /* Mode Switch */
         .mode-switch-container {
             display: flex; align-items: center; gap: 20px;
             margin-bottom: 40px; padding: 20px; background: #F0F2F5; border-radius: 4px;
@@ -102,8 +140,6 @@
             border-radius: 50%; background-color: #BDC3C7; transition: 0.3s;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-        
-        /* Active State */
         .toggle-checkbox:checked ~ .toggle-slot .toggle-button {
             transform: translate(29px, 3px); background-color: var(--bk-gold-solid);
         }
@@ -124,10 +160,9 @@
             outline: none; border-color: var(--bk-gold-solid); 
             box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.1); 
         }
-
         .helper-text { font-size: 12px; color: #B2BEC3; margin-top: 8px; font-style: italic; }
 
-        /* RIGHT PANEL: OUTPUT & LOCK */
+        /* RIGHT PANEL: OUTPUT */
         .investment-panel {
             background: var(--bk-void);
             color: white;
@@ -161,7 +196,7 @@
         }
         .btn-lock:hover { transform: translateY(-2px); }
 
-        /* Seasonal Context Box */
+        /* Seasonal Alert */
         .seasonal-alert {
             margin-top: 40px; background: #FFFBF2; border-left: 3px solid var(--bk-gold-solid); padding: 20px;
         }
@@ -175,75 +210,82 @@
 </head>
 <body>
 
-<div class="page-container">
-    
-    <div class="header-section">
-        <span class="hero-tag">Transparent Architecture</span>
-        <h1>Investment Protocol</h1>
-        <p class="sub-text">We do not hide behind "Call for Quote" buttons. Use the dashboard below to architect your monthly investment.</p>
-    </div>
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">bkept.</a>
+            <a href="/" class="nav-link">← Return to Home</a>
+        </div>
+    </header>
 
-    <div class="dashboard-grid">
+    <div class="page-container">
         
-        <div class="config-panel">
+        <div class="header-section">
+            <span class="hero-tag">Transparent Architecture</span>
+            <h1>Investment Protocol</h1>
+            <p class="sub-text">We do not hide behind "Call for Quote" buttons. Use the dashboard below to architect your monthly investment.</p>
+        </div>
+
+        <div class="dashboard-grid">
             
-            <div class="mode-switch-container">
-                <span class="switch-label active" id="lblStandard">Standard Ops</span>
-                <label class="toggle-slot">
-                    <input type="checkbox" class="toggle-checkbox" id="seasonalToggle" onchange="calculate()">
-                    <div class="toggle-button"></div>
-                </label>
-                <span class="switch-label" id="lblSeasonal">Seasonal (LBI)</span>
+            <div class="config-panel">
+                
+                <div class="mode-switch-container">
+                    <span class="switch-label active" id="lblStandard">Standard Ops</span>
+                    <label class="toggle-slot">
+                        <input type="checkbox" class="toggle-checkbox" id="seasonalToggle" onchange="calculate()">
+                        <div class="toggle-button"></div>
+                    </label>
+                    <span class="switch-label" id="lblSeasonal">Seasonal (LBI)</span>
+                </div>
+
+                <div class="input-block">
+                    <label class="input-label">Monthly Transaction Volume</label>
+                    <input type="number" id="txnInput" class="bk-input" value="75" min="0" placeholder="e.g. 75" oninput="calculate()">
+                    <div class="helper-text">Average combined volume across all connected accounts.</div>
+                </div>
+
+                <div class="input-block">
+                    <label class="input-label">Data Feeds (Bank/CC Accounts)</label>
+                    <input type="number" id="acctInput" class="bk-input" value="1" min="1" placeholder="e.g. 1" oninput="calculate()">
+                </div>
+
+                <div class="input-block">
+                    <label class="input-label">Historical Catch-Up (Months Behind)</label>
+                    <input type="number" id="monthInput" class="bk-input" value="0" min="0" placeholder="e.g. 0" oninput="calculate()">
+                </div>
+
+                <div class="seasonal-alert">
+                    <div class="alert-title">The Off-Season Myth</div>
+                    <div class="alert-body">Just because revenue pauses doesn't mean operations stop. The off-season is the time to architect the new season. We keep you ready for Opening Day.</div>
+                </div>
+
             </div>
 
-            <div class="input-block">
-                <label class="input-label">Monthly Transaction Volume</label>
-                <input type="number" id="txnInput" class="bk-input" value="75" min="0" placeholder="e.g. 75" oninput="calculate()">
-                <div class="helper-text">Average combined volume across all connected accounts.</div>
-            </div>
+            <div class="investment-panel">
+                
+                <div class="price-block">
+                    <span class="price-label">The Kept Retainer (Monthly)</span>
+                    <div class="price-display" id="outRetainer">$650</div>
+                    <div class="price-sub">Includes Tech Stack & Truth Memo</div>
+                </div>
 
-            <div class="input-block">
-                <label class="input-label">Data Feeds (Bank/CC Accounts)</label>
-                <input type="number" id="acctInput" class="bk-input" value="1" min="1" placeholder="e.g. 1" oninput="calculate()">
-            </div>
+                <div class="price-block" style="border-bottom: none; padding-bottom: 0;">
+                    <span class="price-label">The Concierge (Cleanup)</span>
+                    <div class="price-display" id="outCleanup">$500</div>
+                    <div class="price-sub" id="cleanupMeta">One-Time Setup Fee</div>
+                </div>
 
-            <div class="input-block">
-                <label class="input-label">Historical Catch-Up (Months Behind)</label>
-                <input type="number" id="monthInput" class="bk-input" value="0" min="0" placeholder="e.g. 0" oninput="calculate()">
-            </div>
+                <form class="lock-form" id="lockForm">
+                    <div style="margin-bottom: 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; color: #636E72;">Secure this Architecture</div>
+                    <input type="text" name="lead_name" class="lock-input" placeholder="FULL NAME" required>
+                    <input type="email" name="lead_email" class="lock-input" placeholder="WORK EMAIL" required>
+                    <button type="submit" class="btn-lock">Lock in Rate</button>
+                </form>
 
-            <div class="seasonal-alert">
-                <div class="alert-title">The Off-Season Myth</div>
-                <div class="alert-body">Just because revenue pauses doesn't mean operations stop. The off-season is the time to architect the new season. We keep you ready for Opening Day.</div>
             </div>
 
         </div>
-
-        <div class="investment-panel">
-            
-            <div class="price-block">
-                <span class="price-label">The Kept Retainer (Monthly)</span>
-                <div class="price-display" id="outRetainer">$650</div>
-                <div class="price-sub">Includes Tech Stack & Truth Memo</div>
-            </div>
-
-            <div class="price-block" style="border-bottom: none; padding-bottom: 0;">
-                <span class="price-label">The Concierge (Cleanup)</span>
-                <div class="price-display" id="outCleanup">$500</div>
-                <div class="price-sub" id="cleanupMeta">One-Time Setup Fee</div>
-            </div>
-
-            <form class="lock-form" id="lockForm">
-                <div style="margin-bottom: 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; color: #636E72;">Secure this Architecture</div>
-                <input type="text" name="lead_name" class="lock-input" placeholder="FULL NAME" required>
-                <input type="email" name="lead_email" class="lock-input" placeholder="WORK EMAIL" required>
-                <button type="submit" class="btn-lock">Lock in Rate</button>
-            </form>
-
-        </div>
-
     </div>
-</div>
 
 <script>
     const WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/26262080/ulvega2/";
