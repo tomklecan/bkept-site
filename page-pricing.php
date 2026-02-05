@@ -197,7 +197,7 @@
 
     <script>
         // ZAPIER PRICING HOOK
-        [cite_start]// Logic Source: SOP - Client Acquisition Lifecycle [cite: 130, 131]
+        // Logic Source: SOP - Client Acquisition Lifecycle
         const PRICING_WEBHOOK = 'https://hooks.zapier.com/hooks/catch/26262080/ulvega2/';
 
         function calculate() {
@@ -208,14 +208,14 @@
             const isSeasonal = document.getElementById('seasonalToggle').checked;
 
             // LOGIC - BASE RATE SWITCH
-            // Standard: $650 | [cite_start]Seasonal: $450 [cite: 301, 310]
+            // Standard: $650 | Seasonal: $450
             let baseRate = isSeasonal ? 450 : 650;
             
-            [cite_start]// Volume Surcharge [cite: 302, 303, 304, 305]
+            // Volume Surcharge
             if (txn > 100 && txn <= 250) baseRate += 250;
             if (txn > 250 && txn <= 500) baseRate += 500;
             
-            [cite_start]// Account Surcharge (First 3 free) [cite: 306, 307, 308]
+            // Account Surcharge (First 3 free)
             let acctSurcharge = 0;
             if (accts > 3) acctSurcharge = (accts - 3) * 50;
 
@@ -260,7 +260,7 @@
             document.getElementById('outRetainer').innerText = retainerDisplay;
             document.getElementById('outCleanup').innerText = cleanupDisplay;
             
-            // Update Hidden Fields (This is what sends the Rate to us)
+            // Update Hidden Fields
             document.getElementById('hiddenRetainer').value = retainerDisplay;
             document.getElementById('hiddenCleanup').value = cleanupDisplay;
 
@@ -271,7 +271,7 @@
         // INITIAL CALC ON LOAD
         calculate();
 
-        // FORM SUBMISSION
+        // FORM SUBMISSION (Corrected for Zapier FormData)
         document.getElementById('pricingForm').onsubmit = function(e) {
             e.preventDefault();
             const btn = this.querySelector('button');
@@ -279,16 +279,14 @@
             btn.innerText = "Securing Rate...";
             btn.disabled = true;
 
+            // FIX: Using FormData for Zapier compatibility
             const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
 
             fetch(PRICING_WEBHOOK, {
                 method: 'POST',
                 mode: 'no-cors',
-                body: JSON.stringify(data),
-                headers: {'Content-Type': 'application/json'}
+                body: formData // Sends as multipart/form-data
             }).then(() => {
-                // Success: Redirect Home after alerting
                 alert('Rate Locked. A confirmation of this architecture has been sent to your inbox.');
                 btn.innerText = "Rate Locked";
                 window.location.href = "/"; 
