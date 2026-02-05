@@ -187,7 +187,7 @@
                     <input type="email" name="lead_email" class="form-input" placeholder="Work Email Address" required>
                 </div>
                 
-                <button type="submit" class="btn-submit">Initialize Proposal</button>
+                <button type="submit" class="btn-submit">Lock in Rate</button>
             </div>
 
         </form>
