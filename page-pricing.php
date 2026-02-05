@@ -8,7 +8,6 @@
     <style>
         /* [SECTION] BKEPT GLOBAL STYLES IMPORT */
         :root {
-            [cite_start]/* Branding Source: [cite: 20, 27, 216] */
             --bk-gradient: linear-gradient(110deg, #8E7338 0%, #D6B569 35%, #F9E7BA 50%, #D6B569 65%, #8E7338 100%);
             --bk-gold-solid: #C5A059;
             --bk-dark: #2D3436;
@@ -65,13 +64,12 @@
         .out-price { font-size: 2.8rem; font-weight: 800; color: #fff; display: block; letter-spacing: -1px; line-height: 1; }
         .out-meta { font-size: 0.8rem; color: #BDC3C7; margin-top: 8px; display: block; font-style: italic; }
 
-        /* [SECTION] SEASONAL BLURB BOX */
+        /* [SECTION] SEASONAL BLURB BOX (ALWAYS ON) */
         .seasonal-context { 
             background: #FFFBF2; 
             border-left: 4px solid var(--bk-gold-solid); 
             padding: 30px; 
             margin-bottom: 40px; 
-            /* VISIBILITY LOCKED: Always On */
             display: block;
         }
 
@@ -125,7 +123,7 @@
                     <input type="checkbox" id="seasonalToggle" onchange="calculate()">
                     <span class="slider"></span>
                 </label>
-                <span class="toggle-label" id="lblSeasonal">Seasonal Business</span>
+                <span class="toggle-label" id="lblSeasonal">Seasonal (LBI)</span>
             </div>
 
             <div class="slider-group">
@@ -180,7 +178,7 @@
             <input type="hidden" name="is_seasonal" id="hiddenSeasonal" value="false">
 
             <div class="contact-capture">
-                <div style="text-align:center; margin-bottom:20px; font-weight:700; color:#636E72; font-size:0.8rem; text-transform:uppercase; letter-spacing:1px;">Initialize Proposal Request</div>
+                <div style="text-align:center; margin-bottom:20px; font-weight:700; color:#636E72; font-size:0.8rem; text-transform:uppercase; letter-spacing:1px;">Secure This Architecture</div>
                 
                 <div class="form-row">
                     <input type="text" name="lead_name" class="form-input" placeholder="Your Full Name" required>
@@ -199,6 +197,7 @@
 
     <script>
         // ZAPIER PRICING HOOK
+        // Logic Source: SOP - Client Acquisition Lifecycle 
         const PRICING_WEBHOOK = 'https://hooks.zapier.com/hooks/catch/26262080/ulp6kfx/';
 
         function calculate() {
@@ -209,14 +208,14 @@
             const isSeasonal = document.getElementById('seasonalToggle').checked;
 
             // LOGIC - BASE RATE SWITCH
-            // Standard: $650 | [cite_start]Seasonal: $450 [cite: 301, 310]
+            // Standard: $650 | Seasonal: $450
             let baseRate = isSeasonal ? 450 : 650;
             
-            [cite_start]// Volume Surcharge [cite: 302, 303, 304, 305]
+            // Volume Surcharge
             if (txn > 100 && txn <= 250) baseRate += 250;
             if (txn > 250 && txn <= 500) baseRate += 500;
             
-            [cite_start]// Account Surcharge (First 3 free) [cite: 307, 308]
+            // Account Surcharge (First 3 free)
             let acctSurcharge = 0;
             if (accts > 3) acctSurcharge = (accts - 3) * 50;
 
@@ -245,7 +244,6 @@
                 lblSeasonal.classList.remove('active');
                 document.getElementById('hiddenSeasonal').value = "false";
             }
-            // Removed blurb display toggling logic here to keep it "Always On"
 
             let retainerDisplay, cleanupDisplay;
 
@@ -262,7 +260,7 @@
             document.getElementById('outRetainer').innerText = retainerDisplay;
             document.getElementById('outCleanup').innerText = cleanupDisplay;
             
-            // Update Hidden Fields (For Zapier)
+            // Update Hidden Fields (This is what sends the Rate to us)
             document.getElementById('hiddenRetainer').value = retainerDisplay;
             document.getElementById('hiddenCleanup').value = cleanupDisplay;
 
@@ -278,7 +276,7 @@
             e.preventDefault();
             const btn = this.querySelector('button');
             const originalText = btn.innerText;
-            btn.innerText = "Locking Rates...";
+            btn.innerText = "Securing Rate...";
             btn.disabled = true;
 
             const formData = new FormData(this);
@@ -290,9 +288,10 @@
                 body: JSON.stringify(data),
                 headers: {'Content-Type': 'application/json'}
             }).then(() => {
-                alert('Proposal Initialized. Our team will review your specs and confirm via email.');
-                btn.innerText = "Proposal Sent";
-                window.location.href = "/"; // Redirect Home
+                // Success: Redirect Home after alerting
+                alert('Rate Locked. A confirmation of this architecture has been sent to your inbox.');
+                btn.innerText = "Rate Locked";
+                window.location.href = "/"; 
             }).catch(err => {
                 alert('Connection Error. Please try again.');
                 btn.innerText = originalText;
