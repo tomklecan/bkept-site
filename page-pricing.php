@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bkept | Master Architecture Calculator</title>
+    <title>Bkept | Investment Architecture</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -47,11 +47,11 @@
             align-items: center;
         }
 
-        /* BRAND LOGO: Precise Styling */
+        /* BRAND LOGO: Precise Styling to match Homepage */
         .bk-logo {
             font-family: 'Inter', sans-serif;
-            font-size: 26px; /* Slightly larger for authority */
-            font-weight: 900; /* Maximum weight */
+            font-size: 26px; /* Authority sizing */
+            font-weight: 900; /* 'Black' weight is key */
             letter-spacing: -1.5px; /* Tight tracking for the 'logo' feel */
             text-transform: lowercase;
             text-decoration: none;
@@ -85,9 +85,6 @@
             display: grid;
             grid-template-columns: 1fr 400px;
         }
-
-        /* HEADER INSIDE CARD (Removed in favor of Global Nav, but kept title) */
-        .card-header-mobile { display: none; }
 
         /* INPUT PANEL */
         .config-panel { padding: 50px; border-right: 1px solid var(--bk-border); }
