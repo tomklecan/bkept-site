@@ -3,5 +3,53 @@ Theme Name: Bkept Business OS
 Theme URI: https://bkept.co
 Author: Bkept AI Co-Founder
 Description: Performance Bookkeeping Interface. Impeccably Kept.
-Version: 1.0
+Version: 1.1
 */
+
+/* --- BKEPT DESIGN SYSTEM VARIABLES --- */
+:root {
+    --bk-gradient: linear-gradient(110deg, #8E7338 0%, #D6B569 35%, #F9E7BA 50%, #D6B569 65%, #8E7338 100%);
+    --bk-gold-solid: #C5A059;
+    --bk-dark: #2D3436;
+    --bk-surface: #FFFFFF;
+    --bk-font: 'Inter', sans-serif;
+}
+
+/* --- CORE LAYOUT --- */
+body {
+    font-family: var(--bk-font);
+    background: var(--bk-surface);
+    color: var(--bk-dark);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- THE SIGNATURE WORDMARK (HOMEPAGE MATCH) --- */
+/* Use this class for the "bkept." text in your navigation */
+.bk-logo, .site-title a, .nav-brand {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 900 !important; /* Heavy weight like bkept.co */
+    font-size: 24px !important;
+    letter-spacing: -1.2px !important; /* Tight tracking for premium feel */
+    text-transform: lowercase !important;
+    text-decoration: none !important;
+    background: var(--bk-gradient) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    display: inline-block !important;
+    line-height: 1;
+}
+
+/* --- REUSABLE UTILITIES --- */
+.gold-text { 
+    background: var(--bk-gradient); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
