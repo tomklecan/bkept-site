@@ -97,7 +97,7 @@
     <div class="container">
         <div class="page-hero">
             <span class="hero-tag">Open Architecture</span>
-            <h1>We Build <span class="gold-text">Ecosystems.</span></h1>
+            <h1>Our Network <span class="gold-text">is an Ecosystem.</span></h1>
             <p class="sub-text">Great businesses are not built in isolation. Whether you are an agency, a consultant, a VC, or a fellow operator—if your network relies on financial clarity to succeed, we are the engine room.</p>
         </div>
 
