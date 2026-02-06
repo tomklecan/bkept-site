@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bkept | Master Architecture Calculator</title>
+    <title>Bkept | Investment Architecture</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -48,11 +48,11 @@
         }
 
         /* [SECTION] IDENTITY PROTOCOL: Calibrated to Bkept.co */
-        .bk-nav-logo {
+        .bk-logo {
             font-family: 'Inter', sans-serif;
             font-size: 24px; 
-            font-weight: 800; /* ExtraBold: Authority without heaviness */
-            letter-spacing: -0.5px; /* Subtle tight tracking for modern feel */
+            font-weight: 900; /* ExtraBlack for authority */
+            letter-spacing: -1.2px; /* Tight tracking for modern feel */
             text-transform: lowercase;
             text-decoration: none;
             background: var(--bk-gradient);
@@ -69,7 +69,7 @@
         }
         .nav-link:hover { color: var(--bk-gold-solid); }
 
-        /* [SECTION] CALCULATOR LAYOUT (From Template) */
+        /* [SECTION] CALCULATOR LAYOUT */
         .page-wrapper {
             display: flex; justify-content: center; padding: 0 20px 80px 20px;
         }
@@ -122,12 +122,22 @@
         }
         .result-sub { font-size: 13px; font-weight: 600; color: var(--bk-dark); }
 
-        .memo-box {
-            background: var(--bk-void); color: #BDC3C7; padding: 25px;
-            font-size: 12px; border-radius: 4px; line-height: 1.6; margin-top: auto;
-        }
-
         hr { border: 0; border-top: 1px solid #E2E8F0; margin: 0; }
+
+        /* LOCK FORM */
+        .lock-form { margin-top: auto; }
+        .lock-input {
+            width: 100%; padding: 15px; margin-bottom: 15px; background: #fff; 
+            border: 1px solid #ccc; color: var(--bk-dark); font-family: 'Inter', sans-serif; font-size: 14px;
+        }
+        .btn-lock {
+            width: 100%; padding: 20px; background: var(--bk-gradient); 
+            border: none; color: var(--bk-void); font-weight: 800; 
+            text-transform: uppercase; letter-spacing: 2px; cursor: pointer; 
+            transition: transform 0.2s;
+        }
+        .btn-lock:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2); }
+        .btn-lock:disabled { opacity: 0.7; cursor: not-allowed; }
 
         @media (max-width: 900px) {
             .calc-card { grid-template-columns: 1fr; }
@@ -140,7 +150,7 @@
 
     <header class="site-header">
         <div class="nav-container">
-            <a href="https://bkept.co" class="bk-nav-logo">bkept.</a>
+            <a href="https://bkept.co" class="bk-logo">bkept.</a>
             <a href="/" class="nav-link">← Return to Home</a>
         </div>
     </header>
@@ -216,16 +226,21 @@
                     <div class="result-sub" id="retainerMeta">Ongoing Financial Architecture</div>
                 </div>
 
-                <div class="memo-box">
-                    <strong style="color: white; text-transform: uppercase;">Executive Summary:</strong><br><br>
-                    All fees are fixed and value-based. Cleanup covers historical integrity. Retainer covers full-spectrum management and "The Truth Memo" monthly reporting.
-                </div>
+                <form class="lock-form" id="lockForm">
+                    <div style="margin-bottom: 15px; font-size: 10px; font-weight: 700; text-transform: uppercase; color: #636E72;">Secure this Architecture</div>
+                    <input type="text" name="lead_name" class="lock-input" placeholder="FULL NAME" required>
+                    <input type="email" name="lead_email" class="lock-input" placeholder="WORK EMAIL" required>
+                    <button type="submit" class="btn-lock">Lock in Rate</button>
+                </form>
                 
             </div>
         </div>
     </div>
 
 <script>
+    // ZAPIER WEBHOOK ENDPOINT
+    const WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/26262080/ulvega2/";
+
     function calculate() {
         // 1. Get Values
         const txn = parseInt(document.getElementById('txn').value) || 0;
@@ -250,8 +265,7 @@
 
         const totalRetainer = baseRetainer + volRetainer + acctRetainer + opsPrice;
 
-        // --- CLEANUP CALCULATION Pricing Calculator.html] ---
-        // Formula: Base Setup ($500) + (Catchup Rate * Complexity)
+        // --- CLEANUP CALCULATION ---
         const baseSetup = 500;
         
         // Catchup Rate is 50% of the calculated Retainer (without ops friction)
@@ -289,7 +303,42 @@
         }
     }
 
+    // Run initial calculation
     calculate();
+
+    // 2. Submit Handler
+    document.getElementById('lockForm').onsubmit = function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('button');
+        const origText = btn.innerText;
+        btn.innerText = "SECURING...";
+        btn.disabled = true;
+
+        const formData = new FormData(this);
+        // Append calculated values to the form data
+        formData.append('retainer_quote', document.getElementById('outRetainer').innerText);
+        formData.append('cleanup_quote', document.getElementById('outCleanup').innerText);
+        // Grab config context
+        formData.append('config_txn', document.getElementById('txn').value);
+        formData.append('config_cleanup', document.getElementById('cleanupMeta').innerText);
+
+        // Convert to URLSearchParams for robust Zapier POST
+        const data = new URLSearchParams(formData);
+
+        fetch(WEBHOOK_URL, {
+            method: 'POST',
+            body: data,
+            mode: 'no-cors'
+        }).then(() => {
+            alert("Rate Locked. Check your email for The Proposal.");
+            btn.innerText = "LOCKED";
+            // Optional: Redirect to success page or clear form
+        }).catch(err => {
+            alert("Connection Error. Please try again.");
+            btn.innerText = origText;
+            btn.disabled = false;
+        });
+    };
 </script>
 
 </body>
