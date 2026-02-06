@@ -212,7 +212,7 @@
 
     <header class="site-header">
         <div class="nav-container">
-            <a class="bk-logo">bkept.</a>
+            <a href="https://bkept.co" class="bk-logo">bkept.</a>
             <a href="/" class="nav-link">← Return to Home</a>
         </div>
     </header>
