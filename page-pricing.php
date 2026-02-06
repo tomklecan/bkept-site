@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bkept | Investment Architecture</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         /* [SECTION] BKEPT IDENTITY PROTOCOL */
         :root {
@@ -47,15 +47,18 @@
             align-items: center;
         }
 
-        .nav-logo {
+        /* UPDATED: Matches Homepage Identity */
+        .bk-logo {
+            font-family: 'Inter', sans-serif;
             font-size: 24px;
-            font-weight: 800;
-            letter-spacing: -1px;
+            font-weight: 900; /* Extra Bold */
+            letter-spacing: -1.2px; /* Tight Tracking */
             text-decoration: none;
             background: var(--bk-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-transform: lowercase; /* Brand Spec */
+            text-transform: lowercase;
+            line-height: 1;
         }
 
         .nav-link {
@@ -308,7 +311,7 @@
             lblSeasonal.classList.remove('active');
         }
 
-        // 3. Logic Engine [cite: 300-310]
+        // 3. Logic Engine
         // Base Price: Standard ($650) vs Seasonal ($450)
         let base = isSeasonal ? 450 : 650;
         
