@@ -212,7 +212,7 @@
 
     <header class="site-header">
         <div class="nav-container">
-            <a href="/" class="nav-logo">bkept.</a>
+            <a class="bk-logo">bkept.</a>
             <a href="/" class="nav-link">← Return to Home</a>
         </div>
     </header>
