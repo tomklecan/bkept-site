@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Partner Protocol | Bkept</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         /* [SECTION] BKEPT IDENTITY PROTOCOL */
         :root {
@@ -24,14 +24,30 @@
             color: var(--bk-dark); 
             background: var(--bk-surface); 
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased; /* Crisp text rendering */
         }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER */
+        /* HEADER - SYNCED TO PRICING PAGE */
         header { background: #fff; padding: 20px 0; border-bottom: 2px solid; border-image: var(--bk-gradient) 1; }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; text-decoration: none; color: var(--bk-dark); }
+        
+        /* THE BRAND FIX: Renamed from .logo to .bk-logo & Updated Specs */
+        .bk-logo { 
+            font-family: 'Inter', sans-serif;
+            font-size: 24px; 
+            font-weight: 900; /* ExtraBlack for authority */
+            letter-spacing: -1.2px; /* Tight tracking for the 'logo' feel */
+            text-transform: lowercase;
+            text-decoration: none; 
+            background: var(--bk-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            display: inline-block;
+        }
+
         .back-link { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #636E72; text-decoration: none; font-weight: 700; }
 
         /* HERO */
@@ -81,6 +97,7 @@
 
         @media(max-width: 900px) {
             .protocol-grid { grid-template-columns: 1fr; }
+            .protocol-card { margin-bottom: 20px; }
             h1 { font-size: 2.5rem; }
         }
     </style>
