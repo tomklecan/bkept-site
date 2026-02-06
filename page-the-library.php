@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Library | Bkept Financial Architecture</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bk-gradient: linear-gradient(110deg, #8E7338 0%, #D6B569 35%, #F9E7BA 50%, #D6B569 65%, #8E7338 100%);
@@ -20,7 +20,22 @@
         /* HEADER */
         header { background: #fff; padding: 20px 0; border-bottom: 2px solid; border-image: var(--bk-gradient) 1; }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; text-decoration: none; color: var(--bk-dark); }
+        
+        /* THE BRAND FIX: Renamed from .logo to .bk-logo & Updated Specs */
+        .bk-logo { 
+            font-family: 'Inter', sans-serif;
+            font-size: 24px; 
+            font-weight: 900; /* ExtraBlack for authority */
+            letter-spacing: -1.2px; /* Tight tracking for the 'logo' feel */
+            text-transform: lowercase;
+            text-decoration: none; 
+            background: var(--bk-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            display: inline-block;
+        }
+        
         .back-link { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #636E72; text-decoration: none; font-weight: 700; }
 
         /* HERO */
@@ -46,7 +61,7 @@
 
     <header>
         <div class="container nav-flex">
-            <a href="/" class="logo">bkept.</a>
+            <a href="/" class="bk-logo">bkept.</a>
             <a href="/" class="back-link">← Return to OS</a>
         </div>
     </header>
