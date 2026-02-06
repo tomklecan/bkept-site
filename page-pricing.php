@@ -220,9 +220,9 @@
     <div class="page-container">
         
         <div class="header-section">
-            <span class="hero-tag">Transparent Architecture</span>
-            <h1>Investment Protocol</h1>
-            <p class="sub-text">We do not hide behind "Call for Quote" buttons. Use the dashboard below to architect your monthly investment.</p>
+            <span class="hero-tag">Transparent Pricing Logic</span>
+            <h1>Scalable Investment </h1>
+            <p class="sub-text">Whether your business operates year-round or seasonally, the pricing is kept simple. Use the dashboard below to estimate your monthly investment for a well-kept business. We offer special pricing for business with seasonal operations </p>
         </div>
 
         <div class="dashboard-grid">
@@ -230,12 +230,12 @@
             <div class="config-panel">
                 
                 <div class="mode-switch-container">
-                    <span class="switch-label active" id="lblStandard">Standard Ops</span>
+                    <span class="switch-label active" id="lblStandard">Standard Businesses</span>
                     <label class="toggle-slot">
                         <input type="checkbox" class="toggle-checkbox" id="seasonalToggle" onchange="calculate()">
                         <div class="toggle-button"></div>
                     </label>
-                    <span class="switch-label" id="lblSeasonal">Seasonal (LBI)</span>
+                    <span class="switch-label" id="lblSeasonal">Seasonal Businesses</span>
                 </div>
 
                 <div class="input-block">
@@ -256,7 +256,7 @@
 
                 <div class="seasonal-alert">
                     <div class="alert-title">The Off-Season Myth</div>
-                    <div class="alert-body">Just because revenue pauses doesn't mean operations stop. The off-season is the time to architect the new season. We keep you ready for Opening Day.</div>
+                    <div class="alert-body">Just because revenue pauses doesn't mean operations stop. The off-season is the time to architect the new season. We're supporting you year-round so you're ready for peak season- come opening day, it's show time!</div>
                 </div>
 
             </div>
