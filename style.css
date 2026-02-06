@@ -1,28 +1,7 @@
-/* BKEPT BRAND OS: GLOBAL NAVIGATION COMPONENT
-   Target: .bk-logo (Used in Headers/Footers)
+/*
+Theme Name: Bkept Business OS
+Theme URI: https://bkept.co
+Author: Bkept AI Co-Founder
+Description: Performance Bookkeeping Interface. Impeccably Kept.
+Version: 1.0
 */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
-
-.bk-logo {
-    font-family: 'Inter', sans-serif !important;
-    font-size: 24px;
-    font-weight: 700; /* Identity Protocol Standard */
-    letter-spacing: 3px; /* Wide tracking for industrial luxury feel */
-    text-transform: lowercase;
-    text-decoration: none;
-    background: linear-gradient(110deg, #8E7338 0%, #D6B569 35%, #F9E7BA 50%, #D6B569 65%, #8E7338 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    transition: opacity 0.3s ease;
-}
-
-.bk-logo:hover {
-    opacity: 0.8;
-}
-
-/* Ensure Nav period is always included in the wordmark */
-.bk-logo::after {
-    content: ""; /* This ensures we don't accidentally double-period if it's in the HTML */
-}
