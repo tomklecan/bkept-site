@@ -227,7 +227,7 @@
                 </div>
 
                 <form class="lock-form" id="lockForm">
-                    <div style="margin-bottom: 15px; font-size: 10px; font-weight: 700; text-transform: uppercase; color: #636E72;">Secure this Architecture</div>
+                    <div style="margin-bottom: 15px; font-size: 10px; font-weight: 700; text-transform: uppercase; color: #636E72;">Secure these Figures</div>
                     <input type="text" name="lead_name" class="lock-input" placeholder="FULL NAME" required>
                     <input type="email" name="lead_email" class="lock-input" placeholder="WORK EMAIL" required>
                     <button type="submit" class="btn-lock">Lock in Rate</button>
