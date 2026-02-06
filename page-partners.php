@@ -89,7 +89,7 @@
 
     <header>
         <div class="container nav-flex">
-            <a href="/" class="logo">bkept.</a>
+            <a href="https://bkept.co" class="bk-logo">bkept.</a>
             <a href="/" class="back-link">← Return to OS</a>
         </div>
     </header>
