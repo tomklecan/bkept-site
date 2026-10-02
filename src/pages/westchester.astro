@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import Credentials from '../components/Credentials.astro';
+import HeroServices from '../components/HeroServices.astro';
+import Pathways from '../components/Pathways.astro';
+import Philosophy from '../components/Philosophy.astro';
+import Founder from '../components/Founder.astro';
+import ServiceDetail from '../components/ServiceDetail.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'AccountingService',
+  name: 'bkept',
+  url: 'https://bkept.co/westchester/',
+  description: 'bkept provides premium bookkeeping and financial oversight for established businesses across Westchester County.',
+  areaServed: ['White Plains, NY', 'Pleasantville, NY', 'Mt. Kisco, NY', 'Tarrytown, NY', 'Rye, NY', 'Port Chester, NY'],
+};
+---
+<Base
+  title="Financial Operations for Westchester County"
+  description="bkept delivers premium Performance Bookkeeping and operational clarity for established businesses across Westchester County."
+  schema={schema}
+>
+  <div class="container">
+    <section class="hero hero-full">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow rise">Local Operations</span>
+          <h1 class="rise">Financial Operations for <br /><span class="gold-text">Westchester County.</span></h1>
+          <p class="subhead rise rise-2">The Standard for Modern Business</p>
+          <p class="lead rise rise-3">bkept provides premium bookkeeping and financial oversight for established businesses and professional operators across Westchester County. From professional agencies in White Plains to specialized consultants in Mt. Kisco and Pleasantville, we replace outdated financial habits with streamlined, highly efficient systems.</p>
+          <div class="hero-actions rise rise-4">
+            <a href="/contact/" class="btn">Contact the Firm</a>
+            <Credentials />
+          </div>
+        </div>
+        <HeroServices />
+      </div>
+    </section>
+    <Pathways />
+    <hr class="divider" />
+    <Philosophy />
+    <hr class="divider" />
+    <Founder />
+    <hr class="divider" />
+    <ServiceDetail />
+  </div>
+</Base>

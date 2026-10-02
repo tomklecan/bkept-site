@@ -1,0 +1,84 @@
+---
+// Concierge (Tier 01) and Kept (Tier 02) scopes, shared by the homepage and town pages.
+const concierge = [
+  { title: 'QuickBooks Implementations', items: [
+    ['End-to-End Setup', 'Complete QuickBooks Online system structuring and deployment.'],
+    ['Legacy Migration', 'Secure transition of historical financial data into new frameworks.'],
+    ['Chart of Accounts', 'Custom ledger structuring built specifically for your business model.'],
+    ['SOP & Workflows', 'Detailed operational process documentation and training.'],
+  ]},
+  { title: 'Data & Sales Operations', items: [
+    ['CRM Data Scrubs', 'Cleaning pipeline data (HubSpot/Salesforce).'],
+    ['Database Standardization', 'Formatting inconsistent data sets.'],
+    ['Migration Audits', 'Verifying data integrity during software moves.'],
+    ['Vendor Audits', 'Identifying SaaS waste and duplicate billing.'],
+  ]},
+  { title: 'People Operations', items: [
+    ['Payroll Migration', 'Moving teams to modern platforms.'],
+    ['Commission Tracking', 'Verifying sales payouts and structures.'],
+    ['Onboarding Systems', 'Building standardized hiring workflows.'],
+    ['Handbook Drafting', 'Creating clear, non-corporate operational manuals.'],
+  ]},
+];
+const kept = [
+  { title: 'The Continuous Ledger', items: [
+    ['Full-Cycle Bookkeeping', 'Daily transaction categorization and continuous bank reconciliation.'],
+    ['Vendor Gatekeeping', 'Auditing new vendors and monitoring statements for duplicate billing.'],
+    ['CPA Liaison', 'Fully managed year-end handoffs to eliminate tax-season friction.'],
+  ]},
+  { title: 'The Monthly Close', items: [
+    ['Financial Reporting', 'Precision delivery of your P&L, Balance Sheet, and Cash Flow.'],
+    ['The Kept Memo', 'A concise, plain-English executive summary of your monthly performance.'],
+    ['Strategic Review', 'Dedicated 1:1 advisory time to align your numbers with operational goals.'],
+  ]},
+  { title: 'Active Cash Management', items: [
+    ['AP / AR Operations', 'Structured accounts payable and receivable batch processing.'],
+    ['13-Week Forecasting', 'Forward-looking projections to anticipate working capital needs.'],
+    ['Compliance Tracking', 'Proactive monitoring of state entity filings and insurance renewals.'],
+  ]},
+];
+---
+<section class="section" id="services">
+  <div style="max-width:650px; margin-bottom:40px;">
+    <span class="tag">Tier 01 // Targeted Assignments</span>
+    <h2 class="section-title">Concierge <span class="gold-text">Services</span></h2>
+    <p class="lead">Tactical, project-based execution. Whether it is a full-scale QuickBooks Online implementation, operational data scrubs, or complex financial modeling, we step in, execute the project with precision, and step out.</p>
+  </div>
+  <div class="grid-3">
+    {concierge.map((g) => (
+      <div class="card lift">
+        <div class="card-bar"></div>
+        <h4>{g.title}</h4>
+        <ul class="check-list">
+          {g.items.map(([k, v]) => <li><span><strong>{k}:</strong> {v}</span></li>)}
+        </ul>
+      </div>
+    ))}
+  </div>
+  <div class="stack-sm">
+    <div class="price-note"><strong>Pricing:</strong> <span class="muted">Flat Project Fee (Based on complexity).</span></div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section class="section" id="the-kept">
+  <span class="tag">Tier 02 // Full-Spectrum Management</span>
+  <h2 class="section-title">Kept <span class="gold-text">Services</span></h2>
+  <p class="lead" style="margin-bottom:40px;">Your outsourced financial back-office. We integrate into your daily operations to ensure your books are professionally maintained and your business maintains complete Operational Clarity.</p>
+  <div class="grid-3">
+    {kept.map((g) => (
+      <div class="card top-ink lift">
+        <div class="card-bar ink"></div>
+        <h4>{g.title}</h4>
+        <ul class="check-list">
+          {g.items.map(([k, v]) => <li><span><strong>{k}:</strong> {v}</span></li>)}
+        </ul>
+      </div>
+    ))}
+  </div>
+  <div class="stack-sm">
+    <div class="price-note"><strong>Pricing:</strong> <span class="muted">Fixed Monthly Retainer (Volume &amp; Complexity-based).</span></div>
+    <a href="/pricing/" class="btn btn-outline">View Pricing →</a>
+  </div>
+</section>

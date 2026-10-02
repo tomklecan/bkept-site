@@ -1,0 +1,18 @@
+---
+import Icon from './Icon.astro';
+const items = [
+  { icon: 'ledger', title: 'Kept Retainers', desc: 'Full-cycle continuous bookkeeping and monthly financial reporting.' },
+  { icon: 'chart', title: 'Sub-Function Mgmt', desc: 'Dedicated execution of Accounts Payable and Accounts Receivable.' },
+  { icon: 'sync', title: 'System Implementations', desc: 'End-to-end setup and secure migration of legacy financial data.' },
+  { icon: 'target', title: 'One-Time Projects', desc: 'Targeted project execution for complex modeling and ledger cleanups.' },
+] as const;
+---
+<div class="mini-grid rise rise-4">
+  {items.map((i) => (
+    <div class="mini-card">
+      <Icon name={i.icon} class="icon sm" />
+      <h3>{i.title}</h3>
+      <p>{i.desc}</p>
+    </div>
+  ))}
+</div>

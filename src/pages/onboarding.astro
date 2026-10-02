@@ -1,0 +1,346 @@
+---
+// Client onboarding workbook. Standalone portal layout (no marketing header/footer).
+// Answers save to the client's own browser; nothing is sent anywhere until they email the PDF.
+import Base from '../layouts/Base.astro';
+import { firmInviteEmail, onboardingEmail } from '../data/site';
+
+const initials = 'Initials...';
+---
+<Base title="Onboarding" description="bkept client onboarding workbook." noindex bare>
+  <header class="ob-header">
+    <a href="/" class="logo">bkept.</a>
+    <div class="ob-status">Client Onboarding</div>
+  </header>
+
+  <div class="ob-wrap">
+    <div class="ob-nav" role="tablist">
+      <button class="ob-tab active" data-tab="1" role="tab">Mod 01: Client Hub</button>
+      <button class="ob-tab" data-tab="2" role="tab">Mod 02: Cadence</button>
+      <button class="ob-tab" data-tab="3" role="tab">Mod 03: Master Data</button>
+      <button class="ob-tab" data-tab="4" role="tab">Mod 04: Tech Sync</button>
+      <button class="ob-tab" data-tab="5" role="tab">Mod 05: Finalize</button>
+    </div>
+
+    <div class="ob-workspace" id="workspace">
+
+      <!-- MODULE 1 -->
+      <div id="tab1" class="ob-page active">
+        <span class="eyebrow boxed">Orientation</span>
+        <h1>Your Operational Command Center.</h1>
+        <p>Welcome to Performance Finance Operations. Before we begin restructuring your data, we want to introduce you to the <strong>Client Hub</strong>, your dedicated workspace for communication and file management.</p>
+        <div class="ob-card ink">
+          <h3>What is the Client Hub?</h3>
+          <p>The Client Hub replaces scattered email threads with a single, secure environment. It is where you will securely upload statements, review our monthly findings, and maintain continuous oversight of your financial operations without administrative friction.</p>
+        </div>
+        <h2>Training &amp; Resources</h2>
+        <p>Review the standard procedures below to understand how we operate together.</p>
+        <div class="ob-resource"><div><h4>Uploading Secure Documents</h4><p>Learn how to use the secure drop-zone for submitting your monthly bank statements, IRS notices, and vendor contracts directly to our controllers.</p></div></div>
+        <div class="ob-resource"><div><h4>Reviewing The Kept Memo</h4><p>A brief walk-through on how to read and extract value from your Monthly Management Package and executive summary notes.</p></div></div>
+        <div class="ob-resource"><div><h4>Clearing Open Items</h4><p>Our streamlined process for clearing uncategorized transactions quickly, ensuring your final reports are never delayed.</p></div></div>
+        <div class="ob-sign">
+          <div class="ob-sign-text"><span class="ob-check">✓</span> I understand the purpose of the Client Hub and have reviewed the training resources.</div>
+          <div class="ob-initials"><div class="editable" contenteditable="true" data-placeholder={initials}></div></div>
+        </div>
+      </div>
+
+      <!-- MODULE 2 -->
+      <div id="tab2" class="ob-page">
+        <span class="eyebrow boxed">Operations</span>
+        <h1>The Monthly Rhythm.</h1>
+        <p>Once onboarding is complete, this is the predictable schedule you can expect from us every single month.</p>
+        <div class="ob-card ink">
+          <h3>01. Data Collection &amp; Prep (1st – 4th)</h3>
+          <p>We automatically pull your bank and credit card statements. By the 4th, we reconcile the accounts and notify you via the Client Hub of any unclear transactions we need your eyes on.</p>
+          <div class="ob-alert"><span>Crucial Step</span><p>We ask that you reply to the open item list by the 5th. Prompt responses ensure your final reports are never delayed.</p></div>
+        </div>
+        <div class="ob-card soft"><h3>02. Finalizing the Close (6th – 10th)</h3><p>Using your feedback, we close out the books. By the 10th, we deliver your Monthly Management Package directly to your Client Hub.</p></div>
+        <div class="ob-card soft"><h3>03. Review &amp; Advisory (11th – 15th)</h3><p>We block this time on our calendar to jump on a 1:1 call with you. We'll walk through your reports and discuss the financial health of the business.</p></div>
+        <div class="ob-card soft"><h3>04. Payables &amp; Receivables (15th – 30th)</h3><p>If we are managing your invoicing and bill pay: Vendor bills are staged and paid around the 20th. Customer invoices and reminders are handled by the 30th.</p></div>
+        <div class="ob-sign">
+          <div class="ob-sign-text"><span class="ob-check">✓</span> I acknowledge the monthly cadence and communication deadlines.</div>
+          <div class="ob-initials"><div class="editable" contenteditable="true" data-placeholder={initials}></div></div>
+        </div>
+      </div>
+
+      <!-- MODULE 3 -->
+      <div id="tab3" class="ob-page">
+        <span class="eyebrow boxed">Core Data</span>
+        <h1>Master Data &amp; Workflows.</h1>
+        <p>Type directly into the fields below to capture your foundational business details and current operational processes. Use "Add" for extra items.</p>
+
+        <div class="ob-card">
+          <h2>01 // Entity Information</h2>
+          <div class="ob-full"><span class="label">Registered Legal Name</span><div class="editable" contenteditable="true" data-placeholder="Ex: Acme Holdings LLC"></div></div>
+          <div class="ob-row">
+            <div><span class="label">DBA / Trade Name</span><div class="editable" contenteditable="true" data-placeholder="If applicable..."></div></div>
+            <div><span class="label">Entity Type</span><div class="editable" contenteditable="true" data-placeholder="LLC, S-Corp, C-Corp..."></div></div>
+          </div>
+          <div class="ob-row">
+            <div><span class="label">Federal EIN (Tax ID)</span><div class="editable" contenteditable="true" data-placeholder="XX-XXXXXXX"></div></div>
+            <div><span class="label">State of Incorporation</span><div class="editable" contenteditable="true" data-placeholder="Ex: Delaware, New Jersey..."></div></div>
+          </div>
+        </div>
+
+        <div class="ob-card">
+          <h2>02 // Financial Accounts</h2>
+          <h3>Bank Accounts</h3>
+          <div class="ob-table"><table id="bankTable">
+            <thead><tr><th style="width:30%">Bank Name</th><th style="width:30%">Account Nickname</th><th style="width:15%">Last 4 Digits</th><th style="width:25%">Purpose</th></tr></thead>
+            <tbody><tr><td><div class="editable" contenteditable="true"></div></td><td><div class="editable" contenteditable="true"></div></td><td><div class="editable" contenteditable="true"></div></td><td><div class="editable" contenteditable="true" data-placeholder="Ops / Payroll"></div></td></tr></tbody>
+          </table></div>
+          <button class="ob-add" data-table="bankTable">+ Add Another Account</button>
+
+          <h3>Credit Cards</h3>
+          <div class="ob-table"><table id="ccTable">
+            <thead><tr><th style="width:30%">Institution</th><th style="width:30%">Card Nickname</th><th style="width:15%">Last 4 Digits</th><th style="width:25%">Primary User</th></tr></thead>
+            <tbody><tr><td><div class="editable" contenteditable="true"></div></td><td><div class="editable" contenteditable="true"></div></td><td><div class="editable" contenteditable="true"></div></td><td><div class="editable" contenteditable="true"></div></td></tr></tbody>
+          </table></div>
+          <button class="ob-add" data-table="ccTable">+ Add Another Card</button>
+        </div>
+
+        <div class="ob-card">
+          <h2>03 // Revenue &amp; Liabilities</h2>
+          <h3>Income Platforms (Stripe, Square, etc.)</h3>
+          <div class="ob-table"><table id="incomeTable">
+            <thead><tr><th style="width:40%">Platform Name</th><th style="width:60%">Bank Account it Deposits Into</th></tr></thead>
+            <tbody><tr><td><div class="editable" contenteditable="true" data-placeholder="Stripe, Square, Shopify..."></div></td><td><div class="editable" contenteditable="true"></div></td></tr></tbody>
+          </table></div>
+          <button class="ob-add" data-table="incomeTable">+ Add Another Platform</button>
+
+          <h3>Business Loans or Lines of Credit</h3>
+          <div class="ob-table"><table id="loanTable">
+            <thead><tr><th style="width:30%">Lender Name</th><th style="width:20%">Total Balance</th><th style="width:20%">Monthly Pmt</th><th style="width:30%">Notes</th></tr></thead>
+            <tbody><tr><td><div class="editable" contenteditable="true" data-placeholder="SBA, Auto Loan..."></div></td><td><div class="editable" contenteditable="true"></div></td><td><div class="editable" contenteditable="true"></div></td><td><div class="editable" contenteditable="true"></div></td></tr></tbody>
+          </table></div>
+          <button class="ob-add" data-table="loanTable">+ Add Another Loan</button>
+        </div>
+
+        <div class="ob-card">
+          <h2>04 // Payroll &amp; Tax Strategy</h2>
+          <div class="ob-row">
+            <div><span class="label">Payroll Provider</span><div class="editable" contenteditable="true" data-placeholder="Gusto, ADP, Paychex..."></div></div>
+            <div><span class="label">Pay Schedule</span><div class="editable" contenteditable="true" data-placeholder="Bi-Weekly, 15th/30th..."></div></div>
+          </div>
+          <div class="ob-full"><span class="label">CPA Firm / Preparer Name &amp; Email</span><div class="editable" contenteditable="true"></div></div>
+          <div class="ob-row">
+            <div><span class="label">Last Filed Year</span><div class="editable" contenteditable="true" data-placeholder="2025"></div></div>
+            <div><span class="label">Fiscal Year End</span><div class="editable" contenteditable="true" data-placeholder="December 31st"></div></div>
+          </div>
+        </div>
+
+        <div class="ob-card ink">
+          <h2>05 // Daily Workflows</h2>
+          <div class="ob-full"><span class="label">Accounts Receivable: How are customers invoiced or billed?</span><div class="editable large" contenteditable="true" data-placeholder="E.g., We create invoices in QBO / We run subscriptions through Stripe / We use a point of sale system..."></div></div>
+          <div class="ob-full"><span class="label">Accounts Payable: How do you currently receive and pay vendor bills?</span><div class="editable large" contenteditable="true" data-placeholder="E.g., Vendors email PDFs to me, and I pay them via bank wire / We use Bill.com / I write physical checks..."></div></div>
+          <div class="ob-full"><span class="label">Employee Expenses: Do employees spend company money or submit receipts?</span><div class="editable large" contenteditable="true" data-placeholder="E.g., They have corporate cards / They submit expense reports via email / We use Expensify..."></div></div>
+        </div>
+
+        <div class="ob-sign">
+          <div class="ob-sign-text"><span class="ob-check">✓</span> I verify the accuracy of the structural data and workflows provided above.</div>
+          <div class="ob-initials"><div class="editable" contenteditable="true" data-placeholder={initials}></div></div>
+        </div>
+      </div>
+
+      <!-- MODULE 4 -->
+      <div id="tab4" class="ob-page">
+        <span class="eyebrow boxed">Infrastructure</span>
+        <h1>System Integrations.</h1>
+        <div class="ob-card ink">
+          <h2>01 // The General Ledger (QuickBooks)</h2>
+          <p>Invite us to your QuickBooks account so we can start organizing your data.</p>
+          <ol>
+            <li>Sign in to your QuickBooks Online account.</li>
+            <li>Click the <strong>Gear Icon</strong> &gt; <strong>Manage Users</strong>.</li>
+            <li>Click the <strong>Accounting Firms</strong> tab (do not use the standard "Users" tab).</li>
+            <li>Invite our firm using the email below.</li>
+          </ol>
+          <div class="ob-invite"><span class="label">Invite Email</span><code>{firmInviteEmail}</code></div>
+        </div>
+        <div class="ob-card soft">
+          <h2>02 // Source Data (Banks &amp; Processors)</h2>
+          <p>We require "Read-Only" or "Accountant" access to your banks, credit cards, and payment processors (like Stripe or Square) to fetch statements securely.</p>
+          <p>Log into your respective banking portals and add <strong>{firmInviteEmail}</strong> as a View-Only or Accountant user.</p>
+        </div>
+        <div class="ob-card soft">
+          <h2>03 // Additional System Access</h2>
+          <p>List any operational, financial, or administrative systems our team requires access to (e.g., POS systems, specialized billing software, CRM).<br /><strong>Do not enter passwords here.</strong> We will collect those via a secure channel once onboarding completes.</p>
+          <div class="ob-table"><table id="systemTable">
+            <thead><tr><th style="width:25%">System Name</th><th style="width:30%">Login URL</th><th style="width:25%">Username / Email</th><th style="width:20%">Notes</th></tr></thead>
+            <tbody><tr><td><div class="editable" contenteditable="true" data-placeholder="e.g., Toast POS"></div></td><td><div class="editable" contenteditable="true" data-placeholder="pos.toasttab.com"></div></td><td><div class="editable" contenteditable="true"></div></td><td><div class="editable" contenteditable="true"></div></td></tr></tbody>
+          </table></div>
+          <button class="ob-add" data-table="systemTable">+ Add Another System</button>
+        </div>
+        <div class="ob-sign">
+          <div class="ob-sign-text"><span class="ob-check">✓</span> I agree to establish the requested system and read-only connections.</div>
+          <div class="ob-initials"><div class="editable" contenteditable="true" data-placeholder={initials}></div></div>
+        </div>
+      </div>
+
+      <!-- MODULE 5 -->
+      <div id="tab5" class="ob-page">
+        <span class="eyebrow boxed">Next Steps</span>
+        <h1>Finalize &amp; Export.</h1>
+        <p>You have completed the structural input for your business. Please provide a final authorization signature and save this file to lock in your answers.</p>
+        <div class="ob-sign column">
+          <div class="ob-sign-text">By signing below, I verify that all data provided within this onboarding workbook is accurate and I authorize bkept to initiate operational integrations based on this document.</div>
+          <div class="ob-row" style="width:100%; margin:0;">
+            <div><span class="label">Authorized Name / Signature</span><div class="editable" contenteditable="true" data-placeholder="Type your full name here..."></div></div>
+            <div><span class="label">Date</span><div class="editable" contenteditable="true" data-placeholder="MM/DD/YYYY"></div></div>
+          </div>
+        </div>
+        <div class="ob-card ink center" style="padding:50px 30px;">
+          <p style="max-width:420px; margin:0 auto 26px;">Click "Save Document to PDF" to capture a flattened copy of your complete submission. Upload this PDF to your Client Hub task or attach it in an email to our onboarding team.</p>
+          <button class="btn" data-action="print">Save Document to PDF</button>
+          <p style="margin-top:20px;"><a class="ob-mail" href={`mailto:${onboardingEmail}`}>Send via email to {onboardingEmail} →</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ob-dock">
+      <div class="ob-dock-info"><strong id="dockStep">MODULE 01:</strong> <span id="dockDesc">Client Hub Orientation</span></div>
+      <div class="ob-dock-actions">
+        <button class="btn btn-outline" id="saveBtn">Save Progress</button>
+        <button class="btn" id="nextBtn">Proceed to Cadence →</button>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style is:global>
+  .ob-header { display: flex; justify-content: space-between; align-items: center; padding: 26px 40px 20px; position: relative; margin-bottom: 40px; gap: 16px; }
+  .ob-header::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--gradient); }
+  .ob-status { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; border: 1px solid var(--border); padding: 6px 12px; border-radius: 4px; background: var(--surface); letter-spacing: 1px; }
+  .ob-wrap { max-width: 1050px; margin: 0 auto 80px; border: 1px solid var(--border); border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,.05); overflow: hidden; }
+  @media (max-width: 1090px) { .ob-wrap { margin-inline: 16px; } }
+  .ob-nav { display: flex; background: var(--surface); border-bottom: 1px solid var(--border); overflow-x: auto; }
+  .ob-tab { flex: 1; padding: 20px 12px; white-space: nowrap; font: inherit; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); background: none; border: 0; border-right: 1px solid var(--border); border-bottom: 3px solid transparent; cursor: pointer; }
+  .ob-tab:last-child { border-right: 0; }
+  .ob-tab:hover, .ob-tab.active { background: #fff; color: var(--ink); }
+  .ob-tab.active { border-bottom-color: var(--gold); }
+  .ob-workspace { padding: 50px; min-height: 600px; }
+  .ob-page { display: none; max-width: 800px; margin: 0 auto; }
+  .ob-page.active { display: block; }
+  .ob-page h1 { font-size: 2.1rem; font-weight: 800; letter-spacing: -1px; margin: 0 0 20px; }
+  .ob-page h2 { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin: 40px 0 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+  .ob-card h2 { margin-top: 0; }
+  .ob-page h3 { font-size: 13px; font-weight: 700; margin: 20px 0 8px; }
+  .ob-card > h3:first-child { margin-top: 0; }
+  .ob-page p, .ob-page li { font-size: 14px; color: var(--muted); }
+  .ob-page ol { padding-left: 20px; }
+  .ob-card { background: #fff; padding: 30px; border: 1px solid var(--border); border-top: 4px solid var(--gold); margin-bottom: 25px; }
+  .ob-card.ink { border-top-color: var(--ink); }
+  .ob-card.soft { border-top-color: var(--soft); }
+  .ob-resource { padding: 20px; background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 4px; margin-bottom: 15px; }
+  .ob-resource h4 { margin: 0 0 5px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .ob-resource p { margin: 0; font-size: 13px; }
+  .ob-alert { background: var(--surface); padding: 15px; border-left: 3px solid #C0392B; margin-top: 15px; }
+  .ob-alert span { color: #C0392B; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+  .ob-alert p { margin: 5px 0 0; font-size: 12px; color: var(--text); }
+  .ob-sign { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--gold); padding: 20px 25px; margin-top: 40px; border-radius: 4px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .ob-sign.column { flex-direction: column; align-items: flex-start; margin-bottom: 30px; border-left-color: var(--ink); }
+  .ob-sign-text { font-size: 13px; color: var(--text); font-weight: 600; }
+  .ob-check { color: var(--gold); margin-right: 8px; font-weight: 800; }
+  .ob-initials { width: 120px; flex: none; }
+  .ob-initials .editable { min-height: 38px; padding: 8px 12px; justify-content: center; background: #fff; text-transform: uppercase; }
+  .ob-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 15px; }
+  .ob-full { margin-bottom: 15px; }
+  .label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 8px; display: block; }
+  .editable { background: var(--surface); border: 1px solid var(--border); padding: 12px 15px; font-size: 14px; font-weight: 500; color: var(--text); min-height: 46px; display: flex; align-items: center; border-radius: 4px; overflow-wrap: anywhere; }
+  .editable.large { min-height: 100px; align-items: flex-start; }
+  .editable:empty::before { content: attr(data-placeholder); color: var(--soft); font-weight: 400; }
+  .editable:focus { outline: none; background: #fff; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(142,115,56,.1); }
+  .ob-table { overflow-x: auto; }
+  .ob-table table { width: 100%; min-width: 520px; border-collapse: collapse; margin-bottom: 10px; }
+  .ob-table th { text-align: left; font-size: 10px; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--border); padding: 10px 5px; font-weight: 800; }
+  .ob-table td { padding: 6px 5px; vertical-align: top; }
+  .ob-add { font: inherit; font-size: 10px; color: var(--muted); background: #fff; border: 1px dashed var(--border); padding: 10px 15px; cursor: pointer; text-transform: uppercase; font-weight: 800; letter-spacing: 1px; display: block; width: 100%; border-radius: 4px; margin-bottom: 10px; }
+  .ob-add:hover { border-color: var(--gold); color: var(--gold); }
+  .ob-invite { background: var(--surface); padding: 15px; border-radius: 4px; border: 1px solid var(--border); margin-top: 15px; }
+  .ob-invite code { font-size: 14px; font-weight: 700; color: var(--ink); }
+  .ob-mail { font-size: 12px; font-weight: 600; color: var(--gold); }
+  .ob-dock { background: var(--surface); padding: 22px 50px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .ob-dock-info { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+  .ob-dock-info strong { color: var(--text); }
+  .ob-dock-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  @media (max-width: 700px) {
+    .ob-header { padding: 20px 16px; }
+    .ob-workspace { padding: 28px 18px; }
+    .ob-dock { padding: 18px; }
+    .ob-row { grid-template-columns: 1fr; }
+    .ob-sign { flex-direction: column; align-items: flex-start; }
+  }
+  @media print {
+    .ob-header, .ob-nav, .ob-dock, .ob-add, [data-action="print"], .ob-mail { display: none !important; }
+    .ob-wrap { box-shadow: none; border: 0; margin: 0; max-width: none; }
+    .ob-workspace { padding: 0; }
+    .ob-page { display: block !important; margin-bottom: 40px; border-bottom: 2px solid #000; padding-bottom: 30px; }
+    .ob-card { border: 0; padding: 0; margin-bottom: 30px; break-inside: avoid; }
+    .editable { background: transparent !important; border: 1px solid #ccc !important; color: #000; }
+    .editable:empty::before { content: ""; }
+    .ob-sign { break-inside: avoid; }
+    @page { margin: 2cm; }
+  }
+</style>
+
+<script>
+  const KEY = 'bkept_onboarding_save_v3';
+  const steps = [
+    ['MODULE 01:', 'Client Hub Orientation', 'Proceed to Cadence →'],
+    ['MODULE 02:', 'Review Monthly Rhythm', 'Proceed to Master Data →'],
+    ['MODULE 03:', 'Input Structural Data', 'Proceed to Tech Sync →'],
+    ['MODULE 04:', 'Connect Systems', 'Proceed to Final Step →'],
+    ['MODULE 05:', 'Save & Email Documentation', 'Save Document to PDF'],
+  ];
+  const workspace = document.getElementById('workspace')!;
+  const nextBtn = document.getElementById('nextBtn')!;
+  const saveBtn = document.getElementById('saveBtn')!;
+  let current = 1;
+
+  function show(n: number, scroll = true) {
+    current = n;
+    document.querySelectorAll('.ob-page').forEach((el) => el.classList.toggle('active', el.id === `tab${n}`));
+    document.querySelectorAll<HTMLElement>('.ob-tab').forEach((el) => {
+      const on = el.dataset.tab === String(n);
+      el.classList.toggle('active', on);
+      el.setAttribute('aria-selected', String(on));
+    });
+    const [step, desc, label] = steps[n - 1];
+    document.getElementById('dockStep')!.textContent = step;
+    document.getElementById('dockDesc')!.textContent = desc;
+    nextBtn.textContent = label;
+    if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Restore a saved draft from this browser, if any.
+  try {
+    const saved = localStorage.getItem(KEY);
+    if (saved) workspace.innerHTML = saved;
+  } catch {}
+  show(1, false);
+
+  document.querySelectorAll<HTMLElement>('.ob-tab').forEach((el) => el.addEventListener('click', () => show(Number(el.dataset.tab))));
+  nextBtn.addEventListener('click', () => (current < 5 ? show(current + 1) : window.print()));
+  saveBtn.addEventListener('click', () => {
+    try {
+      localStorage.setItem(KEY, workspace.innerHTML);
+      saveBtn.textContent = 'Saved ✓';
+    } catch {
+      saveBtn.textContent = 'Could not save in this browser';
+    }
+    setTimeout(() => (saveBtn.textContent = 'Save Progress'), 2000);
+  });
+  // Delegated so buttons keep working after a draft is restored.
+  workspace.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    const add = target.closest<HTMLElement>('.ob-add');
+    if (add) {
+      const body = document.getElementById(add.dataset.table!)?.querySelector('tbody');
+      const row = body?.rows[0].cloneNode(true) as HTMLTableRowElement | undefined;
+      if (body && row) {
+        row.querySelectorAll('.editable').forEach((c) => (c.innerHTML = ''));
+        body.appendChild(row);
+      }
+    }
+    if (target.closest('[data-action="print"]')) window.print();
+  });
+</script>

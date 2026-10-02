@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /onboarding/
+Disallow: /client-directory/
+Disallow: /client-insider/
+
+Sitemap: https://bkept.co/sitemap-index.xml

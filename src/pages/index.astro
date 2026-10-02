@@ -1,0 +1,89 @@
+---
+import Base from '../layouts/Base.astro';
+import Credentials from '../components/Credentials.astro';
+import HeroServices from '../components/HeroServices.astro';
+import Pathways from '../components/Pathways.astro';
+import Philosophy from '../components/Philosophy.astro';
+import Founder from '../components/Founder.astro';
+import ServiceDetail from '../components/ServiceDetail.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../data/site';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'AccountingService',
+  name: 'bkept',
+  url: site.url,
+  description: site.defaultDescription,
+  founder: { '@type': 'Person', name: 'Tom Klecan' },
+  areaServed: ['Westchester County, NY', 'Long Beach Island, NJ', 'New York, NY'],
+  sameAs: [site.linkedin],
+};
+---
+<Base schema={schema}>
+  <div class="container">
+    <section class="hero hero-full">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1 class="rise">Accounting <span class="gold-text">By Design</span></h1>
+          <p class="subhead rise rise-2">Optimized accounting operations that drive performance.</p>
+          <p class="lead rise rise-3">Your back office must evolve as you grow. We assess and systematically recalibrate your financial workflows to drive continuous momentum. Through dedicated monthly retainers, accounting sub-function management, and precise one-time interventions, we deliver financial order so you can lead with confidence.</p>
+          <div class="hero-actions rise rise-4">
+            <a href="/contact/" class="btn">Contact the Firm</a>
+            <Credentials />
+          </div>
+        </div>
+        <HeroServices />
+      </div>
+
+      <div class="banner">
+        <Icon name="hub" />
+        <div>
+          <h2>The ClientHub Experience</h2>
+          <p>Gain real-time visibility into the work being done on your file. We built the ClientHub to provide accessible communication, track daily up-to-date task assignments, and deliver your financial reporting through one engaging, transparent interface.</p>
+        </div>
+      </div>
+    </section>
+
+    <Pathways />
+    <hr class="divider" />
+
+    <section class="section" id="client-experience">
+      <div class="section-head">
+        <span class="eyebrow boxed">Client Experience</span>
+        <h2 class="section-title">The <span class="gold-text">ClientHub.</span></h2>
+        <p class="lead">Performance Finance Operations are only possible when workflows are streamlined, efficient, and accurate. During onboarding, client owners are granted access to ClientHub, a proprietary interface that consolidates communication, task execution, and file management into one dashboard.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card top-gold">
+          <div class="card-bar"></div>
+          <h4>Platform Features</h4>
+          <ul class="check-list">
+            <li><span><strong>Native Integration:</strong> Syncs with your business email and QuickBooks Online ledger.</span></li>
+            <li><span><strong>Focused Communications:</strong> A filtered inbox displaying only recognized contacts, paired with a direct messaging tool to our advisory team.</span></li>
+            <li><span><strong>Active Task Assignment:</strong> Resolve open items without bouncing between software platforms, and assign tasks directly to your dedicated bookkeeper.</span></li>
+            <li><span><strong>Secure Vault:</strong> Encrypted file sharing dedicated exclusively to sensitive financial reporting and business documentation.</span></li>
+          </ul>
+        </div>
+        <div class="card top-ink">
+          <div class="card-bar ink"></div>
+          <h4>Operational Outcomes</h4>
+          <ul class="check-list">
+            <li><span><strong>Simplified Clarity:</strong> Consolidates scattered email threads into one organized record.</span></li>
+            <li><span><strong>Precise Direction:</strong> Centralized task assignments eliminate ambiguity on pending deliverables.</span></li>
+            <li><span><strong>Continuous Momentum:</strong> Prevents missing information from stalling your monthly close process.</span></li>
+            <li><span><strong>Total Visibility:</strong> Provides owners with an instant, real-time snapshot of their engagement status.</span></li>
+            <li><span><strong>Rapid Turnarounds:</strong> Accelerates the delivery of your monthly reporting and strategic briefs.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <hr class="divider" />
+
+    <Philosophy />
+    <hr class="divider" />
+    <Founder />
+    <hr class="divider" />
+    <ServiceDetail />
+  </div>
+</Base>

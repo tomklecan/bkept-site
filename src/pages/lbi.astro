@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import Credentials from '../components/Credentials.astro';
+import HeroServices from '../components/HeroServices.astro';
+import Pathways from '../components/Pathways.astro';
+import Founder from '../components/Founder.astro';
+import ServiceDetail from '../components/ServiceDetail.astro';
+import Icon from '../components/Icon.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'AccountingService',
+  name: 'bkept',
+  url: 'https://bkept.co/lbi/',
+  description: 'bkept provides premium bookkeeping and financial oversight for seasonal businesses and real estate portfolios across Long Beach Island.',
+  areaServed: ['Beach Haven, NJ', 'Surf City, NJ', 'Ship Bottom, NJ', 'Harvey Cedars, NJ', 'Barnegat Light, NJ'],
+};
+---
+<Base
+  title="Financial Operations for Long Beach Island"
+  description="bkept delivers premium Performance Bookkeeping and operational clarity for seasonal businesses and real estate holdings across Long Beach Island."
+  schema={schema}
+>
+  <div class="container">
+    <section class="hero hero-full">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow rise">Local Operations</span>
+          <h1 class="rise">Financial Operations for <br /><span class="gold-text">Long Beach Island.</span></h1>
+          <p class="subhead rise rise-2">The Standard for Modern Business</p>
+          <p class="lead rise rise-3">Operating a business on LBI requires distinct financial agility. We understand the sprint of the 100-day season and the quiet of the dormant months. From high-volume seasonal hospitality in Beach Haven to intricate real estate holding portfolios in Barnegat Light, we replace outdated financial habits with streamlined, highly efficient systems.</p>
+          <div class="hero-actions rise rise-4">
+            <a href="/contact/" class="btn">Contact the Firm</a>
+            <Credentials />
+          </div>
+        </div>
+        <HeroServices />
+      </div>
+    </section>
+    <Pathways />
+    <hr class="divider" />
+
+    <section class="section" id="who-we-serve">
+      <div class="section-head">
+        <span class="eyebrow boxed">Who We Help</span>
+        <h2 class="section-title">Built for the <br /><span class="gold-text">Shore.</span></h2>
+        <p class="lead">We specialize in businesses that drive the local economy. Whether you manage a seasonal surge or year-round assets, we bring institutional discipline to your books.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card top-gold lift">
+          <Icon name="dining" />
+          <h4>Seasonal Hospitality</h4>
+          <p>Restaurants, Retail, and Marinas. We track high-volume transactions in-season and offer flexible dormant pricing during the winter months.</p>
+        </div>
+        <div class="card top-gold lift">
+          <Icon name="property" />
+          <h4>Real Estate Holdings</h4>
+          <p>Rental Portfolios and Property Management. We maintain strict ledger separation for individual assets and manage clean AP/AR workflows for rent collection.</p>
+        </div>
+        <div class="card top-gold lift">
+          <Icon name="tools" />
+          <h4>Local Services &amp; Trades</h4>
+          <p>Construction, Contracting, and Marine Services. We track your project costs and vendor materials so you know exactly what your time and labor are worth.</p>
+        </div>
+      </div>
+    </section>
+    <hr class="divider" />
+    <Founder />
+    <hr class="divider" />
+    <ServiceDetail />
+  </div>
+</Base>

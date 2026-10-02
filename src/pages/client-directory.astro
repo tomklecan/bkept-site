@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { media } from '../data/media';
+import { site } from '../data/site';
+---
+<Base title="Client Directory" description="Portals, forms, and tools for bkept clients." noindex>
+  <div class="container">
+    <section class="hero hero-full hero-center">
+      <span class="eyebrow boxed">Client Resources</span>
+      <h1>Operational <span class="gold-text">HQ.</span></h1>
+      <p class="lead">Access your secure portals, download compliance standards, and manage your financial infrastructure.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="group-title">Access &amp; Portals</h2>
+      <div class="grid-3">
+        <div class="card top-gold">
+          <Icon name="lock" /><h3>The Secure Vault</h3>
+          <p>Your encrypted document portal. Access tax returns, notices, and sensitive financial data.</p>
+          <div class="link-list"><a class="link-row" href="https://app.doublehq.com/client-login" target="_blank" rel="noopener">Launch Portal <span class="arrow">→</span></a></div>
+        </div>
+        <div class="card top-gold">
+          <Icon name="ledger" /><h3>The General Ledger</h3>
+          <p>Direct access to your QuickBooks Online file. View reports and manage customer invoices.</p>
+          <div class="link-list"><a class="link-row" href="https://quickbooks.intuit.com/login/" target="_blank" rel="noopener">Login to QuickBooks <span class="arrow">→</span></a></div>
+        </div>
+        <div class="card top-gold">
+          <Icon name="camera" /><h3>The Gatekeeper</h3>
+          <p>HubDoc access. Snap photos of receipts and forward digital invoices for processing.</p>
+          <div class="link-list"><a class="link-row" href="https://app.hubdoc.com/login" target="_blank" rel="noopener">Login to HubDoc <span class="arrow">→</span></a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="group-title">Operational Assets</h2>
+      <div class="grid-3">
+        <div class="card top-soft">
+          <Icon name="document" /><h3>Vendor Standards</h3>
+          <p>Standardized forms to ensure you are audit-ready before paying new contractors.</p>
+          <div class="link-list">
+            <a class="link-row" href={media.w9Blank.path} target="_blank">W-9 (Blank) <span class="arrow">↓</span></a>
+            <a class="link-row" href={media.w9Bkept.path} target="_blank">bkept's W-9 <span class="arrow">↓</span></a>
+            <a class="link-row" href={media.vendorChecklist.path} target="_blank">New Vendor Checklist <span class="arrow">↓</span></a>
+          </div>
+        </div>
+        <div class="card top-soft">
+          <Icon name="sheet" /><h3>Financial Tools</h3>
+          <p>Templates to standardize your internal financial movements and forecasting.</p>
+          <div class="link-list">
+            <a class="link-row" href={media.expenseForm.path} target="_blank">Expense Reimbursement <span class="arrow">↓</span></a>
+            <a class="link-row" href={media.cashFlowModelClient.path}>Cash Flow Model <span class="arrow">↓</span></a>
+          </div>
+        </div>
+        <div class="card top-soft">
+          <Icon name="calendar" /><h3>The Fiscal Calendar</h3>
+          <p>Critical dates for estimated taxes, 1099 filings, and LLC renewals.</p>
+          <div class="link-list"><span class="link-row disabled">2026 Tax Deadlines: Coming Soon</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="group-title">High-Level Support</h2>
+      <div class="grid-2">
+        <div class="card dark">
+          <h3>Management Review</h3>
+          <p>Schedule your monthly 1:1 financial review or ad-hoc advisory session with the Principal.</p>
+          <div class="link-list"><a class="link-row" href={site.bookingUrl} target="_blank" rel="noopener">Book Session <span class="arrow">→</span></a></div>
+        </div>
+        <div class="card">
+          <h3>Billing Settings</h3>
+          <p>Update your payment method or view past invoices for bkept services.</p>
+          <div class="link-list"><a class="link-row" href="mailto:office@bkept.co">Email Billing <span class="arrow">→</span></a></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Base>

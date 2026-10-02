@@ -1,0 +1,48 @@
+[build]
+  command = "npm run fetch-media && npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Old or mistyped URLs from the WordPress site
+[[redirects]]
+  from = "/library"
+  to = "/the-library/"
+  status = 301
+
+[[redirects]]
+  from = "/library/"
+  to = "/the-library/"
+  status = 301
+
+[[redirects]]
+  from = "/bkept-homepage/"
+  to = "/"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+# Client-only pages stay out of search even if linked from elsewhere
+[[headers]]
+  for = "/onboarding/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+[[headers]]
+  for = "/client-directory/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+[[headers]]
+  for = "/client-insider/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
