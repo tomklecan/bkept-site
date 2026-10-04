@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bkept | Reimbursement Protocol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* --- BKEPT IDENTITY SYSTEM --- */
+        :root {
+            --bk-gradient: linear-gradient(110deg, #8E7338 0%, #D6B569 35%, #F9E7BA 50%, #D6B569 65%, #8E7338 100%);
+            --bk-gold-solid: #C5A059;
+            --bk-void: #1A1A1A;
+            --bk-dark: #2D3436;
+            --bk-surface: #F9FAFB;
+            --bk-border: #E2E8F0;
+            --bk-white: #FFFFFF;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bk-surface);
+            color: var(--bk-dark);
+            margin: 0;
+            padding: 40px 20px;
+            -webkit-print-color-adjust: exact;
+        }
+
+        /* --- LAYOUT ARCHITECTURE --- */
+        .form-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--bk-white);
+            padding: 50px;
+            border: 1px solid var(--bk-border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* --- HEADER --- */
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--bk-gold-solid);
+            padding-bottom: 20px;
+        }
+
+        .brand-title {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            color: var(--bk-void);
+        }
+
+        .doc-meta {
+            text-align: right;
+            font-size: 12px;
+            color: #636E72;
+        }
+
+        /* --- INPUT GROUPS --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--bk-gold-solid);
+            margin-bottom: 8px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--bk-border);
+            background: var(--bk-surface);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--bk-void);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-group input:focus {
+            border-color: var(--bk-gold-solid);
+        }
+
+        /* --- EXPENSE TABLE --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th {
+            text-align: left;
+            font-size: 11px;
+            text-transform: uppercase;
+            background: var(--bk-void);
+            color: var(--bk-white);
+            padding: 12px;
+            letter-spacing: 1px;
+        }
+
+        td {
+            border-bottom: 1px solid var(--bk-border);
+            padding: 0;
+        }
+
+        td input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            outline: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+        }
+
+        td input:focus {
+            background: #fafafa;
+        }
+
+        .amount-col {
+            text-align: right;
+            width: 120px;
+        }
+        
+        .amount-input {
+            text-align: right;
+        }
+
+        /* --- FOOTER & TOTALS --- */
+        .footer-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .btn-add {
+            background: transparent;
+            border: 1px dashed var(--bk-gold-solid);
+            color: var(--bk-gold-solid);
+            padding: 8px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .btn-add:hover {
+            background: #FEF9E7;
+        }
+
+        .total-box {
+            text-align: right;
+        }
+
+        .total-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #636E72;
+            margin-right: 10px;
+        }
+
+        .total-value {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--bk-void);
+        }
+
+        /* --- SIGNATURE BLOCK --- */
+        .approval-section {
+            margin-top: 60px;
+            background: var(--bk-surface);
+            padding: 30px;
+            border-radius: 4px;
+        }
+
+        .policy-text {
+            font-size: 12px;
+            color: #636E72;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .sig-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .sig-line {
+            border-top: 1px solid #BDC3C7;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--bk-void);
+        }
+
+        /* --- UTILS --- */
+        .print-btn {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 40px auto 0;
+            background: var(--bk-void);
+            color: white;
+            padding: 15px;
+            border: none;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+        
+        .print-btn:hover {
+            background: var(--bk-gold-solid);
+        }
+
+        @media print {
+            body { padding: 0; background: white; }
+            .form-container { box-shadow: none; border: none; padding: 0; }
+            .btn-add, .print-btn { display: none; }
+            input { background: transparent !important; border: none !important; }
+            .input-group input { border-bottom: 1px solid #ddd !important; padding-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    
+    <div class="header-row">
+        <div>
+            <div class="brand-title">Reimbursement Protocol</div>
+            <div style="font-size: 14px; color: var(--bk-gold-solid); font-weight: 600;">Expense Substantiation Form</div>
+        </div>
+        <div class="doc-meta">
+            DOC ID: EXP-2026-V2<br>
+            STATUS: Awaiting Approval
+        </div>
+    </div>
+
+    <div class="grid-2">
+        <div class="input-group">
+            <label>Employee Name</label>
+            <input type="text" placeholder="Full Legal Name">
+        </div>
+        <div class="input-group">
+            <label>Department / Team</label>
+            <input type="text" placeholder="e.g. Sales, Ops">
+        </div>
+        <div class="input-group">
+            <label>Submission Date</label>
+            <input type="date">
+        </div>
+        <div class="input-group">
+            <label>Period Covered</label>
+            <input type="text" placeholder="e.g. Feb 1 - Feb 15">
+        </div>
+    </div>
+
+    <table id="expenseTable">
+        <thead>
+            <tr>
+                <th style="width: 15%;">Date</th>
+                <th style="width: 25%;">Merchant</th>
+                <th style="width: 30%;">Description / Purpose</th>
+                <th style="width: 15%;">Category</th>
+                <th class="amount-col">Amount ($)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="date"></td>
+                <td><input type="text" placeholder="Vendor Name"></td>
+                <td><input type="text" placeholder="Business Justification"></td>
+                <td><input type="text" placeholder="e.g. Travel, Meals"></td>
+                <td><input type="number" class="amount-input" placeholder="0.00" oninput="calcTotal()"></td>
+            </tr>
+            <tr>
+                <td><input type="date"></td>
+                <td><input type="text" placeholder="Vendor Name"></td>
+                <td><input type="text" placeholder="Business Justification"></td>
+                <td><input type="text" placeholder="e.g. Travel, Meals"></td>
+                <td><input type="number" class="amount-input" placeholder="0.00" oninput="calcTotal()"></td>
+            </tr>
+            <tr>
+                <td><input type="date"></td>
+                <td><input type="text" placeholder="Vendor Name"></td>
+                <td><input type="text" placeholder="Business Justification"></td>
+                <td><input type="text" placeholder="e.g. Travel, Meals"></td>
+                <td><input type="number" class="amount-input" placeholder="0.00" oninput="calcTotal()"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="footer-actions">
+        <button class="btn-add" onclick="addRow()">+ Add Line Item</button>
+        <div class="total-box">
+            <span class="total-label">TOTAL REIMBURSEMENT</span>
+            <span class="total-value" id="grandTotal">$0.00</span>
+        </div>
+    </div>
+
+    <div class="approval-section">
+        <div class="policy-text">
+            <strong>The Substantiation Rule:</strong> By signing below, I certify that these expenses were incurred for legitimate business purposes in accordance with company policy. I understand that any expense lacking a valid receipt or clear business purpose will be reclassified as "Personal" and deducted from the reimbursement total.
+        </div>
+
+        <div class="sig-grid">
+            <div>
+                <div style="height: 40px;"></div> <div class="sig-line">
+                    <span>Employee Signature</span>
+                    <span>Date</span>
+                </div>
+            </div>
+            <div>
+                <div style="height: 40px;"></div> <div class="sig-line">
+                    <span>Manager Approval</span>
+                    <span>Date</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<button class="print-btn" onclick="window.print()">Print / Save to PDF</button>
+
+<script>
+    function calcTotal() {
+        let total = 0;
+        const amounts = document.querySelectorAll('.amount-input');
+        amounts.forEach(input => {
+            const val = parseFloat(input.value);
+            if (!isNaN(val)) {
+                total += val;
+            }
+        });
+        document.getElementById('grandTotal').innerText = '$' + total.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    }
+
+    function addRow() {
+        const table = document.getElementById('expenseTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+        newRow.innerHTML = `
+            <td><input type="date"></td>
+            <td><input type="text" placeholder="Vendor Name"></td>
+            <td><input type="text" placeholder="Business Justification"></td>
+            <td><input type="text" placeholder="Category"></td>
+            <td><input type="number" class="amount-input" placeholder="0.00" oninput="calcTotal()"></td>
+        `;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bkept | Vendor Intake Protocol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* --- BKEPT IDENTITY SYSTEM --- */
+        :root {
+            --bk-gradient: linear-gradient(110deg, #8E7338 0%, #D6B569 35%, #F9E7BA 50%, #D6B569 65%, #8E7338 100%);
+            --bk-gold-solid: #C5A059;
+            --bk-void: #1A1A1A;
+            --bk-dark: #2D3436;
+            --bk-surface: #F9FAFB;
+            --bk-border: #E2E8F0;
+            --bk-white: #FFFFFF;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bk-white);
+            color: var(--bk-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* --- LAYOUT ARCHITECTURE --- */
+        .page-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* --- HEADER PROTOCOL --- */
+        .header-section {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        /* The Gold Line [cite: 52] */
+        .gold-line {
+            width: 100px;
+            height: 3px;
+            background: var(--bk-gradient);
+            margin-bottom: 25px;
+        }
+
+        .hero-tag {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--bk-gold-solid);
+            border: 1px solid var(--bk-gold-solid);
+            padding: 4px 10px;
+            border-radius: 100px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -1.5px;
+            color: var(--bk-void);
+            margin: 0 0 10px 0;
+            line-height: 1.1;
+        }
+
+        .sub-header {
+            font-size: 18px;
+            color: #636E72;
+            font-weight: 400;
+            max-width: 600px;
+        }
+
+        /* --- THE PROTOCOL CARDS (Glass Effect) --- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .protocol-card {
+            background: var(--bk-white);
+            border: 1px solid var(--bk-border);
+            padding: 35px;
+            border-radius: 4px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hover Lift [cite: 56] */
+        .protocol-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--bk-gold-solid); /* Gold Top Border on Hover */
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--bk-void);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-number {
+            background: var(--bk-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 18px;
+            margin-right: 12px;
+        }
+
+        /* --- CHECKLIST ITEM STYLING --- */
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--bk-surface);
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .custom-check {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--bk-void);
+            margin-right: 15px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .item-content strong {
+            display: block;
+            font-size: 15px;
+            color: var(--bk-void);
+            font-weight: 700;
+        }
+
+        .item-content span {
+            font-size: 13px;
+            color: #636E72;
+        }
+
+        /* --- THE WARNING BOX (Strict Rules) --- */
+        .warning-box {
+            background: var(--bk-void);
+            color: #BDC3C7;
+            padding: 40px;
+            margin-top: 60px;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .warning-box::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--bk-gradient);
+        }
+
+        .warning-title {
+            color: var(--bk-white);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .warning-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--bk-white);
+            max-width: 800px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (min-width: 768px) {
+            .card-grid { grid-template-columns: 1fr 1fr; }
+            .full-width { grid-column: span 2; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+    
+    <div class="header-section">
+        <div class="gold-line"></div>
+        <span class="hero-tag">Operational Gatekeeper</span>
+        <h1>Vendor Intake Protocol</h1>
+        <p class="sub-header">Data integrity begins at the source. All new vendors must satisfy the following validation points before entry into the financial ecosystem.</p>
+    </div>
+
+    <div class="card-grid">
+
+        <div class="protocol-card">
+            <div class="card-title"><span class="card-number">01</span> Compliance Core</div>
+            
+            <div class="checklist-item">
+                <div class="custom-check"></div>
+                <div class="item-content">
+                    <strong>Form W-9 (Signed)</strong>
+                    <span>Must be current (signed within the last 12 months). Mandatory for all service providers.</span>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <div class="custom-check"></div>
+                <div class="item-content">
+                    <strong>Certificate of Insurance (COI)</strong>
+                    <span>Required for all physical trades/contractors. Liability limits must match company policy.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="protocol-card">
+            <div class="card-title"><span class="card-number">02</span> Payment Architecture</div>
+            
+            <div class="checklist-item">
+                <div class="custom-check"></div>
+                <div class="item-content">
+                    <strong>Payment Method Intel</strong>
+                    <span>ACH Routing/Account Number or Wire Instructions. We do not chase paper checks.</span>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <div class="custom-check"></div>
+                <div class="item-content">
+                    <strong>Payment Terms</strong>
+                    <span>Define the strict due date logic (e.g., Net 15, Net 30, Due on Receipt).</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="protocol-card full-width">
+            <div class="card-title"><span class="card-number">03</span> Communication Channels</div>
+            
+            <div class="checklist-item">
+                <div class="custom-check"></div>
+                <div class="item-content">
+                    <strong>Dedicated Billing Email</strong>
+                    <span>The exact email address where invoices are sent. This connects to our OCR "Gatekeeper" software.</span>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <div class="custom-check"></div>
+                <div class="item-content">
+                    <strong>Primary Point of Contact</strong>
+                    <span>Name, Email, and Phone of the account representative for dispute resolution.</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="warning-box">
+        <span class="warning-title">The Golden Rule</span>
+        <div class="warning-text">
+            "No W-9, No Pay." This policy is absolute. No funds will be released to a vendor until their tax identification status is verified and stored in the General Ledger.
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
