@@ -1,0 +1,19 @@
+---
+import { testimonials } from '../data/testimonials';
+---
+{testimonials.length > 0 && (
+  <section class="section" id="clients">
+    <div class="section-head">
+      <span class="eyebrow boxed">Client Notes</span>
+      <h2 class="section-title">In Their <span class="gold-text">Words.</span></h2>
+    </div>
+    <div class="grid-auto">
+      {testimonials.map((t) => (
+        <figure class="card top-gold quote">
+          <blockquote>“{t.quote}”</blockquote>
+          <figcaption><strong>{t.name}</strong><span>{t.role}</span></figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+)}

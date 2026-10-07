@@ -1,67 +1,52 @@
 ---
 import Base from '../layouts/Base.astro';
+import CallBand from '../components/CallBand.astro';
+import { site } from '../data/site';
 import { retainerTiers, addOns, dormantRate, setupFee, cleanupNote, usd } from '../data/pricing';
 ---
-<Base title="Pricing" description="Clear pricing for impeccably kept systems. Compare bkept's Concierge projects and Kept monthly retainers.">
+<Base title="Pricing" description={`bkept pricing: fixed monthly bookkeeping retainers from ${usd(Math.min(...retainerTiers.map((t) => t.price)))}/mo by transaction volume, plus flat-fee cleanup and QuickBooks projects.`}>
   <div class="container">
     <section class="hero hero-full hero-center">
-      <span class="eyebrow boxed">Discovery Process</span>
-      <h1>Objective <span class="gold-text">Pricing.</span></h1>
-      <p class="lead">Clear pricing for impeccably kept systems. Compare our service tracks below to review the scopes, parameters, and fixed structures necessary to secure your operational clarity.</p>
+      <span class="eyebrow boxed">Pricing</span>
+      <h1>Fixed Fees. <span class="gold-text">No Surprises.</span></h1>
+      <p class="lead">Monthly retainers priced by volume, and one-time projects quoted as a flat fee. Not sure where you fit? A 20-minute call settles it.</p>
+      <div class="cta-row"><a href={site.introCallUrl} class="btn" target="_blank" rel="noopener">Book a 20-Minute Call</a></div>
     </section>
 
     <div class="tracks">
       <div class="track card top-gold">
         <div class="track-head">
-          <h2>The Concierge</h2>
-          <p>Tactical, project-based interventions. We step in, establish operational clarity, and step out. Ideal for immediate bottlenecks and systemic restructuring.</p>
-        </div>
-        <h3 class="subhead-rule">Example Engagements</h3>
-        <ul class="def-list">
-          <li><strong>Historical Clean-ups</strong> Untangling years of creative accounting or incomplete data into a legitimate, tax-ready ledger.</li>
-          <li><strong>Audit Defense Prep</strong> Organizing every receipt, contract, and bank statement to ensure compliance against IRS inquiries.</li>
-          <li><strong>Payroll Platform Migration</strong> Moving your team from a legacy system to a modern platform (Gusto, Rippling) with zero downtime.</li>
-          <li><strong>Data &amp; Sales Scrub</strong> Cleaning pipeline data (HubSpot/Salesforce) and standardizing databases to eliminate wasted operational time.</li>
-          <li><strong>HR &amp; Onboarding Systems</strong> Building the operational checklists for hiring, firing, and benefits coordination.</li>
-        </ul>
-        <h3 class="subhead-rule">Pricing Variables</h3>
-        <p class="muted">Concierge projects are billed as a <strong>custom flat fee</strong> determined by four critical parameters:</p>
-        <ul class="def-list">
-          <li><strong>Transaction Volume</strong> The scale of data processing required to execute the fix.</li>
-          <li><strong>Historical Depth</strong> The number of past months or years that require forensic auditing and reconciliation.</li>
-          <li><strong>System Complexity</strong> The quantity of disconnected platforms, external integrations, or legacy software involved.</li>
-          <li><strong>Urgency</strong> Expedited delivery requirements for immediate tax or acquisition deadlines.</li>
-        </ul>
-        {cleanupNote && <p class="note-box">{cleanupNote}</p>}
-      </div>
-
-      <div class="track card top-ink">
-        <div class="track-head">
+          <span class="tag">Monthly Retainer</span>
           <h2>The Kept</h2>
-          <p>Your outsourced financial back-office. Predictable, recurring integrity and active monthly management for growing businesses.</p>
+          <p>Your outsourced bookkeeping and finance back office. One fixed monthly fee, books closed by the 10th.</p>
         </div>
-        <h3 class="subhead-rule ink">Included Operations</h3>
-        <ul class="def-list ink">
+        <h3 class="subhead-rule">Included Operations</h3>
+        <ul class="def-list">
           <li><strong>Full-Cycle Bookkeeping</strong> Continuous categorization and reconciliation of all transactions and accounts.</li>
-          <li><strong>The Kept Memo</strong> Monthly delivery of your P&amp;L, Balance Sheet, Cash Flow Statement, and executive summary notes.</li>
+          <li><strong>Monthly Close by the 10th</strong> Your P&amp;L, Balance Sheet and Cash Flow Statement, closed and delivered.</li>
+          <li><strong>The Kept Memo &amp; 1:1 Review</strong> A plain-English summary of the month and dedicated time to walk through it.</li>
           <li><strong>CPA Liaison</strong> Fully managed year-end handoffs so you never have to answer frustrating tax questions.</li>
           <li><strong>Compliance Watchdog</strong> Proactive tracking of business licenses, insurance policies, and entity renewals.</li>
         </ul>
 
-        <h3 class="subhead-rule ink">Monthly Retainers</h3>
-        <p class="muted">Fixed monthly retainers structured around your business's total volume and operational complexity.</p>
+        <h3 class="subhead-rule">Monthly Retainers</h3>
+        <p class="muted">Priced by monthly transaction volume across all your bank and card accounts.</p>
         {retainerTiers.map((t) => (
           <div class="tier">
             <div><div class="tier-name">{t.name}</div><div class="tier-details">{t.details}</div></div>
             <div class="tier-price">{usd(t.price)}<span>/mo</span></div>
           </div>
         ))}
+        <div class="tier tier-custom">
+          <div><div class="tier-name">Over 750 Transactions</div><div class="tier-details">Multiple entities or high volume.</div></div>
+          <div class="tier-price">Custom</div>
+        </div>
         {setupFee !== null && (
           <p class="note-box">One-time onboarding and setup: <strong>{usd(setupFee)}</strong></p>
         )}
 
-        <h3 class="subhead-rule ink" style="margin-top:25px;">Add-On Operations</h3>
-        <p class="muted">For businesses requiring dedicated administrative processing beyond ledger management.</p>
+        <h3 class="subhead-rule" id="add-ons" style="margin-top:25px;">Single-Function Operations</h3>
+        <p class="muted">Available on their own or alongside a retainer, for businesses that want one function handled.</p>
         {addOns.map((t) => (
           <div class="tier">
             <div><div class="tier-name">{t.name}</div><div class="tier-details">{t.details}</div></div>
@@ -70,12 +55,33 @@ import { retainerTiers, addOns, dormantRate, setupFee, cleanupNote, usd } from '
         ))}
         <p class="note-box"><strong>Seasonal Operations:</strong> We offer a flexible dormant rate starting at {usd(dormantRate)}/mo for off-season businesses.</p>
       </div>
+      <div class="track card top-ink">
+        <div class="track-head">
+          <span class="tag">One-Time Projects</span>
+          <h2>The Concierge</h2>
+          <p>Flat-fee projects with a defined scope. Ideal when the books need a catch-up, a cleanup or a new system before monthly work begins.</p>
+        </div>
+        <h3 class="subhead-rule ink">Example Engagements</h3>
+        <ul class="def-list ink">
+          <li><strong>Catch-Up &amp; Clean-Up</strong> Months or years of missing or messy books brought current and tax-ready.</li>
+          <li><strong>Audit Defense Prep</strong> Organizing every receipt, contract, and bank statement to ensure compliance against IRS inquiries.</li>
+          <li><strong>Payroll Platform Migration</strong> Moving your team from a legacy system to a modern platform (Gusto, Rippling) with zero downtime.</li>
+          <li><strong>Data &amp; Sales Scrub</strong> Cleaning pipeline data (HubSpot/Salesforce) and standardizing databases to eliminate wasted operational time.</li>
+          <li><strong>HR &amp; Onboarding Systems</strong> Building the operational checklists for hiring, firing, and benefits coordination.</li>
+        </ul>
+        <h3 class="subhead-rule ink">Pricing Variables</h3>
+        <p class="muted">Concierge projects are billed as a <strong>custom flat fee</strong> based on four things:</p>
+        <ul class="def-list ink">
+          <li><strong>Transaction Volume</strong> The scale of data processing required to execute the fix.</li>
+          <li><strong>Historical Depth</strong> The number of past months or years that require forensic auditing and reconciliation.</li>
+          <li><strong>System Complexity</strong> The quantity of disconnected platforms, external integrations, or legacy software involved.</li>
+          <li><strong>Urgency</strong> Expedited delivery requirements for immediate tax or acquisition deadlines.</li>
+        </ul>
+        {cleanupNote && <p class="note-box">{cleanupNote}</p>}
+      </div>
+
     </div>
   </div>
 
-  <section class="dark-band">
-    <h2>Ready for Operational Clarity?</h2>
-    <p>Skip the calculators. Speak directly with our office to secure your project scope or align your monthly retainer.</p>
-    <a href="/contact/" class="btn btn-gold">Contact the Firm</a>
-  </section>
+  <CallBand title="Not sure which tier fits?" text="Tell us roughly how many transactions you run and how far behind the books are. On a 20-minute call we will place you in a tier and quote any catch-up work as a flat fee." />
 </Base>

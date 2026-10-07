@@ -3,10 +3,10 @@ import Base from '../layouts/Base.astro';
 import Credentials from '../components/Credentials.astro';
 import HeroServices from '../components/HeroServices.astro';
 import Pathways from '../components/Pathways.astro';
-import Philosophy from '../components/Philosophy.astro';
 import Founder from '../components/Founder.astro';
 import ServiceDetail from '../components/ServiceDetail.astro';
-import Icon from '../components/Icon.astro';
+import Testimonials from '../components/Testimonials.astro';
+import CallBand from '../components/CallBand.astro';
 import { site } from '../data/site';
 
 const schema = {
@@ -15,75 +15,115 @@ const schema = {
   name: 'bkept',
   url: site.url,
   description: site.defaultDescription,
+  email: 'newclient@bkept.co',
   founder: { '@type': 'Person', name: 'Tom Klecan' },
   areaServed: ['Westchester County, NY', 'Long Beach Island, NJ', 'New York, NY'],
   sameAs: [site.linkedin],
 };
+
+const pains = [
+  ['The books are months behind.', 'You know roughly what is in the bank, but not what you actually made.'],
+  ['Your CPA keeps sending questions.', 'Tax season turns into weeks of digging for receipts and explanations.'],
+  ['You do the bookkeeping at night.', 'Hours a month on categorizing transactions instead of running the business.'],
+  ['Decisions run on gut feel.', 'Hiring, pricing and spending calls made without a current P&L in hand.'],
+];
+
+const month = [
+  ['By the 4th', 'Accounts reconciled', 'Every bank and card account matched. Anything unclear comes to you as one short list, not a stream of emails.'],
+  ['By the 10th', 'Books closed', 'Your P&L, Balance Sheet and Cash Flow Statement, closed and delivered.'],
+  ['With the close', 'The Kept Memo', 'A plain-English summary of the month: what changed, what to watch, what needs a decision.'],
+  ['Every month', 'A 1:1 review', 'Dedicated time with Tom to walk through the numbers and line them up with your plans.'],
+];
 ---
 <Base schema={schema}>
   <div class="container">
     <section class="hero hero-full">
       <div class="hero-grid">
         <div class="hero-copy">
-          <h1 class="rise">Accounting <span class="gold-text">By Design</span></h1>
-          <p class="subhead rise rise-2">Optimized accounting operations that drive performance.</p>
-          <p class="lead rise rise-3">Your back office must evolve as you grow. We assess and systematically recalibrate your financial workflows to drive continuous momentum. Through dedicated monthly retainers, accounting sub-function management, and precise one-time interventions, we deliver financial order so you can lead with confidence.</p>
+          <h1 class="rise">Accounting <span class="gold-text">By Design.</span></h1>
+          <p class="subhead rise rise-2">Built around your business, not a package.</p>
+          <p class="lead rise rise-3">We recalibrate your accounting operations so they support the business and drive growth, then keep them running on a monthly retainer. Need one function handled, a one-time system setup, or the whole back office? Start with what you need, and we will shape the engagement around it.</p>
           <div class="hero-actions rise rise-4">
-            <a href="/contact/" class="btn">Contact the Firm</a>
+            <a href={site.introCallUrl} class="btn" target="_blank" rel="noopener">Book a 20-Minute Call</a>
+            <a href="/pricing/" class="btn btn-outline">See Pricing</a>
+          </div>
+          <div class="hero-badges rise rise-4">
             <Credentials />
           </div>
         </div>
         <HeroServices />
-      </div>
-
-      <div class="banner">
-        <Icon name="hub" />
-        <div>
-          <h2>The ClientHub Experience</h2>
-          <p>Gain real-time visibility into the work being done on your file. We built the ClientHub to provide accessible communication, track daily up-to-date task assignments, and deliver your financial reporting through one engaging, transparent interface.</p>
-        </div>
       </div>
     </section>
 
     <Pathways />
     <hr class="divider" />
 
-    <section class="section" id="client-experience">
+    <section class="section" id="sound-familiar">
       <div class="section-head">
-        <span class="eyebrow boxed">Client Experience</span>
-        <h2 class="section-title">The <span class="gold-text">ClientHub.</span></h2>
-        <p class="lead">Performance Finance Operations are only possible when workflows are streamlined, efficient, and accurate. During onboarding, client owners are granted access to ClientHub, a proprietary interface that consolidates communication, task execution, and file management into one dashboard.</p>
+        <span class="eyebrow boxed">Sound Familiar?</span>
+        <h2 class="section-title">You've Outgrown <span class="gold-text">Doing It Yourself.</span></h2>
+        <p class="lead">Most owners call us when one of these has gone on too long.</p>
       </div>
-      <div class="grid-2">
-        <div class="card top-gold">
-          <div class="card-bar"></div>
-          <h4>Platform Features</h4>
-          <ul class="check-list">
-            <li><span><strong>Native Integration:</strong> Syncs with your business email and QuickBooks Online ledger.</span></li>
-            <li><span><strong>Focused Communications:</strong> A filtered inbox displaying only recognized contacts, paired with a direct messaging tool to our advisory team.</span></li>
-            <li><span><strong>Active Task Assignment:</strong> Resolve open items without bouncing between software platforms, and assign tasks directly to your dedicated bookkeeper.</span></li>
-            <li><span><strong>Secure Vault:</strong> Encrypted file sharing dedicated exclusively to sensitive financial reporting and business documentation.</span></li>
-          </ul>
-        </div>
-        <div class="card top-ink">
-          <div class="card-bar ink"></div>
-          <h4>Operational Outcomes</h4>
-          <ul class="check-list">
-            <li><span><strong>Simplified Clarity:</strong> Consolidates scattered email threads into one organized record.</span></li>
-            <li><span><strong>Precise Direction:</strong> Centralized task assignments eliminate ambiguity on pending deliverables.</span></li>
-            <li><span><strong>Continuous Momentum:</strong> Prevents missing information from stalling your monthly close process.</span></li>
-            <li><span><strong>Total Visibility:</strong> Provides owners with an instant, real-time snapshot of their engagement status.</span></li>
-            <li><span><strong>Rapid Turnarounds:</strong> Accelerates the delivery of your monthly reporting and strategic briefs.</span></li>
-          </ul>
-        </div>
+      <ul class="pain-list">
+        {pains.map(([k, v]) => <li><div><strong>{k}</strong><span>{v}</span></div></li>)}
+      </ul>
+    </section>
+    <hr class="divider" />
+
+
+    <section class="section" id="every-month">
+      <div class="section-head">
+        <span class="eyebrow boxed">The Monthly Retainer</span>
+        <h2 class="section-title">What Arrives <span class="gold-text">Every Month.</span></h2>
+        <p class="lead">A fixed fee and a fixed calendar. Questions, tasks and files run through one client portal instead of scattered email threads.</p>
+      </div>
+      <div class="month">
+        {month.map(([day, title, desc]) => (
+          <div class="card top-gold">
+            <span class="day">{day}</span>
+            <h4>{title}</h4>
+            <p>{desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="cta-row">
+        <a href="/pricing/" class="btn btn-outline">See Retainer Pricing →</a>
       </div>
     </section>
     <hr class="divider" />
 
-    <Philosophy />
+    <section class="section" id="how-it-starts">
+      <div class="section-head">
+        <span class="eyebrow boxed">Getting Started</span>
+        <h2 class="section-title">How It <span class="gold-text">Starts.</span></h2>
+      </div>
+      <div class="steps">
+        <div class="card">
+          <span class="when">20 minutes</span>
+          <h4>An intro call</h4>
+          <p>We look at your current software, how many accounts you run, and how far behind the books are.</p>
+        </div>
+        <div class="card">
+          <span class="when">After the call</span>
+          <h4>A fixed quote</h4>
+          <p>For whatever scope fits: a flat project fee, a monthly retainer, or both. No hourly billing surprises.</p>
+        </div>
+        <div class="card">
+          <span class="when">First 30 days</span>
+          <h4>The work begins</h4>
+          <p>Projects start on an agreed timeline. Monthly clients get a 30-day onboarding, then the first close lands by the 10th.</p>
+        </div>
+      </div>
+      <div class="cta-row">
+        <a href={site.introCallUrl} class="btn" target="_blank" rel="noopener">Book a 20-Minute Call</a>
+      </div>
+    </section>
     <hr class="divider" />
+
     <Founder />
+    <Testimonials />
     <hr class="divider" />
     <ServiceDetail />
   </div>
+  <CallBand />
 </Base>

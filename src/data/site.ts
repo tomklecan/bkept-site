@@ -5,11 +5,15 @@ export const site = {
   name: 'bkept.',
   url: 'https://bkept.co',
   tagline: 'Performance Finance',
-  defaultTitle: 'bkept | Performance Bookkeeping & Business Support',
+  defaultTitle: 'bkept | Accounting By Design for Growing Businesses',
   defaultDescription:
-    'Beyond bookkeeping. We optimize your accounting operations so your business is fully supported for performance.',
+    'We recalibrate your accounting operations to support growth, then manage them on a monthly retainer. Ongoing bookkeeping, single functions like AP/AR or payroll, or one-time QuickBooks setups and cleanups.',
   linkedin: 'https://www.linkedin.com/in/tommyklecan',
   bookingUrl: 'https://calendar.app.google/ooDvBA9WNF6wHNbP7',
+  // The "Book a 20-minute call" buttons for prospects. Uses the same calendar as
+  // client reviews for now; swap in a dedicated intro-call link when you have one.
+  introCallUrl: 'https://calendar.app.google/ooDvBA9WNF6wHNbP7',
+  responseTime: 'one business day',
 };
 
 export const nav = [
