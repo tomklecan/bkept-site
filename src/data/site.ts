@@ -5,9 +5,9 @@ export const site = {
   name: 'bkept.',
   url: 'https://bkept.co',
   tagline: 'Performance Finance',
-  defaultTitle: 'bkept | Monthly Bookkeeping & Financial Reporting for Growing Businesses',
+  defaultTitle: 'bkept | Accounting By Design for Growing Businesses',
   defaultDescription:
-    'Monthly bookkeeping, reconciliations and financial reporting delivered by the 10th, on a fixed retainer. Plus flat-fee cleanups and QuickBooks setups. Westchester, Long Beach Island and New York.',
+    'We recalibrate your accounting operations to support growth, then manage them on a monthly retainer. Ongoing bookkeeping, single functions like AP/AR or payroll, or one-time QuickBooks setups and cleanups.',
   linkedin: 'https://www.linkedin.com/in/tommyklecan',
   bookingUrl: 'https://calendar.app.google/ooDvBA9WNF6wHNbP7',
   // The "Book a 20-minute call" buttons for prospects. Uses the same calendar as

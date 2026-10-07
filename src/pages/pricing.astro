@@ -45,8 +45,8 @@ import { retainerTiers, addOns, dormantRate, setupFee, cleanupNote, usd } from '
           <p class="note-box">One-time onboarding and setup: <strong>{usd(setupFee)}</strong></p>
         )}
 
-        <h3 class="subhead-rule" style="margin-top:25px;">Add-On Operations</h3>
-        <p class="muted">For businesses requiring dedicated administrative processing beyond ledger management.</p>
+        <h3 class="subhead-rule" id="add-ons" style="margin-top:25px;">Single-Function Operations</h3>
+        <p class="muted">Available on their own or alongside a retainer, for businesses that want one function handled.</p>
         {addOns.map((t) => (
           <div class="tier">
             <div><div class="tier-name">{t.name}</div><div class="tier-details">{t.details}</div></div>
