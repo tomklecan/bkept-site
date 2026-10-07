@@ -1,5 +1,7 @@
 ---
-// Concierge (Tier 01) and Kept (Tier 02) scopes, shared by the homepage and town pages.
+import { retainerTiers, usd } from '../data/pricing';
+const fromPrice = usd(Math.min(...retainerTiers.map((t) => t.price)));
+// Kept (monthly) and Concierge (project) scopes, shared by the homepage and town pages.
 const concierge = [
   { title: 'QuickBooks Implementations', items: [
     ['End-to-End Setup', 'Complete QuickBooks Online system structuring and deployment.'],
@@ -38,11 +40,34 @@ const kept = [
   ]},
 ];
 ---
+<section class="section" id="the-kept">
+  <span class="tag">Monthly Retainer</span>
+  <h2 class="section-title">Kept <span class="gold-text">Services</span></h2>
+  <p class="lead" style="margin-bottom:40px;">Your outsourced financial back office. We work inside your existing systems, keep the books current every day, and close them every month, so you always have Operational Clarity.</p>
+  <div class="grid-3">
+    {kept.map((g) => (
+      <div class="card top-ink lift">
+        <div class="card-bar ink"></div>
+        <h4>{g.title}</h4>
+        <ul class="check-list">
+          {g.items.map(([k, v]) => <li><span><strong>{k}:</strong> {v}</span></li>)}
+        </ul>
+      </div>
+    ))}
+  </div>
+  <div class="stack-sm">
+    <div class="price-note"><strong>Pricing:</strong> <span class="muted">Fixed monthly retainer from {fromPrice}/mo, based on volume and complexity.</span></div>
+    <a href="/pricing/" class="btn btn-outline">See Retainer Pricing →</a>
+  </div>
+</section>
+
+<hr class="divider" />
+
 <section class="section" id="services">
   <div style="max-width:650px; margin-bottom:40px;">
-    <span class="tag">Tier 01 // Targeted Assignments</span>
+    <span class="tag">One-Time Projects</span>
     <h2 class="section-title">Concierge <span class="gold-text">Services</span></h2>
-    <p class="lead">Tactical, project-based execution. Whether it is a full-scale QuickBooks Online implementation, operational data scrubs, or complex financial modeling, we step in, execute the project with precision, and step out.</p>
+    <p class="lead">Project-based work with a defined scope and a flat fee. A full QuickBooks Online implementation, a catch-up on months of missing books, or a data cleanup: we step in, finish it, and step out.</p>
   </div>
   <div class="grid-3">
     {concierge.map((g) => (
@@ -56,29 +81,7 @@ const kept = [
     ))}
   </div>
   <div class="stack-sm">
-    <div class="price-note"><strong>Pricing:</strong> <span class="muted">Flat Project Fee (Based on complexity).</span></div>
-  </div>
-</section>
-
-<hr class="divider" />
-
-<section class="section" id="the-kept">
-  <span class="tag">Tier 02 // Full-Spectrum Management</span>
-  <h2 class="section-title">Kept <span class="gold-text">Services</span></h2>
-  <p class="lead" style="margin-bottom:40px;">Your outsourced financial back-office. We integrate into your daily operations to ensure your books are professionally maintained and your business maintains complete Operational Clarity.</p>
-  <div class="grid-3">
-    {kept.map((g) => (
-      <div class="card top-ink lift">
-        <div class="card-bar ink"></div>
-        <h4>{g.title}</h4>
-        <ul class="check-list">
-          {g.items.map(([k, v]) => <li><span><strong>{k}:</strong> {v}</span></li>)}
-        </ul>
-      </div>
-    ))}
-  </div>
-  <div class="stack-sm">
-    <div class="price-note"><strong>Pricing:</strong> <span class="muted">Fixed Monthly Retainer (Volume &amp; Complexity-based).</span></div>
-    <a href="/pricing/" class="btn btn-outline">View Pricing →</a>
+    <div class="price-note"><strong>Pricing:</strong> <span class="muted">Flat project fee, quoted after a 20-minute call.</span></div>
+    <a href="/contact/?topic=project" class="btn btn-outline">Request a Project Quote →</a>
   </div>
 </section>

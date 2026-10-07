@@ -5,11 +5,15 @@ export const site = {
   name: 'bkept.',
   url: 'https://bkept.co',
   tagline: 'Performance Finance',
-  defaultTitle: 'bkept | Performance Bookkeeping & Business Support',
+  defaultTitle: 'bkept | Monthly Bookkeeping & Financial Reporting for Growing Businesses',
   defaultDescription:
-    'Beyond bookkeeping. We optimize your accounting operations so your business is fully supported for performance.',
+    'Monthly bookkeeping, reconciliations and financial reporting delivered by the 10th, on a fixed retainer. Plus flat-fee cleanups and QuickBooks setups. Westchester, Long Beach Island and New York.',
   linkedin: 'https://www.linkedin.com/in/tommyklecan',
   bookingUrl: 'https://calendar.app.google/ooDvBA9WNF6wHNbP7',
+  // The "Book a 20-minute call" buttons for prospects. Uses the same calendar as
+  // client reviews for now; swap in a dedicated intro-call link when you have one.
+  introCallUrl: 'https://calendar.app.google/ooDvBA9WNF6wHNbP7',
+  responseTime: 'one business day',
 };
 
 export const nav = [

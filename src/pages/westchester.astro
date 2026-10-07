@@ -3,7 +3,9 @@ import Base from '../layouts/Base.astro';
 import Credentials from '../components/Credentials.astro';
 import HeroServices from '../components/HeroServices.astro';
 import Pathways from '../components/Pathways.astro';
-import Philosophy from '../components/Philosophy.astro';
+import Icon from '../components/Icon.astro';
+import CallBand from '../components/CallBand.astro';
+import { site } from '../data/site';
 import Founder from '../components/Founder.astro';
 import ServiceDetail from '../components/ServiceDetail.astro';
 
@@ -30,7 +32,7 @@ const schema = {
           <p class="subhead rise rise-2">The Standard for Modern Business</p>
           <p class="lead rise rise-3">bkept provides premium bookkeeping and financial oversight for established businesses and professional operators across Westchester County. From professional agencies in White Plains to specialized consultants in Mt. Kisco and Pleasantville, we replace outdated financial habits with streamlined, highly efficient systems.</p>
           <div class="hero-actions rise rise-4">
-            <a href="/contact/" class="btn">Contact the Firm</a>
+            <a href={site.introCallUrl} class="btn" target="_blank" rel="noopener">Book a 20-Minute Call</a>
             <Credentials />
           </div>
         </div>
@@ -39,10 +41,34 @@ const schema = {
     </section>
     <Pathways />
     <hr class="divider" />
-    <Philosophy />
+    <section class="section" id="who-we-serve">
+      <div class="section-head">
+        <span class="eyebrow boxed">Who We Help</span>
+        <h2 class="section-title">Built for <br /><span class="gold-text">Westchester Operators.</span></h2>
+        <p class="lead">Established, owner-led businesses that have outgrown doing the books themselves, from White Plains to Rye.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card top-gold lift">
+          <Icon name="document" />
+          <h4>Agencies &amp; Professional Services</h4>
+          <p>Consultancies, creative agencies and specialist firms. Retainer revenue tracked cleanly, contractor costs categorized, and a monthly view of margin by client.</p>
+        </div>
+        <div class="card top-gold lift">
+          <Icon name="property" />
+          <h4>Real Estate &amp; Property</h4>
+          <p>Rental portfolios and property managers. Each property kept on its own clean ledger, with rent collection and vendor payments on a set schedule.</p>
+        </div>
+        <div class="card top-gold lift">
+          <Icon name="dining" />
+          <h4>Hospitality &amp; Retail</h4>
+          <p>Restaurants, studios and shops with high transaction volume. Daily sales and processor deposits reconciled, so the P&amp;L reflects what actually happened.</p>
+        </div>
+      </div>
+    </section>
     <hr class="divider" />
     <Founder />
     <hr class="divider" />
     <ServiceDetail />
   </div>
+  <CallBand title="Talk to a Westchester bookkeeper." text="A 20-minute call with Tom about your business and where the books stand. You leave knowing which retainer fits and what any catch-up would cost." />
 </Base>

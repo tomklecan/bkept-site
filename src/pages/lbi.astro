@@ -6,6 +6,8 @@ import Pathways from '../components/Pathways.astro';
 import Founder from '../components/Founder.astro';
 import ServiceDetail from '../components/ServiceDetail.astro';
 import Icon from '../components/Icon.astro';
+import CallBand from '../components/CallBand.astro';
+import { site } from '../data/site';
 
 const schema = {
   '@context': 'https://schema.org',
@@ -30,7 +32,7 @@ const schema = {
           <p class="subhead rise rise-2">The Standard for Modern Business</p>
           <p class="lead rise rise-3">Operating a business on LBI requires distinct financial agility. We understand the sprint of the 100-day season and the quiet of the dormant months. From high-volume seasonal hospitality in Beach Haven to intricate real estate holding portfolios in Barnegat Light, we replace outdated financial habits with streamlined, highly efficient systems.</p>
           <div class="hero-actions rise rise-4">
-            <a href="/contact/" class="btn">Contact the Firm</a>
+            <a href={site.introCallUrl} class="btn" target="_blank" rel="noopener">Book a 20-Minute Call</a>
             <Credentials />
           </div>
         </div>
@@ -69,4 +71,5 @@ const schema = {
     <hr class="divider" />
     <ServiceDetail />
   </div>
+  <CallBand title="Get ahead of next season." text="A 20-minute call with Tom about your business, your season and your books. You leave knowing which retainer fits, including dormant-month pricing." />
 </Base>

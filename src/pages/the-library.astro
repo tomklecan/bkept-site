@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import { media } from '../data/media';
+import CallBand from '../components/CallBand.astro';
 
 const groups = [
   { title: 'Financial Models', accent: 'top-gold', items: [
@@ -19,7 +20,7 @@ const groups = [
 <Base title="The Library" description="Curated financial models, standard operating procedures, and calculators from bkept.">
   <div class="container">
     <section class="hero hero-full">
-      <span class="eyebrow boxed">Client Access</span>
+      <span class="eyebrow boxed">Free Resources</span>
       <h1>The <span class="gold-text">Library.</span></h1>
       <p class="lead">Curated financial models, standard operating procedures, and calculators. Designed to bring immediate clarity to your back-office.</p>
     </section>
@@ -41,4 +42,5 @@ const groups = [
       </section>
     ))}
   </div>
+  <CallBand title="Want this run for you every month?" text="These are the same tools we use with clients. On a retainer, we keep them current for you and walk you through the numbers every month." />
 </Base>

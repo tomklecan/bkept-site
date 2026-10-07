@@ -1,13 +1,13 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { desks } from '../../data/site';
+import { desks, site } from '../../data/site';
 ---
-<Base title="Contact" description="Contact bkept. Tell us about your business and we'll reply within one business day, or reach the right desk directly.">
+<Base title="Contact" description="Contact bkept. Tell us about your business and we'll reply within one business day, or book a 20-minute call.">
   <div class="container">
     <section class="hero hero-full hero-center">
       <span class="eyebrow boxed">Contact the Firm</span>
       <h1>Operational Clarity.<br /><span class="gold-text">On Demand.</span></h1>
-      <p class="lead">Your back office should not be a bottleneck. Tell us where things stand and we'll come back with next steps within one business day.</p>
+      <p class="lead">Your back office should not be a bottleneck. Tell us where things stand and we'll come back with next steps within {site.responseTime}.</p>
     </section>
 
     <div class="contact-grid">
@@ -48,8 +48,13 @@ import { desks } from '../../data/site';
       </div>
 
       <aside>
+        <div class="call-card">
+          <h2>Rather talk it through?</h2>
+          <p>Pick a time for a 20-minute call with Tom. You will leave knowing which retainer fits and what any catch-up work would cost.</p>
+          <a href={site.introCallUrl} class="btn btn-gold btn-block" target="_blank" rel="noopener">Book a 20-Minute Call</a>
+        </div>
         <h2 class="group-title" style="font-size:1.1rem;">Firm Directory</h2>
-        <p class="muted" style="font-size:.95rem;">Prefer email? Route your inquiry to the right desk. We respond to all correspondence within 24 hours.</p>
+        <p class="muted" style="font-size:.95rem;">Prefer email? Write to the right desk and we will reply within {site.responseTime}.</p>
         {desks.map((d) => (
           <a class="desk" href={`mailto:${d.email}`}>
             <span class="desk-label">{d.label}</span>

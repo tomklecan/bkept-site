@@ -1,0 +1,17 @@
+---
+// Closing call to action used at the bottom of every sales page.
+import { site } from '../data/site';
+interface Props { title?: string; text?: string; }
+const {
+  title = 'See where your books stand.',
+  text = 'A 20-minute call with Tom. We look at your current setup, how far behind things are, and which retainer fits. You leave knowing what it would take and what it costs.',
+} = Astro.props;
+---
+<section class="dark-band">
+  <h2>{title}</h2>
+  <p>{text}</p>
+  <div class="band-actions">
+    <a href={site.introCallUrl} class="btn btn-gold" target="_blank" rel="noopener">Book a 20-Minute Call</a>
+    <a href="/contact/" class="btn btn-ghost">Send a Message Instead</a>
+  </div>
+</section>
