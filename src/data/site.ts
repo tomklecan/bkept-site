@@ -4,7 +4,7 @@
 export const site = {
   name: 'bkept.',
   url: 'https://bkept.co',
-  tagline: 'Performance Finance',
+  tagline: 'Fractional Accounting Operations',
   defaultTitle: 'bkept | Your Books, Well Kept',
   defaultDescription:
     'We recalibrate your accounting operations to support growth, then manage them on a monthly retainer. Ongoing bookkeeping, single functions like AP/AR or payroll, or one-time QuickBooks setups and cleanups.',

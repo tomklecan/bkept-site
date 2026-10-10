@@ -3,47 +3,44 @@ import { retainerTiers, usd } from '../data/pricing';
 const fromPrice = usd(Math.min(...retainerTiers.map((t) => t.price)));
 // Kept (monthly) and Concierge (project) scopes, shared by the homepage and town pages.
 const concierge = [
-  { title: 'QuickBooks Implementations', items: [
-    ['End-to-End Setup', 'Complete QuickBooks Online system structuring and deployment.'],
-    ['Legacy Migration', 'Secure transition of historical financial data into new frameworks.'],
-    ['Chart of Accounts', 'Custom ledger structuring built specifically for your business model.'],
-    ['SOP & Workflows', 'Detailed operational process documentation and training.'],
+  { title: 'QuickBooks Setup', items: [
+    ['New Setup', 'QuickBooks Online built from scratch and structured for your business.'],
+    ['Migration', 'Your history moved over from desktop or another system, checked line by line.'],
+    ['Chart of Accounts', 'Accounts organized around how your business actually earns and spends.'],
   ]},
-  { title: 'Data & Sales Operations', items: [
-    ['CRM Data Scrubs', 'Cleaning pipeline data (HubSpot/Salesforce).'],
-    ['Database Standardization', 'Formatting inconsistent data sets.'],
-    ['Migration Audits', 'Verifying data integrity during software moves.'],
-    ['Vendor Audits', 'Identifying SaaS waste and duplicate billing.'],
+  { title: 'Catch-Up & Cleanup', items: [
+    ['Catch-Up', 'Months or years of missing books brought current.'],
+    ['Cleanup', 'Miscoded transactions, duplicate accounts and old balances fixed.'],
+    ['Tax-Ready Handoff', 'A clean set of books and a year-end package for your CPA.'],
   ]},
-  { title: 'People Operations', items: [
-    ['Payroll Migration', 'Moving teams to modern platforms.'],
-    ['Commission Tracking', 'Verifying sales payouts and structures.'],
-    ['Onboarding Systems', 'Building standardized hiring workflows.'],
-    ['Handbook Drafting', 'Creating clear, non-corporate operational manuals.'],
+  { title: 'Workflow Redesign', items: [
+    ['Approvals', 'A clear sign-off step for bills, expenses and payroll.'],
+    ['Payroll Moves', 'Your team moved to a modern payroll platform without a missed pay run.'],
+    ['Written Procedures', 'Simple steps your team can follow, so the work holds up after we hand it back.'],
   ]},
 ];
 const kept = [
-  { title: 'The Continuous Ledger', items: [
-    ['Full-Cycle Bookkeeping', 'Daily transaction categorization and continuous bank reconciliation.'],
+  { title: 'The Books', items: [
+    ['Full-Cycle Bookkeeping', 'Transactions coded and bank and card accounts reconciled throughout the month.'],
     ['Vendor Gatekeeping', 'Auditing new vendors and monitoring statements for duplicate billing.'],
-    ['CPA Liaison', 'Fully managed year-end handoffs to eliminate tax-season friction.'],
+    ['CPA Liaison', 'We hand your CPA a clean year-end package and answer their questions.'],
   ]},
   { title: 'The Monthly Close', items: [
-    ['Financial Reporting', 'Precision delivery of your P&L, Balance Sheet, and Cash Flow.'],
-    ['The Kept Memo', 'A concise, plain-English executive summary of your monthly performance.'],
-    ['Strategic Review', 'Dedicated 1:1 advisory time to align your numbers with operational goals.'],
+    ['Financial Reporting', 'Your P&L, Balance Sheet and Cash Flow Statement, delivered by the 10th.'],
+    ['The Kept Memo', 'A plain-English summary of the month: what changed, what to watch, what needs a decision.'],
+    ['1:1 Review', 'Time with Tom each month to walk through the numbers and your plans.'],
   ]},
-  { title: 'Active Cash Management', items: [
-    ['AP / AR Operations', 'Structured accounts payable and receivable batch processing.'],
-    ['13-Week Forecasting', 'Forward-looking projections to anticipate working capital needs.'],
-    ['Compliance Tracking', 'Proactive monitoring of state entity filings and insurance renewals.'],
+  { title: 'Cash', items: [
+    ['AP / AR', 'Bills paid on schedule, invoices sent and followed up.'],
+    ['13-Week Forecast', 'A rolling view of cash in and out, so a tight month is never a surprise.'],
+    ['Compliance Tracking', 'Reminders for state entity filings, licenses and insurance renewals.'],
   ]},
 ];
 ---
 <section class="section" id="the-kept">
   <span class="tag">Monthly Retainer</span>
   <h2 class="section-title">Kept <span class="gold-text">Services</span></h2>
-  <p class="lead" style="margin-bottom:40px;">Your outsourced financial back office. We work inside your existing systems, keep the books current every day, and close them every month, so you always have Operational Clarity.</p>
+  <p class="lead" style="margin-bottom:40px;">Your accounting run as a real function of the business. We work inside your existing systems, keep the books current through the month, and close them by the 10th.</p>
   <div class="grid-3">
     {kept.map((g) => (
       <div class="card top-ink lift">
@@ -67,7 +64,7 @@ const kept = [
   <div style="max-width:650px; margin-bottom:40px;">
     <span class="tag">One-Time Projects</span>
     <h2 class="section-title">Concierge <span class="gold-text">Services</span></h2>
-    <p class="lead">Project-based work with a defined scope and a flat fee. A full QuickBooks Online implementation, a catch-up on months of missing books, or a data cleanup: we step in, finish it, and step out.</p>
+    <p class="lead">One-time work with a defined scope and a flat fee. We set up the system, bring the books current, or fix how the work flows, then hand it back or keep running it monthly.</p>
   </div>
   <div class="grid-3">
     {concierge.map((g) => (
@@ -80,6 +77,7 @@ const kept = [
       </div>
     ))}
   </div>
+  <p class="muted" style="margin-top:24px;">Other operations projects, like CRM data cleanup, vendor and software audits or commission tracking, on request.</p>
   <div class="stack-sm">
     <div class="price-note"><strong>Pricing:</strong> <span class="muted">Flat project fee, quoted after a 20-minute call.</span></div>
     <a href="/contact/?topic=project" class="btn btn-outline">Request a Project Quote →</a>
