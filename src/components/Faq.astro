@@ -1,0 +1,27 @@
+---
+import { faq } from '../data/faq';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+<section class="section" id="faq">
+  <div class="section-head">
+    <span class="eyebrow boxed">FAQ</span>
+    <h2 class="section-title">Common <span class="gold-text">Questions.</span></h2>
+  </div>
+  <div class="faq">
+    {faq.map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script>
+    // Print every answer, not just the open ones.
+    window.addEventListener('beforeprint', () => document.querySelectorAll('.faq details').forEach((d) => ((d as HTMLDetailsElement).open = true)));
+  </script>
+</section>

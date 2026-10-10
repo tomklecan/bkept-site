@@ -1,0 +1,25 @@
+---
+import Icon from './Icon.astro';
+const fits = [
+  { icon: 'document', title: 'Agencies & Professional Services', desc: 'Consultancies, creative studios and specialist firms. Retainer revenue, contractor costs and margin by client.' },
+  { icon: 'property', title: 'Real Estate & Property', desc: 'Rental portfolios and property managers. Each property on its own clean ledger, rents and vendor bills on a schedule.' },
+  { icon: 'chart', title: 'E-Commerce & Retail', desc: 'Online stores and shops with high order volume. Sales, processor payouts and supplier bills reconciled daily.' },
+  { icon: 'tools', title: 'Hospitality, Trades & Seasonal', desc: 'Restaurants, contractors and shore businesses. Job costs tracked, with a lower rate in the off-season.' },
+] as const;
+---
+<section class="section" id="who-we-serve">
+  <div class="section-head">
+    <span class="eyebrow boxed">Who We Work With</span>
+    <h2 class="section-title">Who We <span class="gold-text">Serve.</span></h2>
+    <p class="lead">Owner-led businesses that have outgrown doing the books themselves, from a few dozen transactions a month to several thousand.</p>
+  </div>
+  <div class="fit-grid">
+    {fits.map((f) => (
+      <div class="card top-gold">
+        <Icon name={f.icon} />
+        <h4>{f.title}</h4>
+        <p>{f.desc}</p>
+      </div>
+    ))}
+  </div>
+</section>

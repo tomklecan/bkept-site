@@ -7,6 +7,9 @@ import Founder from '../components/Founder.astro';
 import ServiceDetail from '../components/ServiceDetail.astro';
 import Testimonials from '../components/Testimonials.astro';
 import CallBand from '../components/CallBand.astro';
+import WhoWeServe from '../components/WhoWeServe.astro';
+import CaseTeaser from '../components/CaseTeaser.astro';
+import Faq from '../components/Faq.astro';
 import { site } from '../data/site';
 
 const schema = {
@@ -62,8 +65,9 @@ const month = [
     </section>
 
     <Pathways />
+    <div class="band band-cream"><WhoWeServe /></div>
 
-    <section class="section band band-cream" id="sound-familiar">
+    <section class="section" id="sound-familiar">
       <div class="section-head">
         <span class="eyebrow boxed">Sound Familiar?</span>
         <h2 class="section-title">Not a <span class="gold-text">Side Task.</span></h2>
@@ -104,11 +108,12 @@ const month = [
         ))}
       </div>
       <div class="cta-row">
+        <a href="/sample-memo/" class="btn btn-gold">See a Sample Memo</a>
         <a href="/pricing/" class="btn btn-outline">See Retainer Pricing →</a>
       </div>
     </section>
 
-    <section class="section" id="how-it-starts">
+    <section class="section band band-cream" id="how-it-starts">
       <div class="section-head">
         <span class="eyebrow boxed">Getting Started</span>
         <h2 class="section-title">How It <span class="gold-text">Starts.</span></h2>
@@ -135,9 +140,11 @@ const month = [
       </div>
     </section>
 
-    <div class="band band-cream"><Founder /></div>
+    <Founder />
+    <div class="band band-ink"><CaseTeaser /></div>
     <Testimonials />
     <ServiceDetail />
+    <div class="band band-cream"><Faq /></div>
   </div>
   <CallBand />
 </Base>

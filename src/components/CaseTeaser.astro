@@ -1,0 +1,21 @@
+---
+// Homepage teaser for the case study. The full story lives on /results/.
+import { caseStudy as c } from '../data/caseStudy';
+---
+{c && (
+  <section class="section" id="case-study">
+    <div class="section-head">
+      <span class="eyebrow boxed">Case Study</span>
+      <h2 class="section-title">Before and <span class="gold-text">After.</span></h2>
+      <p class="lead">{c.client}</p>
+    </div>
+    <div class="case-stats">
+      {c.results.map((r) => (
+        <div class="case-stat"><strong class="gold-text">{r.stat}</strong><span>{r.label}</span></div>
+      ))}
+    </div>
+    <div class="cta-row">
+      <a href="/results/" class="btn btn-gold">Read the Case Study →</a>
+    </div>
+  </section>
+)}

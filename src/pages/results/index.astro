@@ -1,0 +1,75 @@
+---
+import Base from '../../layouts/Base.astro';
+import CallBand from '../../components/CallBand.astro';
+import { caseStudy } from '../../data/caseStudy';
+const stats = caseStudy?.results ?? [];
+---
+<Base title="Case Study: Keeping Pace With Growth" description="How a drop-ship e-commerce business processing 2,500 to 3,000 transactions a month went from six months behind to daily processing and a monthly close.">
+  <div class="container">
+    <section class="hero hero-full hero-center">
+      <span class="eyebrow boxed">Case Study · E-Commerce</span>
+      <h1>Keeping Pace <span class="gold-text">With Growth.</span></h1>
+      <p class="lead">How a drop-ship e-commerce business went from six months behind to daily processing and a regular monthly close.</p>
+    </section>
+
+    <article class="article">
+      <aside class="glance">
+        <h2>At a Glance</h2>
+        <dl>
+          <div><dt>Industry</dt><dd>Drop-ship e-commerce</dd></div>
+          <div><dt>Volume</dt><dd>2,500 to 3,000 transactions a month</dd></div>
+          <div><dt>Starting point</dt><dd>Books six months behind; bank accounts unreconciled for over a year</dd></div>
+          <div><dt>Engagement</dt><dd>Catch-up, workflow redesign, then ongoing monthly management</dd></div>
+          <div><dt>Outcome</dt><dd>Daily processing within three months, and a regular monthly close and report</dd></div>
+        </dl>
+      </aside>
+
+      <h2>The Business</h2>
+      <p>The client is a drop-ship e-commerce company in a period of rapid growth. In a drop-ship model, the business sells products it never holds. Each order is fulfilled by a supplier, and the supplier bills the business for that order.</p>
+      <p>That model keeps inventory risk low, but it multiplies the accounting. Every sale creates more than one transaction to record: the sale, the processor payout, and the supplier's bill. As sales climbed, the books reached roughly 2,500 to 3,000 transactions a month.</p>
+
+      <h2>The Challenge</h2>
+      <p>When bkept was engaged, the books were six months behind, covering the fourth quarter of 2025 and the first quarter of 2026. The bank accounts had not been reconciled in more than a year. There was no monthly reporting, and no defined expectations for what the bookkeeping function should deliver.</p>
+      <p>The largest single bottleneck was supplier billing. Suppliers issued a separate bill for every order, so bill volume grew in step with sales, and each bill had to be retrieved and entered by hand. The previous bookkeeper could not keep up. Each month the operations team was pulled in to track down bills and repeat work to help close the gap, which took time away from running the business.</p>
+
+      <h2>Why This Happens</h2>
+      <p>This pattern is common in fast-growing product businesses. A process built on manual entry and periodic catch-up works at a few hundred transactions a month. It rarely fails all at once. Instead it falls a little further behind each month, until clearing the backlog becomes the entire job and nothing forward-looking gets done.</p>
+      <p>The early signs tend to look the same:</p>
+      <ul>
+        <li><strong>Reconciliations slip.</strong> Accounts go months without being matched to the bank, so errors compound quietly.</li>
+        <li><strong>Non-finance staff start doing finance work.</strong> Operations or sales teams fill gaps that the process should handle.</li>
+        <li><strong>Reports stop arriving.</strong> Decisions get made from the bank balance and memory instead of financial statements.</li>
+      </ul>
+
+      <h2>The Approach</h2>
+      <h3>Phase 1: Catch up within the existing process</h3>
+      <p>bkept first brought the fourth quarter of 2025 current using the workflow the business already had. Changing systems in the middle of a backlog adds risk. Working inside the existing procedure first made the books reliable again and showed exactly where the friction was before any changes were proposed.</p>
+      <h3>Phase 2: Redesign the workflow for the real volume</h3>
+      <p>With the backlog under control, bkept proposed changes to how the accounting operation ran, built around actual transaction volume rather than the volume the business had when the old process was set up. Supplier bills and bank transactions moved to daily handling instead of monthly bursts, and the books moved to a defined monthly close. Within three months, daily processing was in place and the business had a regular monthly reporting cadence.</p>
+      <h3>Phase 3: Automate entry and shift to review</h3>
+      <p>The team then introduced software to ingest supplier bills automatically. Data entry moved from people to the system, and bkept's role shifted to review and oversight: checking what the automation produced, resolving exceptions and keeping the close on schedule.</p>
+
+      <h2>The Results</h2>
+      <div class="case-stats">
+        {stats.map((r) => (
+          <div class="case-stat"><strong class="gold-text">{r.stat}</strong><span>{r.label}</span></div>
+        ))}
+      </div>
+      <p>The time that once went to manual entry now goes to work that helps run the business. That includes building analytics for financial planning, and standardizing the reports so performance can be measured with consistent, comparable metrics from month to month. The operations team is no longer pulled into bookkeeping.</p>
+
+      <h2>What Changed for the Team</h2>
+      <p>The bigger shift was in how the business relates to its numbers. The team now works with the accounting function instead of around it, and has started to see what solid accounting operations can do for their own roles and for the business as a whole. With sales still growing quickly, the focus has moved from catching up to steady improvement as the business and its circumstances change.</p>
+
+      <h2>Takeaways for Growing E-Commerce Businesses</h2>
+      <ul>
+        <li><strong>Match the process to the volume.</strong> Per-order supplier billing scales with sales. A process designed for manual entry will not keep up.</li>
+        <li><strong>Catch up before you change systems.</strong> Clean, current books show where the real bottlenecks are and make any later change safer.</li>
+        <li><strong>Automate the entry, keep a human review.</strong> Software handles volume well. A reviewer catches what it gets wrong and keeps the close on time.</li>
+        <li><strong>Set expectations for the bookkeeping.</strong> A close date and a monthly report turn bookkeeping from a background task into a function with deliverables.</li>
+        <li><strong>Measure the same way every month.</strong> Consistent, comparable metrics are what make the numbers useful for decisions.</li>
+      </ul>
+      <p class="muted small-note">The client is not named to protect their privacy. Figures are drawn from the engagement.</p>
+    </article>
+  </div>
+  <CallBand title="Growing faster than your books?" text="A 20-minute call with Tom. Tell us where the books stand today, and we'll show you what the first three months could look like." />
+</Base>
