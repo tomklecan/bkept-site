@@ -7,6 +7,9 @@ import Founder from '../components/Founder.astro';
 import ServiceDetail from '../components/ServiceDetail.astro';
 import Testimonials from '../components/Testimonials.astro';
 import CallBand from '../components/CallBand.astro';
+import WhoWeServe from '../components/WhoWeServe.astro';
+import CaseStudy from '../components/CaseStudy.astro';
+import Faq from '../components/Faq.astro';
 import { site } from '../data/site';
 
 const schema = {
@@ -63,6 +66,8 @@ const month = [
 
     <Pathways />
     <hr class="divider" />
+    <WhoWeServe />
+    <hr class="divider" />
 
     <section class="section" id="sound-familiar">
       <div class="section-head">
@@ -106,6 +111,7 @@ const month = [
         ))}
       </div>
       <div class="cta-row">
+        <a href="/sample-memo/" class="btn">See a Sample Memo</a>
         <a href="/pricing/" class="btn btn-outline">See Retainer Pricing →</a>
       </div>
     </section>
@@ -140,9 +146,12 @@ const month = [
     <hr class="divider" />
 
     <Founder />
+    <CaseStudy />
     <Testimonials />
     <hr class="divider" />
     <ServiceDetail />
+    <hr class="divider" />
+    <Faq />
   </div>
   <CallBand />
 </Base>
