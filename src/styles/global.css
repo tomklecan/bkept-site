@@ -379,3 +379,28 @@ a.link-row:hover { color: var(--gold); padding-left: 5px; }
   .band-ink .card, .band-ink .case-stat { background: #fff; border-color: var(--border); }
   .band-ink .card.top-gold, .band-ink .case-stat { border-top-color: var(--gold); }
 }
+
+/* ---------- Long-form articles (case studies) ---------- */
+.article { max-width: 760px; margin: 0 auto; padding-block: 50px 70px; }
+.article h2 { font-size: 1.6rem; font-weight: 800; letter-spacing: -.01em; margin: 48px 0 14px; }
+.article h3 { font-size: 1.1rem; font-weight: 700; margin: 28px 0 8px; color: var(--ink); }
+.article p, .article li { font-size: 1.05rem; line-height: 1.75; color: var(--text); }
+.article p { margin: 0 0 16px; }
+.article ul { list-style: disc; padding-left: 22px; margin: 0 0 18px; }
+.article li { margin-bottom: 8px; }
+.article li::marker { color: var(--gold); }
+.article .case-stats { margin: 20px 0 26px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.article .small-note { font-size: .85rem; color: var(--muted); margin-top: 30px; }
+.glance { background: var(--cream); border-top: 4px solid var(--gold); padding: 26px 30px; }
+.glance h2 { font-size: .8rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin: 0 0 14px; }
+.glance dl { margin: 0; display: grid; gap: 10px; }
+.glance dl div { display: grid; grid-template-columns: 150px 1fr; gap: 16px; }
+.glance dt { font-weight: 700; color: var(--ink); }
+.glance dd { margin: 0; color: var(--text); }
+@media (max-width: 600px) { .article .case-stats { grid-template-columns: 1fr; } .glance dl div { grid-template-columns: 1fr; gap: 0; } .glance { padding: 22px 20px; } }
+@media print {
+  .article { padding-block: 10px; }
+  .article h2, .article h3 { break-after: avoid; }
+  .glance { background: #fff !important; border: 1px solid var(--border); border-top: 4px solid var(--gold); }
+  .glance, .article .case-stat, .article li { break-inside: avoid; }
+}
