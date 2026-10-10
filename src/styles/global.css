@@ -362,6 +362,7 @@ a.link-row:hover { color: var(--gold); padding-left: 5px; }
 /* ---------- Color bands: full-width section backgrounds ---------- */
 .band { margin-inline: calc(50% - 50vw); padding-inline: calc(50vw - 50%); }
 .band-cream { background: var(--cream); }
+.band-cream .pain-list li { background: var(--bg); }
 .band-ink { background: var(--ink); }
 .band-ink .section-title, .band-ink .card h4 { color: #fff; }
 .band-ink .lead, .band-ink .card p, .band-ink .case-stat span { color: var(--ink-text); }
@@ -376,4 +377,5 @@ a.link-row:hover { color: var(--gold); padding-left: 5px; }
   .band-ink .section-title, .band-ink .card h4 { color: var(--ink); }
   .band-ink .lead, .band-ink .card p, .band-ink .case-stat span { color: var(--muted); }
   .band-ink .card, .band-ink .case-stat { background: #fff; border-color: var(--border); }
+  .band-ink .card.top-gold, .band-ink .case-stat { border-top-color: var(--gold); }
 }
