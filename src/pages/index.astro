@@ -8,7 +8,7 @@ import ServiceDetail from '../components/ServiceDetail.astro';
 import Testimonials from '../components/Testimonials.astro';
 import CallBand from '../components/CallBand.astro';
 import WhoWeServe from '../components/WhoWeServe.astro';
-import CaseStudy from '../components/CaseStudy.astro';
+import CaseTeaser from '../components/CaseTeaser.astro';
 import Faq from '../components/Faq.astro';
 import { site } from '../data/site';
 
@@ -65,9 +65,7 @@ const month = [
     </section>
 
     <Pathways />
-    <hr class="divider" />
-    <WhoWeServe />
-    <hr class="divider" />
+    <div class="band band-cream"><WhoWeServe /></div>
 
     <section class="section" id="sound-familiar">
       <div class="section-head">
@@ -92,10 +90,9 @@ const month = [
         ))}
       </div>
     </section>
-    <hr class="divider" />
 
 
-    <section class="section" id="every-month">
+    <section class="section band band-ink" id="every-month">
       <div class="section-head">
         <span class="eyebrow boxed">The Monthly Retainer</span>
         <h2 class="section-title">What to <span class="gold-text">Expect.</span></h2>
@@ -111,13 +108,12 @@ const month = [
         ))}
       </div>
       <div class="cta-row">
-        <a href="/sample-memo/" class="btn">See a Sample Memo</a>
+        <a href="/sample-memo/" class="btn btn-gold">See a Sample Memo</a>
         <a href="/pricing/" class="btn btn-outline">See Retainer Pricing →</a>
       </div>
     </section>
-    <hr class="divider" />
 
-    <section class="section" id="how-it-starts">
+    <section class="section band band-cream" id="how-it-starts">
       <div class="section-head">
         <span class="eyebrow boxed">Getting Started</span>
         <h2 class="section-title">How It <span class="gold-text">Starts.</span></h2>
@@ -143,15 +139,12 @@ const month = [
         <a href={site.introCallUrl} class="btn" target="_blank" rel="noopener">Book a 20-Minute Call</a>
       </div>
     </section>
-    <hr class="divider" />
 
     <Founder />
-    <CaseStudy />
+    <div class="band band-ink"><CaseTeaser /></div>
     <Testimonials />
-    <hr class="divider" />
     <ServiceDetail />
-    <hr class="divider" />
-    <Faq />
+    <div class="band band-cream"><Faq /></div>
   </div>
   <CallBand />
 </Base>
