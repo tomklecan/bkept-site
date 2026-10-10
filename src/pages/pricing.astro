@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import CallBand from '../components/CallBand.astro';
+import Faq from '../components/Faq.astro';
 import { site } from '../data/site';
 import { retainerTiers, addOns, dormantRate, setupFee, cleanupNote, usd } from '../data/pricing';
 ---
@@ -83,5 +84,6 @@ import { retainerTiers, addOns, dormantRate, setupFee, cleanupNote, usd } from '
     </div>
   </div>
 
+  <div class="container"><Faq /></div>
   <CallBand title="Not sure which tier fits?" text="Tell us roughly how many transactions you run and how far behind the books are. On a 20-minute call we will place you in a tier and quote any catch-up work as a flat fee." />
 </Base>
