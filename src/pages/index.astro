@@ -22,10 +22,16 @@ const schema = {
 };
 
 const pains = [
-  ['The books are months behind.', 'You know roughly what is in the bank, but not what you actually made.'],
-  ['Your CPA keeps sending questions.', 'Tax season turns into weeks of digging for receipts and explanations.'],
-  ['You do the bookkeeping at night.', 'Hours a month on categorizing transactions instead of running the business.'],
-  ['Decisions run on gut feel.', 'Hiring, pricing and spending calls made without a current P&L in hand.'],
+  ['It gets done in bursts.', 'The books are caught up when someone finds a free weekend, then slide again until the next one.'],
+  ['There is no set cadence.', 'No monthly close date, no reconciliation schedule, and no one checking that the work was done.'],
+  ['Approvals happen from memory.', 'Bills get paid and expenses get coded without a review step or a record of who signed off.'],
+  ['Nobody reviews the numbers.', 'Reports exist, but no one sits down each month to ask what they say about the business.'],
+];
+
+const shifts = [
+  ['A fixed calendar', 'Reconciliations, the monthly close and your review happen on set dates, every month, whether or not it is a busy one.'],
+  ['Someone to answer to', 'An outside firm holds the process to its standards and deadlines, and holds everyone who feeds it, owners included.'],
+  ['A ripple effect', 'Once the numbers are current and reviewed, pricing, hiring and cash decisions get sharper across the whole business.'],
 ];
 
 const month = [
@@ -61,12 +67,25 @@ const month = [
     <section class="section" id="sound-familiar">
       <div class="section-head">
         <span class="eyebrow boxed">Sound Familiar?</span>
-        <h2 class="section-title">You've Outgrown <span class="gold-text">Doing It Yourself.</span></h2>
-        <p class="lead">Most owners call us when one of these has gone on too long.</p>
+        <h2 class="section-title">Bookkeeping Shouldn't Be <span class="gold-text">a Side Task.</span></h2>
+        <p class="lead">In most small businesses, the books are kept by someone already stretched thin: the owner, an office manager, a part-time hire. It gets done, eventually. But without a cadence or a standard, it stays an afterthought.</p>
       </div>
       <ul class="pain-list">
         {pains.map(([k, v]) => <li><div><strong>{k}</strong><span>{v}</span></div></li>)}
       </ul>
+
+      <div class="section-head" style="margin-top:70px;">
+        <h3 class="section-title">An Outside Team <span class="gold-text">Raises the Standard.</span></h3>
+        <p class="lead">When an independent firm runs your accounting, it stops being a chore someone squeezes in and becomes a real function of the business, with deliverables, deadlines and accountability.</p>
+      </div>
+      <div class="grid-3">
+        {shifts.map(([k, v]) => (
+          <div class="card top-gold">
+            <h4>{k}</h4>
+            <p>{v}</p>
+          </div>
+        ))}
+      </div>
     </section>
     <hr class="divider" />
 
