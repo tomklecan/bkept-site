@@ -13,6 +13,10 @@ export const site = {
   // The "Book a 20-minute call" buttons for prospects (bkept Intro Call schedule).
   introCallUrl: 'https://calendar.app.google/Dafwobu68VaHG7Sv5',
   responseTime: 'one business day',
+  // Visitor stats (plausible.io). Also counts clicks on outbound links, like the booking button.
+  plausibleDomain: 'bkept.co',
+  // Google Search Console: paste the content="..." code from its HTML-tag verification here.
+  googleSiteVerification: null as string | null,
 };
 
 export const nav = [

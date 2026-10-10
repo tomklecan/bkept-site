@@ -26,6 +26,8 @@ const ogImage = new URL('/og-image.jpg', site.url).href;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {site.googleSiteVerification && <meta name="google-site-verification" content={site.googleSiteVerification} />}
+    {import.meta.env.PROD && <script defer data-domain={site.plausibleDomain} src="https://plausible.io/js/script.outbound-links.js"></script>}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
