@@ -319,3 +319,6 @@ a.link-row:hover { color: var(--gold); padding-left: 5px; }
 }
 .hero-badges { margin-top: 24px; }
 .hero-badges .credentials { border-left: 0; padding-left: 0; }
+/* Homepage headline: scale with its column so it stays on one line at every width */
+.hero-copy:has(.one-line) { container-type: inline-size; }
+.hero h1.one-line { font-size: min(3.4rem, 9cqi); }
