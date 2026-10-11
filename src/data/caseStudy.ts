@@ -1,4 +1,4 @@
-// Numbers for the homepage case study teaser. The full story is src/pages/results/index.astro.
+// Numbers for the homepage case study teaser. The full story is src/pages/results/keeping-pace-with-growth.astro.
 // Real engagements only, anonymized unless the client agrees to be named.
 export const caseStudy: null | {
   client: string;

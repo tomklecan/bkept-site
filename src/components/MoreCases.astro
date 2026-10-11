@@ -1,0 +1,24 @@
+---
+// "More case studies" links at the foot of each case study article.
+import { caseStudies } from '../data/caseStudies';
+const { current } = Astro.props as { current: string };
+const others = caseStudies.filter((c) => c.slug !== current);
+---
+{others.length > 0 && (
+  <div class="container">
+    <section class="section more-cases">
+      <h2 class="section-title">More Case <span class="gold-text">Studies.</span></h2>
+      <div class="grid-2">
+        {others.map((c) => (
+          <a href={`/results/${c.slug}/`} class="card top-gold lift case-card">
+            <span class="eyebrow">{c.eyebrow}</span>
+            <h3>{c.title}</h3>
+            <p>{c.summary}</p>
+            <span class="case-card-link">Read the Case Study →</span>
+          </a>
+        ))}
+      </div>
+      <p><a href="/results/">All case studies →</a></p>
+    </section>
+  </div>
+)}
