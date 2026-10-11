@@ -1,5 +1,5 @@
 // Case studies listed on /results/. Each full article lives at src/pages/results/<slug>.astro.
-// Case studies are real engagements, anonymized unless the client agrees to be named. Guides describe a typical engagement.
+// Case studies are real engagements, anonymized unless the client agrees to be named.
 export const caseStudies = [
   {
     slug: 'keeping-pace-with-growth',
@@ -9,8 +9,8 @@ export const caseStudies = [
   },
   {
     slug: 'books-from-scratch',
-    eyebrow: 'What to Expect',
+    eyebrow: 'Trades',
     title: 'Books From Scratch.',
-    summary: 'What adopting QuickBooks looks like for a business with no real accounting: the statements you provide, your role in setup, and the schedules we build.',
+    summary: 'How an electrical contractor with mixed-use credit cards moved onto QuickBooks, and what any business adopting QuickBooks should expect.',
   },
 ];
