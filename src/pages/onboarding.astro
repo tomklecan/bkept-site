@@ -2,14 +2,17 @@
 // Client onboarding workbook. Standalone portal layout (no marketing header/footer).
 // Answers save to the client's own browser; nothing is sent anywhere until they email the PDF.
 import Base from '../layouts/Base.astro';
-import { firmInviteEmail, onboardingEmail } from '../data/site';
+import { firmInviteEmail, onboardingEmail, site } from '../data/site';
 
 const initials = 'Initials...';
 ---
 <Base title="Onboarding" description="bkept client onboarding workbook." noindex bare>
   <header class="ob-header">
     <a href="/" class="logo">bkept.</a>
-    <div class="ob-status">Client Onboarding</div>
+    <div class="ob-header-actions">
+      <div class="ob-status">Client Onboarding</div>
+      <a href={site.clientHubUrl} class="btn btn-gold ob-login" target="_blank" rel="noopener">Client Login</a>
+    </div>
   </header>
 
   <div class="ob-wrap">
@@ -31,6 +34,7 @@ const initials = 'Initials...';
         <div class="ob-card ink">
           <h3>What is the Client Hub?</h3>
           <p>The Client Hub replaces scattered email threads with a single, secure environment. It is where you will securely upload statements, review our monthly findings, and maintain continuous oversight of your financial operations without administrative friction.</p>
+          <a href={site.clientHubUrl} class="btn btn-gold no-print" target="_blank" rel="noopener" style="margin-top:10px;">Log In to the Client Hub</a>
         </div>
         <h2>Training &amp; Resources</h2>
         <p>Review the standard procedures below to understand how we operate together.</p>
@@ -209,6 +213,8 @@ const initials = 'Initials...';
 <style is:global>
   .ob-header { display: flex; justify-content: space-between; align-items: center; padding: 26px 40px 20px; position: relative; margin-bottom: 40px; gap: 16px; }
   .ob-header::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--gradient); }
+  .ob-header-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
+  .ob-login { padding: 10px 20px; font-size: .72rem; }
   .ob-status { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; border: 1px solid var(--border); padding: 6px 12px; border-radius: 4px; background: var(--surface); letter-spacing: 1px; }
   .ob-wrap { max-width: 1050px; margin: 0 auto 80px; border: 1px solid var(--border); border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,.05); overflow: hidden; }
   @media (max-width: 1090px) { .ob-wrap { margin-inline: 16px; } }
@@ -264,6 +270,7 @@ const initials = 'Initials...';
   .ob-dock-actions { display: flex; gap: 12px; flex-wrap: wrap; }
   @media (max-width: 700px) {
     .ob-header { padding: 20px 16px; }
+    .ob-status { display: none; }
     .ob-workspace { padding: 28px 18px; }
     .ob-dock { padding: 18px; }
     .ob-row { grid-template-columns: 1fr; }

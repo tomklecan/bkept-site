@@ -12,6 +12,8 @@ export const site = {
   bookingUrl: 'https://calendar.app.google/ooDvBA9WNF6wHNbP7',
   // The "Book a 20-minute call" buttons for prospects (bkept Intro Call schedule).
   introCallUrl: 'https://calendar.app.google/Dafwobu68VaHG7Sv5',
+  // Client Hub login (ClientHub portal for existing clients).
+  clientHubUrl: 'https://bkeptclientlogin.clienthub.app/#/login',
   responseTime: 'one business day',
   // Visitor stats: the site-specific script from plausible.io (Site settings > Installation).
   plausibleScript: 'https://plausible.io/js/pa-w3flOGXh9C8fHrk1EsdeS.js',
