@@ -111,7 +111,7 @@ p { margin: 0 0 1rem; }
 .hero-copy { border-left: 3px solid var(--border); padding-left: clamp(20px, 4vw, 45px); min-width: 0; }
 .hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
 .credentials { display: flex; align-items: center; gap: 18px; border-left: 1px solid var(--border); padding-left: 20px; flex-wrap: wrap; }
-.credentials img { height: 50px; width: auto; }
+.credentials img { height: 110px; width: auto; }
 
 .rise { animation: rise .7s cubic-bezier(.16,1,.3,1) both; }
 .rise-2 { animation-delay: .1s; } .rise-3 { animation-delay: .2s; } .rise-4 { animation-delay: .3s; }
@@ -258,8 +258,8 @@ a.link-row:hover { color: var(--gold); padding-left: 5px; }
   .hero-grid, .grid-2, .grid-3, .founder-grid, .tracks, .contact-grid { grid-template-columns: 1fr; gap: 30px; }
   .founder-card { position: static; }
   .banner { flex-direction: column; align-items: flex-start; gap: 15px; padding: 25px; }
-  .credentials { border-left: 0; padding-left: 0; }
-  .credentials img { height: 44px; }
+  .credentials { border-left: 0; padding-left: 0; gap: 12px; }
+  .credentials img { height: clamp(70px, 24vw, 92px); }
   .track { padding: 40px 25px; }
   .hero { padding-block: 60px 50px; }
 }
@@ -279,6 +279,7 @@ a.link-row:hover { color: var(--gold); padding-left: 5px; }
   .gold-text, .logo { background: none !important; -webkit-text-fill-color: var(--gold) !important; color: var(--gold) !important; }
   .card, .track, .tier, .mini-card, .founder-card, .timeline-item { break-inside: avoid; box-shadow: none !important; }
   .founder-card { position: static; }
+  .credentials img { height: 80px; }
   .section { padding-block: 24px; }
   h2, h3 { break-after: avoid; }
   a[href^="http"]:not(.btn)::after { content: " (" attr(href) ")"; font-size: .75em; color: var(--muted); }
