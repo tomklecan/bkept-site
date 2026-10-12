@@ -2,6 +2,7 @@
 // `source` is where each file sat on the old WordPress site; scripts/fetch-media.mjs
 // copies anything missing from there. Once the files are committed, `source` is history.
 export const media = {
+  credProAdvisorL2: { path: '/media/qbo-proadvisor-level-2.png', source: '' },
   credProAdvisor: { path: '/media/qbo-proadvisor.png', source: '2026/01/QBO-PROAD.png' },
   credPayroll: { path: '/media/qbo-payroll.png', source: '2026/01/qbo-PAYROLL-BASDE.png' },
   credBookkeeper: { path: '/media/certified-bookkeeper.png', source: '2026/01/CERTIFIED-BOOKKEEPER.png' },
