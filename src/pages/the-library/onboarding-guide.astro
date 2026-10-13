@@ -1,0 +1,150 @@
+---
+import Base from '../../layouts/Base.astro';
+import CallBand from '../../components/CallBand.astro';
+---
+<Base title="Guide: Starting With a New Bookkeeper" description="What business owners should expect when onboarding with a new bookkeeper or catching up on books that are behind: the documents to gather, the questions you'll answer, the time it takes, and why your involvement decides how well it goes.">
+  <div class="container">
+    <section class="hero hero-full hero-center">
+      <span class="eyebrow boxed">Guide · Onboarding</span>
+      <h1>Getting <span class="gold-text">Started.</span></h1>
+      <p class="lead">What to expect when you bring on a new bookkeeper or catch up on books that have fallen behind: what to gather, what you'll be asked, how much of your time it takes, and why your part matters most.</p>
+    </section>
+
+    <article class="article">
+      <aside class="glance">
+        <h2>At a Glance</h2>
+        <dl>
+          <div><dt>Who it's for</dt><dd>Owners starting with a new bookkeeper, switching firms, or catching up on months of books</dd></div>
+          <div><dt>What you'll gather</dt><dd>Statements for every bank, credit card, loan and payment account, plus payroll, tax and prior accounting records</dd></div>
+          <div><dt>What you'll answer</dt><dd>Questions about transactions the statements can't explain on their own</dd></div>
+          <div><dt>Your time</dt><dd>Heaviest in the first few weeks, then a short monthly review</dd></div>
+          <div><dt>What decides the pace</dt><dd>How quickly documents arrive and questions are answered</dd></div>
+        </dl>
+      </aside>
+
+      <h2>Why This Matters</h2>
+      <p>The first weeks with a new bookkeeper set the foundation for every report that follows. Opening balances, how accounts are organized, and how recurring transactions are treated are all decided at the start. When that work is done well, the monthly books run on a steady schedule and the numbers can be trusted. When it's rushed or done with missing information, errors carry forward month after month until someone goes back to fix them.</p>
+      <p>Most owners expect onboarding to be something the bookkeeper does on their own. In practice it is a shared project. The bookkeeper brings the process and the accounting judgment. The owner brings the records and the knowledge of what actually happened in the business. Neither half works without the other.</p>
+
+      <h2>Onboarding or Cleanup</h2>
+      <p>There are two common starting points, and the work is similar for both.</p>
+      <h3>Onboarding</h3>
+      <p>Your books are current, or close to it, and you are moving to a new bookkeeper. The work is to review what's there, confirm the balances are right, fix anything that was set up poorly, and put a monthly routine in place.</p>
+      <h3>Cleanup</h3>
+      <p>Your books are behind, incomplete or unreliable. Months of transactions need to be recorded or corrected, and every account needs to be reconciled to its statements before the monthly routine can begin. A cleanup asks more of the owner, because there are more transactions to explain and the details are older and harder to remember.</p>
+      <p>Many engagements are both: an onboarding with a few months of catch-up attached.</p>
+
+      <h2>What to Gather</h2>
+      <p>Statements are the foundation of the books. Your bookkeeper will reconcile every account to its statements, so each account needs a complete set covering the full period being worked on. For a cleanup, that means every month you are behind. For an onboarding, it usually means the current year to date.</p>
+      <h3>Accounts and statements</h3>
+      <ul>
+        <li><strong>Bank statements</strong> for every business checking and savings account, including accounts that were closed during the period.</li>
+        <li><strong>Credit card statements</strong> for every card used for the business, including any personal card that was used for business purchases.</li>
+        <li><strong>Loan and line of credit statements</strong> showing balances, interest and payment history.</li>
+        <li><strong>Financing agreements</strong> for vehicles and equipment bought on terms, showing the purchase price, down payment and payment schedule.</li>
+        <li><strong>Payment processor reports</strong> from Stripe, Square, PayPal, Shopify, Venmo or similar, showing gross sales, fees, refunds and payouts.</li>
+      </ul>
+      <h3>Payroll and tax records</h3>
+      <ul>
+        <li><strong>Payroll reports</strong> from your payroll provider for the period, including quarterly and annual filings.</li>
+        <li><strong>Your most recent business tax return</strong>, which shows the balances your tax preparer used and is the starting point for the year.</li>
+        <li><strong>Sales tax filings</strong>, if your business collects sales tax.</li>
+        <li><strong>1099 information</strong> for contractors you pay, including their W-9s if you have them.</li>
+      </ul>
+      <h3>Prior accounting records</h3>
+      <ul>
+        <li><strong>Access to your existing accounting file</strong>, such as QuickBooks, if there is one.</li>
+        <li><strong>Prior year financial statements</strong> or the year-end balances your tax preparer adjusted to.</li>
+        <li><strong>Lists of what's owed</strong>: unpaid customer invoices and unpaid bills as of the start date.</li>
+        <li><strong>Receipts or invoices for large purchases</strong>, especially vehicles, equipment and property improvements.</li>
+      </ul>
+      <h3>Business documents</h3>
+      <ul>
+        <li><strong>Formation documents</strong>, such as your EIN letter and operating or partnership agreement, which show ownership and how owners are paid.</li>
+        <li><strong>Leases and major contracts</strong> that set recurring payments.</li>
+      </ul>
+      <p>If something can't be found, say so early. Most banks and lenders can provide older statements on request, but it takes time, and a gap discovered late holds up the whole project.</p>
+
+      <h2>Access to Your Systems</h2>
+      <p>Your bookkeeper will also need access to the systems your money moves through. Access should always be granted through each system's own user or accountant invitation, never by sharing your login.</p>
+      <ul>
+        <li><strong>Accounting software</strong>, through an accountant user invitation.</li>
+        <li><strong>Bank and credit card accounts</strong>, through read-only access where the bank offers it, or a secure connection to bank feeds.</li>
+        <li><strong>Payroll and payment processors</strong>, through a reporting or accountant role.</li>
+        <li><strong>A secure place to share files</strong>, such as a client portal, rather than email.</li>
+      </ul>
+
+      <h2>Context on Transactions</h2>
+      <p>Statements show what moved and when. They don't show why. A deposit could be a sale, a loan, a refund or money you put in yourself. A charge at a hardware store could be job materials, shop supplies or a personal purchase. Each one is recorded differently, and only the owner knows which it was.</p>
+      <p>Expect your bookkeeper to send lists of transactions that need an explanation. Common questions include:</p>
+      <ul>
+        <li>Was this charge for the business or personal?</li>
+        <li>Is this deposit a customer payment, a loan, a refund or money you put in?</li>
+        <li>Is this transfer between two of your accounts, or a payment to someone else?</li>
+        <li>Who is this vendor, and what do you buy from them?</li>
+        <li>Was this purchase for a specific job or customer?</li>
+        <li>Is this a one-time purchase, or something the business will keep using, like equipment?</li>
+        <li>What were these Venmo, Zelle or cash payments for, and who received them?</li>
+        <li>Did you pay any business expenses from a personal account?</li>
+      </ul>
+      <p>There are also questions only you can answer about the business itself: how you want to see revenue split out, which costs belong to jobs and which are overhead, and what changes are coming. Those answers shape how the accounts are organized, and they are much easier to build in at the start than to change later.</p>
+      <p>Most of these questions are asked once. After the first round, your bookkeeper sets rules for recurring vendors and transactions, and the monthly list of questions gets much shorter.</p>
+
+      <h2>The Time It Takes</h2>
+      <p>Owners are most often surprised by how much of their own time onboarding requires. The numbers below are typical ranges. The actual time depends on how many accounts you have, how many transactions run through them, and how organized your records are today.</p>
+      <h3>Your time</h3>
+      <ul>
+        <li><strong>A kickoff call</strong> of about an hour to walk through the business, the accounts and how money moves.</li>
+        <li><strong>Gathering documents and granting access</strong>, from two hours for an organized business to a full day or more when statements have to be requested.</li>
+        <li><strong>Answering transaction questions</strong>, usually one to three hours spread across the first few weeks, and more for a cleanup covering many months.</li>
+        <li><strong>A review meeting</strong> of about an hour to walk through the finished books before the monthly routine begins.</li>
+      </ul>
+      <p>For a straightforward onboarding, plan on roughly four to eight hours of your time over the first month. A cleanup of six months or more can take twice that. It's best to set aside a regular block each week during onboarding rather than fit it in when you can.</p>
+      <h3>The overall timeline</h3>
+      <p>An onboarding of current books typically takes two to four weeks from kickoff to the first regular monthly close. A cleanup takes longer, depending on how many months are behind and how complete the records are. In both cases, the bookkeeper's work moves as fast as the information arrives. The most common reason an onboarding runs long is waiting: on a missing statement, a login, or answers to a list of questions.</p>
+      <h3>After onboarding</h3>
+      <p>Once the books are current, your time drops sharply. Most owners spend fifteen to thirty minutes a month answering a short list of questions, plus a monthly meeting to review the numbers.</p>
+
+      <h2>Why Your Engagement Matters</h2>
+      <p>A bookkeeper who can't get an answer has two options: wait, or guess. Waiting stalls the project. Guessing puts errors in the books, and those errors don't stay in the books. They show up in your tax return, your loan applications, your pricing decisions and your sense of whether the business is actually making money.</p>
+      <p>Some examples of what goes wrong without the owner's input:</p>
+      <ul>
+        <li>Personal spending recorded as a business expense overstates your costs and can create problems on your tax return.</li>
+        <li>A loan deposit recorded as a sale overstates revenue and leaves out a debt you owe.</li>
+        <li>An equipment purchase recorded as a single expense understates profit for that month and leaves the asset off your balance sheet.</li>
+        <li>A transfer between your own accounts recorded as income or expense distorts both.</li>
+      </ul>
+      <p>The owners who get the most from a bookkeeper are the ones who treat onboarding as a short, focused project with a start and an end. They answer quickly, ask questions back, and stay involved in the decisions about how their books are organized. The payoff is books that are accurate from the first month, a shorter onboarding, and a monthly routine that needs very little of their time afterward.</p>
+
+      <h2>How to Make It Go Smoothly</h2>
+      <ul>
+        <li><strong>Name one point person.</strong> If someone else handles bills or payroll, include them, but have one person who owns the answers.</li>
+        <li><strong>Gather everything before kickoff.</strong> A complete set of statements on day one is the single biggest time saver.</li>
+        <li><strong>Answer in batches.</strong> Set a weekly time to work through the open questions in one sitting.</li>
+        <li><strong>Say "I don't know" when you don't.</strong> It's better than a guess, and your bookkeeper can often help find the answer.</li>
+        <li><strong>Separate personal and business spending.</strong> Using business accounts only for business is the easiest way to shorten every future list of questions.</li>
+        <li><strong>Mention changes.</strong> New accounts, new loans, a new hire or a large purchase are worth a quick note as they happen.</li>
+      </ul>
+
+      <h2>Checklist</h2>
+      <p>A short list to work from before your kickoff call.</p>
+      <ul>
+        <li>Bank statements for every business account, for the full period</li>
+        <li>Credit card statements for every card used for the business</li>
+        <li>Loan, line of credit and financing statements</li>
+        <li>Payment processor reports</li>
+        <li>Payroll reports and filings</li>
+        <li>Most recent business tax return</li>
+        <li>Sales tax filings, if applicable</li>
+        <li>Contractor list and W-9s</li>
+        <li>Unpaid customer invoices and unpaid bills</li>
+        <li>Receipts for vehicles, equipment and other large purchases</li>
+        <li>Formation documents, leases and major contracts</li>
+        <li>Accountant access to your accounting software, bank, payroll and payment systems</li>
+        <li>A weekly block on your calendar for the first month</li>
+      </ul>
+      <p class="muted small-note">This guide is general information about the onboarding process. The documents and time needed for your business will depend on its size, structure and the condition of its records.</p>
+    </article>
+  </div>
+  <CallBand title="Ready to get started?" text="A 20-minute call with Tom. Tell us where your books stand today, and we'll walk you through what onboarding or a cleanup would look like for your business." />
+</Base>
