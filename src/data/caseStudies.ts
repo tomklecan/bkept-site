@@ -5,7 +5,7 @@ export const caseStudies = [
     slug: 'keeping-pace-with-growth',
     eyebrow: 'E-Commerce',
     title: 'Keeping Pace With Growth.',
-    summary: 'How a drop-ship e-commerce business went from six months behind to daily processing and a regular monthly close.',
+    summary: 'Bookkeeping workflows built for high transaction volume, so the books stay current as sales grow.',
   },
   {
     slug: 'books-from-scratch',
