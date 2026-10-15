@@ -2,12 +2,12 @@
 import Base from '../../layouts/Base.astro';
 import CallBand from '../../components/CallBand.astro';
 ---
-<Base title="Sample Kept Memo" description="What a bkept client receives with every monthly close: a one-page, plain-English summary of the month. Sample with invented figures.">
+<Base title="Sample Kept Memo" description="What a bkept client receives every month: one page with key figures, the reconciliation status of every account, and notes on what needs attention. Sample with invented figures.">
   <div class="container">
     <section class="hero hero-center">
       <span class="eyebrow boxed">What to Expect</span>
       <h1>A Sample <span class="gold-text">Kept Memo.</span></h1>
-      <p class="lead">Every monthly close comes with one page like this. The business and figures below are invented; real memos stay between us and the client.</p>
+      <p class="lead">Every month comes with one page like this, alongside your reports: your key figures, where every account reconciliation stands, and the points that need your attention. The business and figures below are invented; real memos stay between us and the client.</p>
     </section>
 
     <article class="memo">
@@ -18,46 +18,36 @@ import CallBand from '../../components/CallBand.astro';
         </div>
         <div style="text-align:right;">
           <span class="sample-flag">Sample</span>
-          <div class="muted" style="margin-top:6px;">Prepared for: a 12-person design studio<br />Books closed: October 9</div>
+          <div class="muted" style="margin-top:6px;">Prepared for: a 12-person design studio<br />Sent: October 10</div>
         </div>
       </div>
 
-      <p><strong>The month in one line:</strong> Your best revenue month this year and a healthy profit, but cash fell because two large clients are paying late.</p>
+      <h2>Key Figures</h2>
+      <div class="memo-figs">
+        <div><span>Income</span><strong>$142,300</strong><em>+10% vs August</em></div>
+        <div><span>Expenses</span><strong>$126,700</strong><em>+8% vs August</em></div>
+        <div><span>Net income</span><strong>$15,600</strong><em>+$5,800 vs August</em></div>
+        <div><span>Bank balance</span><strong>$188,400</strong></div>
+        <div><span>Open invoices</span><strong>$61,200</strong><em>$38,500 overdue</em></div>
+        <div><span>Open bills</span><strong>$22,900</strong></div>
+      </div>
+      <p class="memo-caption">In a real memo, this is a screenshot of the key figures straight from QuickBooks Online. Full reports are attached.</p>
 
-      <h2>The Numbers</h2>
-      <table class="memo-table">
-        <thead><tr><th></th><th>September</th><th>August</th><th>Change</th></tr></thead>
+      <h2>Reconciliations</h2>
+      <table class="memo-table memo-left">
+        <thead><tr><th>Account</th><th class="tight hide-sm">Through</th><th class="tight memo-amt">Balance</th><th class="tight">Status</th></tr></thead>
         <tbody>
-          <tr><td>Revenue</td><td>$142,300</td><td>$128,900</td><td>+10.4%</td></tr>
-          <tr><td>Gross margin</td><td>61.0%</td><td>62.5%</td><td>−1.5 pts</td></tr>
-          <tr><td>Net income</td><td>$15,600</td><td>$9,800</td><td>+$5,800</td></tr>
-          <tr><td>Cash on hand</td><td>$188,400</td><td>$201,700</td><td>−$13,300</td></tr>
-          <tr><td>Owed to you, over 60 days</td><td>$38,500</td><td>$6,200</td><td>+$32,300</td></tr>
+          <tr><td>Operating checking</td><td class="tight hide-sm">Sep 30</td><td class="tight memo-amt">$188,400</td><td class="tight"><span class="memo-check done">Reconciled</span></td></tr>
+          <tr><td>Savings</td><td class="tight hide-sm">Sep 30</td><td class="tight memo-amt">$60,000</td><td class="tight"><span class="memo-check done">Reconciled</span></td></tr>
+          <tr><td>Business credit card</td><td class="tight hide-sm">Sep 30</td><td class="tight memo-amt">$7,850</td><td class="tight"><span class="memo-check done">Reconciled</span></td></tr>
+          <tr><td>Equipment loan</td><td class="tight hide-sm">Sep 30</td><td class="tight memo-amt">$42,300</td><td class="tight"><span class="memo-check done">Reconciled</span></td></tr>
+          <tr><td>Stripe merchant account</td><td class="tight hide-sm">Sep 30</td><td class="tight memo-amt">$3,120</td><td class="tight"><span class="memo-check">Pending</span></td></tr>
         </tbody>
       </table>
 
-      <h2>What Changed</h2>
-      <ul>
-        <li>Two new retainer clients started, adding $11,000 a month in recurring revenue.</li>
-        <li>Profit rose even though contractor costs grew, because rent and software were flat.</li>
-        <li>Cash went down while profit went up. The gap is two invoices totaling $38,500, now more than 60 days old.</li>
-      </ul>
-
-      <h2>What to Watch</h2>
-      <ul>
-        <li><strong>Contractor costs</strong> reached 22% of revenue, up from 18% in the spring. Fine for a busy quarter; worth a look if it holds.</li>
-        <li><strong>Cash low point:</strong> the 13-week forecast dips to about $96,000 in mid-November, when the quarterly estimated tax and the annual insurance renewal land in the same week.</li>
-      </ul>
-
-      <h2>Decisions for You</h2>
-      <div class="decision"><strong>1. Late invoices.</strong> Should we send a firm reminder on the two overdue invoices this week, or would you rather call the clients first?</div>
-      <div class="decision"><strong>2. Deposits.</strong> Consider a 50% deposit on new projects over $20,000. It would have kept roughly $19,000 more cash in the bank this month.</div>
-      <div class="decision"><strong>3. Duplicate software.</strong> You pay for two project management tools ($9,600 a year combined). Keep one and we will cancel the other before it renews on November 1.</div>
-
-      <h2>Open Items</h2>
-      <ul>
-        <li>Three card charges need a receipt (list sent with this memo). Please reply by the 5th of next month.</li>
-      </ul>
+      <h2>Notes</h2>
+      <div class="decision"><strong>Late invoices.</strong> Two clients owe $38,500, both past 60 days. We'd like to send a firm reminder this week unless you'd rather call them first. Let us know on Thursday's call.</div>
+      <div class="decision"><strong>Stripe is still pending</strong> because September's payout report hasn't posted yet. We expect to finish it by October 18 and will confirm by email.</div>
 
       <p class="muted" style="margin-top:30px;">Full P&amp;L, Balance Sheet and Cash Flow Statement attached. We'll walk through all of this at your monthly review.</p>
     </article>
