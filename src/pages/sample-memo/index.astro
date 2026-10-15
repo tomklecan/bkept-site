@@ -2,12 +2,12 @@
 import Base from '../../layouts/Base.astro';
 import CallBand from '../../components/CallBand.astro';
 ---
-<Base title="Sample Kept Memo" description="What a bkept client receives every month: a briefing on how our work together is going, with key figures, reconciled accounts and the plan ahead. Sample with invented figures.">
+<Base title="Sample Kept Memo" description="What a bkept client receives every month: one page with key figures, the reconciliation status of every account, and notes on what needs attention. Sample with invented figures.">
   <div class="container">
     <section class="hero hero-center">
       <span class="eyebrow boxed">What to Expect</span>
       <h1>A Sample <span class="gold-text">Kept Memo.</span></h1>
-      <p class="lead">Every month comes with a briefing like this, alongside your reports. It covers how our work together is going and where we are headed. The business and figures below are invented; real memos stay between us and the client.</p>
+      <p class="lead">Every month comes with one page like this, alongside your reports: your key figures, where every account reconciliation stands, and the points that need your attention. The business and figures below are invented; real memos stay between us and the client.</p>
     </section>
 
     <article class="memo">
@@ -18,61 +18,9 @@ import CallBand from '../../components/CallBand.astro';
         </div>
         <div style="text-align:right;">
           <span class="sample-flag">Sample</span>
-          <div class="muted" style="margin-top:6px;">Prepared for: a 12-person design studio<br />Working together since: June 2026</div>
+          <div class="muted" style="margin-top:6px;">Prepared for: a 12-person design studio<br />Sent: October 10</div>
         </div>
       </div>
-
-      <p class="memo-lead"><strong>In short:</strong> We're a step ahead of where we planned. Your books now close on time every month, and the next step is getting bill approvals out of email.</p>
-
-      <div class="memo-cols">
-        <section>
-          <h2>Going Well</h2>
-          <ul>
-            <li>Books closed by the 10th for the third month running.</li>
-            <li>Your office manager's weekly receipt uploads cut our follow-up questions by more than half.</li>
-            <li>The cash forecast is now part of your Monday team meeting.</li>
-          </ul>
-        </section>
-        <section>
-          <h2>Needs Work</h2>
-          <ul>
-            <li>Contractor invoices still arrive 2 to 3 weeks after the work is done.</li>
-            <li>Bill approvals live in four inboxes, so payments wait on whoever is busiest.</li>
-            <li>On our side, August's memo went out two days late. September's was on time, and that is the standard.</li>
-          </ul>
-        </section>
-      </div>
-
-      <h2>Short-Term Aims</h2>
-      <table class="memo-table memo-left">
-        <thead><tr><th>Next 30 to 90 days</th><th class="tight">By</th><th class="tight">Status</th></tr></thead>
-        <tbody>
-          <tr><td>Move all bill approvals into one shared inbox with a weekly sign-off.</td><td class="tight">Nov 15</td><td class="tight"><span class="memo-status">On track</span></td></tr>
-          <tr><td>Get contractors invoicing within 7 days of finishing work.</td><td class="tight">Dec 1</td><td class="tight"><span class="memo-status">New</span></td></tr>
-          <tr><td>Clean up the three dormant credit cards and close two of them.</td><td class="tight">Oct 31</td><td class="tight"><span class="memo-status">Done</span></td></tr>
-        </tbody>
-      </table>
-
-      <h2>Long-Term Aims</h2>
-      <table class="memo-table memo-left">
-        <thead><tr><th>This year and beyond</th><th>Where we are now</th></tr></thead>
-        <tbody>
-          <tr><td>Be ready to apply for a $150,000 bank line of credit by March.</td><td>Two of three clean quarters in hand; Q4 closes in January.</td></tr>
-          <tr><td>Know true profit by client so pricing decisions are based on numbers.</td><td>Time tracking connected; first report due with the December memo.</td></tr>
-        </tbody>
-      </table>
-
-      <h2>How We Get There</h2>
-      <table class="memo-table memo-left">
-        <thead><tr><th>Next step</th><th class="tight">Who</th><th class="tight">By</th></tr></thead>
-        <tbody>
-          <tr><td>Set up the shared approvals inbox and send you the weekly sign-off list.</td><td class="tight">bkept</td><td class="tight">Oct 24</td></tr>
-          <tr><td>Send the new 7-day invoicing rule to your contractors (we drafted the note).</td><td class="tight">You</td><td class="tight">Oct 31</td></tr>
-          <tr><td>Walk through year-end tax planning with your CPA on the review call.</td><td class="tight">Together</td><td class="tight">Nov 13</td></tr>
-        </tbody>
-      </table>
-
-      <p class="memo-part">Page 2 · The Month in Figures</p>
 
       <h2>Key Figures</h2>
       <div class="memo-figs">
@@ -85,7 +33,7 @@ import CallBand from '../../components/CallBand.astro';
       </div>
       <p class="memo-caption">In a real memo, this is a screenshot of the key figures straight from QuickBooks Online. Full reports are attached.</p>
 
-      <h2>Reconciled</h2>
+      <h2>Reconciliations</h2>
       <table class="memo-table memo-left">
         <thead><tr><th>Account</th><th class="tight hide-sm">Through</th><th class="tight memo-amt">Balance</th><th class="tight">Status</th></tr></thead>
         <tbody>
@@ -97,7 +45,7 @@ import CallBand from '../../components/CallBand.astro';
         </tbody>
       </table>
 
-      <h2>Key Points</h2>
+      <h2>Notes</h2>
       <div class="decision"><strong>Late invoices.</strong> Two clients owe $38,500, both past 60 days. We'd like to send a firm reminder this week unless you'd rather call them first. Let us know on Thursday's call.</div>
       <div class="decision"><strong>Stripe is still pending</strong> because September's payout report hasn't posted yet. We expect to finish it by October 18 and will confirm by email.</div>
 
