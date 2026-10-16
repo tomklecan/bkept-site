@@ -1,0 +1,124 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Faq from '../components/Faq.astro';
+import CallBand from '../components/CallBand.astro';
+import { site } from '../data/site';
+
+const fits = [
+  { icon: 'scale', title: 'Business Owners', desc: 'Personal and business money finally kept apart, with owner draws and distributions tracked so year-end is simple.' },
+  { icon: 'property', title: 'Property Holders', desc: 'Rentals and second homes each on their own clean record, with rents, repairs and tax bills kept in order.' },
+  { icon: 'layers', title: 'Professionals & Families', desc: 'Many accounts, cards and bills across a household. One person keeping every one of them current.' },
+] as const;
+
+const month = [
+  ['Every month', 'Accounts reconciled', 'Every bank, card and loan account matched and categorized. Anything unclear comes to you as one short list.'],
+  ['Every month', 'A one-page summary', 'Where the money went, your cash position, and the few items that need your attention.'],
+  ['All year', 'Bills and renewals tracked', 'Property taxes, insurance, estimated payments and renewals on one calendar, so nothing slips.'],
+  ['At year end', 'A tax-ready package', 'Everything your CPA needs, organized and delivered, with their questions answered for you.'],
+];
+
+const privacy = [
+  { icon: 'lock', title: 'Read-Only Access', desc: 'We view your accounts. We never move money without your written instruction.' },
+  { icon: 'shield', title: 'In Your Name', desc: 'Your records stay yours, and you can remove our access at any time.' },
+  { icon: 'message', title: 'One Point of Contact', desc: 'Tom oversees every private client file personally.' },
+] as const;
+
+const faq = [
+  { q: 'Why is Private Client limited?', a: 'Personal books get the same monthly attention as a business file. We keep the number of private clients small so that standard holds.' },
+  { q: 'Do you prepare my tax return?', a: 'No. We keep the books and hand your CPA a clean, organized package. If you need a CPA, we can introduce you to one we work with.' },
+  { q: 'Do you give investment or financial planning advice?', a: 'No. We keep an accurate record of your finances. Investment and planning decisions stay with you and your advisors.' },
+  { q: 'Can my business and personal books both be kept here?', a: 'Yes, and it is where we are most useful. Keeping both sides lets us separate them properly and keep owner draws and distributions clean.' },
+  { q: 'How is it priced?', a: 'A fixed monthly fee, quoted privately after the consultation. It depends on how many accounts and properties you have and how far behind the records are.' },
+];
+---
+<Base title="Private Client" description="Personal bookkeeping from bkept for a limited number of individuals and families: every account reconciled, a monthly summary, and a tax-ready package for your CPA. By consultation.">
+  <div class="container">
+    <section class="hero hero-full hero-center">
+      <span class="eyebrow boxed">Private Client</span>
+      <h1>Personal Books, <span class="gold-text">Well Kept.</span></h1>
+      <p class="lead">The standard we bring to business accounting, applied to your household finances. Offered to a limited number of individuals and families, by consultation.</p>
+      <div class="hero-actions" style="justify-content:center;">
+        <a href={site.introCallUrl} class="btn" target="_blank" rel="noopener">Request a Consultation</a>
+        <a href="/contact/?topic=private-client" class="btn btn-outline">Send a Message</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="eyebrow boxed">Who It's For</span>
+        <h2 class="section-title">A Select <span class="gold-text">Few.</span></h2>
+        <p class="lead">People whose personal finances have grown past a spreadsheet and a free weekend.</p>
+      </div>
+      <div class="grid-3">
+        {fits.map((f) => (
+          <div class="card top-gold">
+            <Icon name={f.icon} />
+            <h4>{f.title}</h4>
+            <p>{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section band band-ink">
+      <div class="section-head">
+        <span class="eyebrow boxed">The Monthly Standard</span>
+        <h2 class="section-title">What to <span class="gold-text">Expect.</span></h2>
+        <p class="lead">What you can expect from us, every month, for one fixed fee.</p>
+      </div>
+      <div class="month">
+        {month.map(([day, title, desc]) => (
+          <div class="card top-gold">
+            <span class="day">{day}</span>
+            <h4>{title}</h4>
+            <p>{desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="eyebrow boxed">Discretion</span>
+        <h2 class="section-title">Kept <span class="gold-text">Private.</span></h2>
+      </div>
+      <div class="grid-3">
+        {privacy.map((f) => (
+          <div class="card top-ink">
+            <Icon name={f.icon} />
+            <h4>{f.title}</h4>
+            <p>{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section band band-cream">
+      <div class="section-head">
+        <span class="eyebrow boxed">Getting Started</span>
+        <h2 class="section-title">How It <span class="gold-text">Starts.</span></h2>
+      </div>
+      <div class="steps">
+        <div class="card">
+          <span class="when">20 minutes</span>
+          <h4>A private consultation</h4>
+          <p>We talk through your accounts, properties and what you want off your plate, and confirm we are the right fit.</p>
+        </div>
+        <div class="card">
+          <span class="when">After the call</span>
+          <h4>A fixed quote</h4>
+          <p>One monthly fee, plus a flat fee to bring past records current if they are behind. No hourly billing.</p>
+        </div>
+        <div class="card">
+          <span class="when">First 30 days</span>
+          <h4>Your books, set up</h4>
+          <p>We connect read-only access, organize what exists, and deliver your first monthly summary.</p>
+        </div>
+      </div>
+    </section>
+
+    <Faq items={faq} />
+  </div>
+  <CallBand title="Request a consultation." text="A private 20-minute call with Tom. Tell us what your household finances look like today, and we will tell you plainly whether Private Client is the right fit." />
+</Base>

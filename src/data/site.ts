@@ -23,6 +23,7 @@ export const site = {
 
 export const nav = [
   { label: 'Services', href: '/#services' },
+  { label: 'Private Client', href: '/private-client/' },
   { label: 'The Founder', href: '/#founder' },
   { label: 'Results', href: '/results/' },
   { label: 'Pricing', href: '/pricing/' },
