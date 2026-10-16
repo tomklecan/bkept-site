@@ -1,5 +1,7 @@
 ---
-import { faq } from '../data/faq';
+import { faq as defaultFaq } from '../data/faq';
+interface Props { items?: { q: string; a: string }[]; }
+const { items: faq = defaultFaq } = Astro.props;
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
