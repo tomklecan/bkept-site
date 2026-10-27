@@ -1,6 +1,7 @@
 // Questions shown on the homepage and Pricing page. Edit answers here.
 export const faq: { q: string; a: string }[] = [
   { q: 'Do you do my taxes?', a: 'No. We keep the books and hand your CPA a clean year-end package, then answer their questions so you don\'t have to.' },
+  { q: 'Do you work with individuals and families?', a: 'Yes, through our Private Client service. We take on a limited number of personal clients, by consultation, and keep their household books to the same monthly standard as a business.' },
   { q: 'Do I need QuickBooks?', a: 'We work in QuickBooks Online. If you use something else, or nothing yet, setting it up is a one-time Concierge project.' },
   { q: 'My books are behind. Is that a problem?', a: 'No. Most new clients start behind. We quote a flat fee to bring them current, and monthly work starts from there.' },
   { q: 'Can I start with just one thing?', a: 'Yes. AP/AR, payroll oversight or sales tax can each run on their own, and a one-time setup or cleanup needs no retainer.' },
