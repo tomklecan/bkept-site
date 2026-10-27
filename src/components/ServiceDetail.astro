@@ -1,6 +1,6 @@
 ---
-import { retainerTiers, usd } from '../data/pricing';
-const fromPrice = usd(Math.min(...retainerTiers.map((t) => t.price)));
+import { fromPrice as minPrice, usd } from '../data/pricing';
+const fromPrice = usd(minPrice);
 // Kept (monthly) and Concierge (project) scopes, shared by the homepage and town pages.
 const concierge = [
   { title: 'QuickBooks Setup', items: [
@@ -53,7 +53,7 @@ const kept = [
     ))}
   </div>
   <div class="stack-sm">
-    <div class="price-note"><strong>Pricing:</strong> <span class="muted">Fixed monthly retainer from {fromPrice}/mo, based on volume and complexity.</span></div>
+    <div class="price-note"><strong>Pricing:</strong> <span class="muted">Fixed monthly retainer from {fromPrice}/mo, based on business size and the functions you need.</span></div>
     <a href="/pricing/" class="btn btn-outline">See Retainer Pricing →</a>
   </div>
 </section>

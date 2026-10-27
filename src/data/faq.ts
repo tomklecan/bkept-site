@@ -8,5 +8,5 @@ export const faq: { q: string; a: string }[] = [
   { q: 'What do you need from me each month?', a: 'Answers to one short list of open items by the 5th, and time for the monthly review. Everything else is on us.' },
   { q: 'Who owns my books?', a: 'You do. Your books stay in your own QuickBooks, in your name. We log in as your accounting firm and use read-only bank access, and you can remove either at any time.' },
   { q: 'How long is the commitment?', a: 'Monthly retainers run month to month. Give us 30 days\' notice to stop, and we hand everything back in order.' },
-  { q: 'How is the price set?', a: 'Retainers are priced by monthly transaction volume across all your bank and card accounts. Projects are a flat fee, quoted after a 20-minute call.' },
+  { q: 'How is the price set?', a: 'Retainers start with a monthly base set by annual revenue. Functions like AP, payroll or sales tax are added on top, and a few complexity factors, such as inventory or extra entities, are priced on the call. Projects are a flat fee.' },
 ];
