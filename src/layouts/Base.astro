@@ -11,11 +11,32 @@ interface Props {
   noindex?: boolean;
   bare?: boolean;          // true = no site header/footer (client portal pages)
   schema?: Record<string, unknown>;
+  // Guides and case studies: adds Article markup so search engines know the author and date.
+  article?: { published: string; modified?: string; section?: string };
 }
-const { title, description = site.defaultDescription, noindex = false, bare = false, schema } = Astro.props;
+const { title, description = site.defaultDescription, noindex = false, bare = false, schema, article } = Astro.props;
 const fullTitle = title ? `${title} | bkept` : site.defaultTitle;
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const ogImage = new URL('/og-image.jpg', site.url).href;
+const articleSchema = article && {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: canonical,
+  mainEntityOfPage: canonical,
+  image: ogImage,
+  datePublished: article.published,
+  dateModified: article.modified ?? article.published,
+  articleSection: article.section,
+  author: { '@type': 'Person', name: 'Tom Klecan', url: site.linkedin },
+  publisher: {
+    '@type': 'Organization',
+    name: 'bkept',
+    url: site.url,
+    logo: { '@type': 'ImageObject', url: new URL('/brand/bkept-logo.png', site.url).href },
+  },
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -36,7 +57,7 @@ const ogImage = new URL('/og-image.jpg', site.url).href;
     <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#FFFFFF" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
     <meta property="og:site_name" content="bkept" />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={fullTitle} />
@@ -46,6 +67,7 @@ const ogImage = new URL('/og-image.jpg', site.url).href;
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+    {articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>

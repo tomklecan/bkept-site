@@ -18,9 +18,12 @@ const schema = {
   name: 'bkept',
   url: site.url,
   description: site.defaultDescription,
+  logo: `${site.url}/brand/bkept-logo.png`,
+  image: `${site.url}/og-image.jpg`,
   email: 'newclient@bkept.co',
   founder: { '@type': 'Person', name: 'Tom Klecan' },
-  areaServed: ['Westchester County, NY', 'Long Beach Island, NJ', 'New York, NY'],
+  areaServed: { '@type': 'Country', name: 'United States' },
+  knowsAbout: ['Bookkeeping', 'QuickBooks Online', 'Month-end close', 'Accounts payable', 'Accounts receivable', 'Payroll', 'Bookkeeping cleanup'],
   sameAs: [site.linkedin],
 };
 
@@ -51,7 +54,7 @@ const month = [
         <div class="hero-copy">
           <p class="subhead rise">Fractional Accounting Operations</p>
           <h1 class="rise rise-2 one-line">Your Books, <span class="gold-text">Well Kept.</span></h1>
-          <p class="lead rise rise-3">Your finances, set up right and managed every month. For owner-led businesses, and for a select number of private clients who want their personal books held to the same standard.</p>
+          <p class="lead rise rise-3">Remote bookkeeping and accounting, set up right and managed every month. For owner-led businesses wherever they're based, and for a select number of private clients who want their personal books held to the same standard.</p>
           <div class="hero-actions rise rise-4">
             <a href={site.introCallUrl} class="btn" target="_blank" rel="noopener">Book a 20-Minute Call</a>
             <a href="/pricing/" class="btn btn-outline">See Pricing</a>
