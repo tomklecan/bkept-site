@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import Credentials from '../components/Credentials.astro';
+import HeroServices from '../components/HeroServices.astro';
+import Pathways from '../components/Pathways.astro';
+import Icon from '../components/Icon.astro';
+import CallBand from '../components/CallBand.astro';
+import { site } from '../data/site';
+import Founder from '../components/Founder.astro';
+import ServiceDetail from '../components/ServiceDetail.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'AccountingService',
+  name: 'bkept',
+  url: 'https://bkept.co/nyc/',
+  description: 'bkept runs bookkeeping and accounting operations for owner-led businesses across New York City and the surrounding metro area.',
+  founder: { '@type': 'Person', name: 'Tom Klecan' },
+  areaServed: [
+    'New York, NY', 'Manhattan, NY', 'Brooklyn, NY', 'Queens, NY',
+    'Westchester County, NY', 'Long Island, NY',
+    'Jersey City, NJ', 'Hoboken, NJ', 'Bergen County, NJ',
+  ],
+};
+---
+<Base
+  title="Bookkeeping for NYC-Area Small Businesses"
+  description="Monthly bookkeeping, cleanups and QuickBooks setup for owner-led businesses in New York City, Westchester, Long Island and North Jersey. Books closed by the 10th."
+  schema={schema}
+>
+  <div class="container">
+    <section class="hero hero-full">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow rise">Fractional Accounting Operations</span>
+          <h1 class="rise">Bookkeeping for <br /><span class="gold-text">the NYC Metro.</span></h1>
+          <p class="lead rise rise-3">From agencies in Manhattan and makers in Brooklyn to practices in Westchester and Hoboken, we take the books off the owner's desk and run them on a fixed monthly calendar: reconciled, closed by the 10th, and reviewed with you.</p>
+          <div class="hero-actions rise rise-4">
+            <a href={site.introCallUrl} class="btn" target="_blank" rel="noopener">Book a 20-Minute Call</a>
+            <Credentials />
+          </div>
+        </div>
+        <HeroServices />
+      </div>
+    </section>
+    <Pathways />
+    <hr class="divider" />
+    <section class="section" id="who-we-serve">
+      <div class="section-head">
+        <span class="eyebrow boxed">Who We Help</span>
+        <h2 class="section-title">Built for <br /><span class="gold-text">City Businesses.</span></h2>
+        <p class="lead">Owner-led businesses across the five boroughs, <a href="/westchester/">Westchester</a>, Long Island and North Jersey that have outgrown doing the books themselves. Tom spent years managing financials for New York startups before founding bkept, and the work runs remotely, so there are no office visits to schedule.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card top-gold lift">
+          <Icon name="document" />
+          <h4>Agencies &amp; Professional Services</h4>
+          <p>Consultancies, creative agencies and specialist firms. Retainer revenue tracked cleanly, contractor costs categorized, and a monthly view of margin by client.</p>
+        </div>
+        <div class="card top-gold lift">
+          <Icon name="property" />
+          <h4>Real Estate &amp; Property</h4>
+          <p>Rental portfolios and property managers. Each property kept on its own clean ledger, with rent collection and vendor payments on a set schedule.</p>
+        </div>
+        <div class="card top-gold lift">
+          <Icon name="dining" />
+          <h4>E-Commerce, Hospitality &amp; Retail</h4>
+          <p>Online brands, restaurants and shops with high transaction volume. Sales and processor deposits reconciled, so the P&amp;L reflects what actually happened.</p>
+        </div>
+      </div>
+    </section>
+    <hr class="divider" />
+    <Founder />
+    <hr class="divider" />
+    <ServiceDetail />
+  </div>
+  <CallBand title="Talk to a New York bookkeeper." text="A 20-minute call with Tom about your business and where the books stand. You leave knowing which retainer fits and what any catch-up would cost." />
+</Base>

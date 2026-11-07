@@ -5,9 +5,9 @@ export const site = {
   name: 'bkept.',
   url: 'https://bkept.co',
   tagline: 'Fractional Accounting Operations',
-  defaultTitle: 'bkept | Your Books, Well Kept',
+  defaultTitle: 'Remote Bookkeeping & Accounting for Small Businesses | bkept',
   defaultDescription:
-    'We recalibrate your accounting operations to support growth, then manage them on a monthly retainer. Ongoing bookkeeping, single functions like AP/AR or payroll, or one-time QuickBooks setups and cleanups.',
+    'Your books, well kept. Remote bookkeeping and accounting operations for small businesses: monthly retainers, AP/AR or payroll, and QuickBooks setups and cleanups.',
   linkedin: 'https://www.linkedin.com/in/tommyklecan',
   bookingUrl: 'https://calendar.app.google/ooDvBA9WNF6wHNbP7',
   // The "Book a 20-minute call" buttons for prospects (bkept Intro Call schedule).
@@ -41,7 +41,8 @@ export const desks = [
 export const onboardingEmail = 'onboarding@bkept.co';
 export const firmInviteEmail = 'tomklecan@bkept.co';
 
+// Local pages, linked quietly from the footer. The homepage stays location-neutral.
 export const locations = [
-  { label: 'Westchester', href: '/westchester/' },
   { label: 'Long Beach Island', href: '/lbi/' },
+  { label: 'NYC Metro', href: '/nyc/' },
 ];
