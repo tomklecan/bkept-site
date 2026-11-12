@@ -1,0 +1,35 @@
+---
+// "What to Expect" visual: one month as a ruler, with the dates bkept commits to.
+const W = 960, H = 150, L = 30, R = 30, base = 74;
+const x = (d: number) => L + ((d - 1) / 29) * (W - L - R);
+const marks = [
+  { d: 4, top: 'By the 4th', bot: 'Accounts reconciled' },
+  { d: 10, top: 'By the 10th', bot: 'Books closed + Kept Memo' },
+];
+---
+<figure class="gfx-ruler">
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="A month timeline: accounts reconciled by the 4th, books closed and the Kept Memo by the 10th, then a one-to-one review with Tom.">
+    <defs><linearGradient id="gRule" x1="0" x2="1"><stop offset="0" stop-color="#8E7338"/><stop offset=".5" stop-color="#F9E7BA"/><stop offset="1" stop-color="#8E7338"/></linearGradient></defs>
+    <line x1={L} x2={W - R} y1={base} y2={base} class="gfx-rule-line" stroke-width="2" />
+    <line x1={L} x2={x(10)} y1={base} y2={base} stroke="url(#gRule)" stroke-width="4" stroke-linecap="round" />
+    {Array.from({ length: 30 }, (_, i) => i + 1).map((d) => (
+      <g>
+        <line x1={x(d)} x2={x(d)} y1={base - (d % 5 === 0 || d === 1 ? 7 : 4)} y2={base + (d % 5 === 0 || d === 1 ? 7 : 4)} class="gfx-tick" />
+        {(d === 1 || d % 5 === 0) && <text x={x(d)} y={base + 24} text-anchor="middle" class="gfx-axis">{d}</text>}
+      </g>
+    ))}
+    {marks.map((m) => (
+      <g>
+        <line x1={x(m.d)} x2={x(m.d)} y1={base - 46} y2={base} stroke="#8E7338" stroke-width="1.5" stroke-dasharray="2 3" />
+        <circle cx={x(m.d)} cy={base} r="8" fill="#8E7338" />
+        <path d={`M${x(m.d) - 3.5} ${base}l2.5 2.5 4.5-5`} stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+        <text x={x(m.d)} y={base - 54} text-anchor="middle" class="gfx-mark-top">{m.top}</text>
+        <text x={x(m.d)} y={base + 46} text-anchor="middle" class="gfx-mark-bot">{m.bot}</text>
+      </g>
+    ))}
+    <rect x={x(13)} y={base - 13} width={x(22) - x(13)} height="26" rx="13" class="gfx-review" />
+    <text x={(x(13) + x(22)) / 2} y={base + 4} text-anchor="middle" class="gfx-review-txt">1:1 review with Tom</text>
+    <text x={(x(13) + x(22)) / 2} y={base - 54} text-anchor="middle" class="gfx-mark-top">After the close</text>
+    <text x={(x(13) + x(22)) / 2} y={base + 46} text-anchor="middle" class="gfx-mark-bot">Scheduled with you</text>
+  </svg>
+</figure>

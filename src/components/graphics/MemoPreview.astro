@@ -1,0 +1,51 @@
+---
+// Hero visual: a stylized Kept Memo, so visitors see the monthly deliverable before they read about it.
+// Figures are illustrative only; the caption says so.
+const bars = [62, 71, 58, 77, 84, 92];
+const months = ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
+const recs = [
+  ['Operating account', 'done'],
+  ['Business credit card', 'done'],
+  ['Payroll account', 'done'],
+  ['Merchant payouts', 'flag'],
+] as const;
+---
+<figure class="gfx-memo rise rise-4" aria-label="Illustration of a sample Kept Memo">
+  <div class="gfx-memo-card">
+    <div class="gfx-memo-head">
+      <img src="/brand/bkept-mark-color.svg" alt="" width="30" height="30" />
+      <div>
+        <span class="gfx-kicker">The Kept Memo</span>
+        <strong>October, on one page</strong>
+      </div>
+      <span class="gfx-chip">Sample</span>
+    </div>
+    <div class="gfx-figs">
+      <div><strong>$126.4k</strong><span>Revenue</span></div>
+      <div><strong>18%</strong><span>Net margin</span></div>
+      <div><strong>$41.9k</strong><span>Cash on hand</span></div>
+    </div>
+    <svg class="gfx-bars" viewBox="0 0 300 92" role="img" aria-label="Six months of revenue, rising">
+      <defs>
+        <linearGradient id="gBar" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#8E7338"/><stop offset="1" stop-color="#C2A466"/></linearGradient>
+      </defs>
+      <line x1="0" y1="74" x2="300" y2="74" stroke="#E2E8F0" />
+      {bars.map((v, i) => (
+        <g>
+          <rect x={12 + i * 48} y={74 - v * .7} width="28" height={v * .7} rx="2" fill={i === bars.length - 1 ? 'url(#gBar)' : '#E9DFC6'} />
+          <text x={26 + i * 48} y="88" text-anchor="middle" class="gfx-axis gfx-axis-sm">{months[i]}</text>
+        </g>
+      ))}
+    </svg>
+    <ul class="gfx-recs">
+      {recs.map(([name, s]) => (
+        <li><span>{name}</span><em class={s}>{s === 'done' ? 'Reconciled' : '1 item for you'}</em></li>
+      ))}
+    </ul>
+  </div>
+  <div class="gfx-float" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="11" fill="#8E7338"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span><strong>Books closed</strong> Nov 10</span>
+  </div>
+  <figcaption>Sample figures for illustration.</figcaption>
+</figure>

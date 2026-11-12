@@ -1,3 +1,6 @@
+---
+import Pathway from './graphics/Pathway.astro';
+---
 <section class="section" id="service-gateway">
   <div class="section-head">
     <span class="eyebrow boxed">Engage Us Your Way</span>
@@ -6,18 +9,21 @@
   </div>
   <div class="grid-3">
     <div class="card top-gold card-center">
+      <Pathway kind="monthly" />
       <span class="tag">Ongoing</span>
       <h3>Run It Monthly</h3>
       <p>Kept Services. Your full bookkeeping and accounting operation managed on a fixed monthly retainer, with books closed and reported by the 10th.</p>
       <a href="#the-kept" class="btn btn-outline btn-block">See What's Included ↓</a>
     </div>
     <div class="card top-gold card-center">
+      <Pathway kind="piece" />
       <span class="tag">One Function</span>
       <h3>Manage a Piece</h3>
       <p>Hand off a single function, like accounts payable, receivables, payroll oversight or sales tax, and keep the rest in-house.</p>
       <a href="/pricing/#add-ons" class="btn btn-outline btn-block">See Function Pricing →</a>
     </div>
     <div class="card top-ink card-center">
+      <Pathway kind="recal" />
       <span class="tag">One-Time</span>
       <h3>Recalibrate</h3>
       <p>Concierge Services. A QuickBooks setup or migration, a cleanup of past months, or a redesign of how your accounting workflows run, for a flat fee.</p>

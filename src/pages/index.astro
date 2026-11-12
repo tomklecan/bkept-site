@@ -1,7 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
 import Credentials from '../components/Credentials.astro';
-import HeroServices from '../components/HeroServices.astro';
+import MemoPreview from '../components/graphics/MemoPreview.astro';
+import CadenceChart from '../components/graphics/CadenceChart.astro';
+import MonthRuler from '../components/graphics/MonthRuler.astro';
+import Spot from '../components/graphics/Spot.astro';
+import Icon from '../components/Icon.astro';
 import Pathways from '../components/Pathways.astro';
 import Founder from '../components/Founder.astro';
 import ServiceDetail from '../components/ServiceDetail.astro';
@@ -35,9 +39,9 @@ const pains = [
 ];
 
 const shifts = [
-  ['A fixed calendar', 'Reconciliations, the monthly close and your review happen on set dates, every month, whether or not it is a busy one.'],
-  ['Someone to answer to', 'An outside firm holds the process to its standards and deadlines, and holds everyone who feeds it, owners included.'],
-  ['A ripple effect', 'Once the numbers are current and reviewed, pricing, hiring and cash decisions get sharper across the whole business.'],
+  ['calendar', 'A fixed calendar', 'Reconciliations, the monthly close and your review happen on set dates, every month, whether or not it is a busy one.'],
+  ['shield', 'Someone to answer to', 'An outside firm holds the process to its standards and deadlines, and holds everyone who feeds it, owners included.'],
+  ['ripple', 'A ripple effect', 'Once the numbers are current and reviewed, pricing, hiring and cash decisions get sharper across the whole business.'],
 ];
 
 const month = [
@@ -63,7 +67,7 @@ const month = [
             <Credentials />
           </div>
         </div>
-        <HeroServices />
+        <MemoPreview />
       </div>
     </section>
 
@@ -74,12 +78,14 @@ const month = [
       </div>
       <div class="grid-2">
         <div class="card top-gold card-center">
+          <Spot kind="business" />
           <span class="tag">For Business</span>
           <h3>Business Accounting</h3>
           <p>Bookkeeping, single functions like AP/AR or payroll, and one-time setups or cleanups for owner-led businesses, closed and reported by the 10th.</p>
           <a href="#service-gateway" class="btn btn-outline btn-block">See Business Services ↓</a>
         </div>
         <div class="card top-ink card-center">
+          <Spot kind="private" />
           <span class="tag">For Personal Finances</span>
           <h3>Private Client</h3>
           <p>Personal bookkeeping for a limited number of individuals and families. Every account reconciled, a monthly summary, and a clean year-end package for your CPA.</p>
@@ -101,13 +107,16 @@ const month = [
         {pains.map(([k, v]) => <li><div><strong>{k}</strong><span>{v}</span></div></li>)}
       </ul>
 
+      <CadenceChart />
+
       <div class="section-head" style="margin-top:70px;">
         <h3 class="section-title">A Higher <span class="gold-text">Standard.</span></h3>
         <p class="lead">When an independent firm runs your accounting, it stops being a chore someone squeezes in and becomes a real function of the business, with deliverables, deadlines and accountability.</p>
       </div>
       <div class="grid-3">
-        {shifts.map(([k, v]) => (
+        {shifts.map(([ic, k, v]) => (
           <div class="card top-gold">
+            <span class="gfx-icon-tile"><Icon name={ic as any} class="icon" /></span>
             <h4>{k}</h4>
             <p>{v}</p>
           </div>
@@ -122,6 +131,7 @@ const month = [
         <h2 class="section-title">What to <span class="gold-text">Expect.</span></h2>
         <p class="lead">A fixed fee, a fixed calendar, and one person accountable for getting it done. Your books stay in your own QuickBooks, in your name.</p>
       </div>
+      <MonthRuler />
       <div class="month">
         {month.map(([day, title, desc]) => (
           <div class="card top-gold">
@@ -142,18 +152,21 @@ const month = [
         <span class="eyebrow boxed">Getting Started</span>
         <h2 class="section-title">How It <span class="gold-text">Starts.</span></h2>
       </div>
-      <div class="steps">
+      <div class="steps gfx-flow">
         <div class="card">
+          <span class="gfx-step-ic"><Icon name="message" class="icon" /></span>
           <span class="when">20 minutes</span>
           <h4>An intro call</h4>
           <p>We look at your current software, how many accounts you run, and how far behind the books are.</p>
         </div>
         <div class="card">
+          <span class="gfx-step-ic"><Icon name="document" class="icon" /></span>
           <span class="when">After the call</span>
           <h4>A fixed quote</h4>
           <p>For whatever scope fits: a flat project fee, a monthly retainer, or both. No hourly billing surprises.</p>
         </div>
         <div class="card">
+          <span class="gfx-step-ic"><Icon name="calendar" class="icon" /></span>
           <span class="when">First 30 days</span>
           <h4>The work begins</h4>
           <p>Projects start on an agreed timeline. Monthly clients get a 30-day onboarding, then the first close lands by the 10th.</p>
