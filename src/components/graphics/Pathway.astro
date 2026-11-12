@@ -1,0 +1,43 @@
+---
+// Small diagrams for the three "Start Anywhere" cards.
+interface Props { kind: 'monthly' | 'piece' | 'recal' }
+const { kind } = Astro.props;
+const m = ['J','F','M','A','M','J','J','A','S','O','N','D'];
+const fns = ['AP', 'AR', 'Payroll', 'Sales tax', 'Close', 'Reporting'];
+---
+{kind === 'monthly' && (
+  <svg class="gfx-path" viewBox="0 0 240 70" role="img" aria-label="Twelve months, each one closed">
+    {m.map((l, i) => (
+      <g>
+        <rect x={4 + i * 19.5} y="14" width="16" height="30" rx="2" fill={i < 10 ? '#8E7338' : '#fff'} stroke="#8E7338" stroke-width="1.2" opacity={i < 10 ? .25 + i * .075 : 1} />
+        {i < 10 && <path d={`M${8 + i * 19.5} 29l3 3 5-6`} stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" />}
+        <text x={12 + i * 19.5} y="60" text-anchor="middle" class="gfx-axis">{l}</text>
+      </g>
+    ))}
+  </svg>
+)}
+{kind === 'piece' && (
+  <svg class="gfx-path" viewBox="0 0 240 70" role="img" aria-label="One function handed off, the rest kept in-house">
+    {fns.map((f, i) => {
+      const x = 4 + (i % 3) * 79, y = 4 + Math.floor(i / 3) * 33, on = i === 0;
+      return (
+        <g>
+          <rect x={x} y={y} width="74" height="28" rx="3" fill={on ? 'url(#gPiece)' : '#fff'} stroke={on ? 'none' : '#D9D2C1'} stroke-dasharray={on ? '' : '3 3'} />
+          <text x={x + 37} y={y + 18} text-anchor="middle" class={on ? 'gfx-lbl on' : 'gfx-lbl'}>{f}</text>
+        </g>
+      );
+    })}
+    <defs><linearGradient id="gPiece" x1="0" x2="1"><stop offset="0" stop-color="#8E7338"/><stop offset="1" stop-color="#C2A466"/></linearGradient></defs>
+  </svg>
+)}
+{kind === 'recal' && (
+  <svg class="gfx-path" viewBox="0 0 240 70" role="img" aria-label="A tangled process straightened out">
+    <path d="M6 35c10-26 22 22 30-4s14-20 22 6 12 18 18-10 10-14 18 6" fill="none" stroke="#BDC3C7" stroke-width="2" stroke-linecap="round" />
+    <path d="M104 35h14" stroke="#8E7338" stroke-width="2" stroke-linecap="round" />
+    <path d="M114 30l6 5-6 5" fill="none" stroke="#8E7338" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M132 35h102" stroke="#8E7338" stroke-width="2.5" stroke-linecap="round" />
+    {[0,1,2,3].map((i) => <circle cx={140 + i * 30} cy="35" r="6" fill="#fff" stroke="#8E7338" stroke-width="2" />)}
+    <text x="50" y="66" text-anchor="middle" class="gfx-axis">Before</text>
+    <text x="185" y="66" text-anchor="middle" class="gfx-axis">After</text>
+  </svg>
+)}

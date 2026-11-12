@@ -428,3 +428,92 @@ a.link-row:hover { color: var(--gold); padding-left: 5px; }
 .case-card .eyebrow { margin-bottom: 6px; }
 .case-card-link { margin-top: auto; padding-top: 10px; font-weight: 700; color: var(--gold); }
 .more-cases { border-top: 1px solid #eee; }
+
+/* ---------- Graphics: inline SVG visuals that break up long text ---------- */
+.gfx-kicker { display: block; font-size: .68rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+.gfx-axis { font: 600 11px var(--font); fill: var(--muted); }
+.gfx-axis-sm { font-size: 8px; }
+.gfx-note { font: 600 12px var(--font); fill: var(--muted); }
+.gfx-note.gold { fill: var(--gold); font-weight: 700; }
+.gfx-lbl { font: 700 11px var(--font); fill: var(--muted); letter-spacing: .3px; }
+.gfx-lbl.on { fill: #fff; }
+
+/* Hero: sample Kept Memo */
+.gfx-memo { position: relative; margin: 0; min-width: 0; }
+.gfx-memo-card { background: #fff; border: 1px solid var(--border); border-top: 4px solid var(--gold); padding: 24px; box-shadow: 0 30px 60px rgba(45,52,54,.08), 0 6px 14px rgba(45,52,54,.04); }
+.gfx-memo-head { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.gfx-memo-head strong { display: block; color: var(--ink); font-size: 1.05rem; }
+.gfx-memo-head img { border-radius: 6px; }
+.gfx-chip { margin-left: auto; font-size: .62rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); border: 1px dashed var(--soft); padding: 3px 8px; }
+.gfx-figs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 18px 0 8px; }
+.gfx-figs div { background: var(--surface); border: 1px solid var(--border); padding: 10px 12px; min-width: 0; }
+.gfx-figs strong { display: block; font-size: 1.25rem; font-weight: 800; color: var(--ink); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.gfx-figs span { font-size: .72rem; color: var(--muted); }
+.gfx-bars { display: block; width: 100%; height: auto; margin: 6px 0 4px; }
+.gfx-recs li { display: flex; justify-content: space-between; gap: 10px; padding: 8px 0; border-top: 1px solid var(--border); font-size: .85rem; color: var(--text); }
+.gfx-recs em { font-style: normal; font-size: .68rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
+.gfx-recs em.done { color: var(--gold); }
+.gfx-recs em.done::before { content: "\2713  "; }
+.gfx-recs em.flag { color: #B5651D; background: #FDF1E4; padding: 2px 8px; border-radius: 10px; }
+.gfx-float { position: absolute; right: -18px; top: -24px; display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--border); padding: 10px 14px; box-shadow: 0 12px 30px rgba(45,52,54,.12); font-size: .8rem; color: var(--muted); }
+.gfx-float strong { color: var(--ink); margin-right: 4px; }
+.gfx-memo figcaption { font-size: .72rem; color: var(--muted); margin-top: 10px; text-align: right; }
+
+/* Start Anywhere + Two Ways In */
+.gfx-path { display: block; width: 100%; max-width: 240px; height: auto; margin: 0 auto 18px; }
+.gfx-spot { display: block; width: 120px; height: 80px; margin: 0 auto 14px; }
+
+/* Not a Side Task chart */
+.gfx-cadence { max-width: 900px; margin: 40px auto 0; padding: 26px 28px 18px; background: #fff; border: 1px solid var(--border); }
+.gfx-cadence-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 10px; }
+.gfx-cadence-head strong { display: block; color: var(--ink); font-size: 1.05rem; }
+.gfx-legend { display: flex; gap: 18px; font-size: .8rem; color: var(--muted); }
+.gfx-legend li { display: flex; align-items: center; gap: 8px; }
+.gfx-legend i { width: 18px; height: 3px; border-radius: 2px; display: inline-block; }
+.gfx-legend i.side { background: #BDC3C7; } .gfx-legend i.kept { background: var(--gold); }
+.gfx-cadence svg { display: block; width: 100%; height: auto; }
+.gfx-cadence figcaption, .gfx-ruler figcaption { font-size: .72rem; color: var(--muted); text-align: right; }
+.gfx-icon-tile { display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; border-radius: 8px; background: var(--cream); color: var(--gold); margin-bottom: 16px; }
+.gfx-icon-tile .icon, .gfx-step-ic .icon { width: 24px; height: 24px; margin: 0; color: inherit; }
+
+/* What to Expect: month ruler (sits on the ink band) */
+.gfx-ruler { margin: 10px 0 30px; }
+.gfx-ruler svg { display: block; width: 100%; height: auto; }
+.gfx-rule-line { stroke: #444; }
+.gfx-tick { stroke: #555; stroke-width: 1.2; }
+.gfx-mark-top { font: 800 12px var(--font); letter-spacing: 1.5px; text-transform: uppercase; fill: #D6B569; }
+.gfx-mark-bot { font: 600 13px var(--font); fill: #fff; }
+.gfx-review { fill: var(--ink-card); stroke: #D6B569; stroke-width: 1.5; }
+.gfx-review-txt { font: 700 12px var(--font); fill: #F9E7BA; }
+
+/* How It Starts: connected steps */
+.gfx-flow { position: relative; }
+.gfx-flow::before { content: ""; position: absolute; top: 58px; left: 16%; right: 16%; height: 2px; background: repeating-linear-gradient(90deg, var(--gold) 0 8px, transparent 8px 14px); opacity: .5; }
+.gfx-flow .card { position: relative; text-align: center; }
+.gfx-flow .card::before { display: none; }
+.gfx-step-ic { display: flex; width: 52px; height: 52px; margin: 0 auto 16px; align-items: center; justify-content: center; border-radius: 50%; background: var(--gradient); color: #fff; box-shadow: 0 0 0 8px #fff; }
+.gfx-step-ic .icon { width: 24px; height: 24px; }
+
+@media (max-width: 900px) {
+  .gfx-float { right: 12px; top: -22px; }
+  .gfx-flow::before { display: none; }
+  .gfx-ruler { overflow-x: auto; }
+  .gfx-ruler svg { min-width: 640px; }
+}
+@media (max-width: 600px) {
+  .gfx-ruler { display: none; } /* the four cards below carry the same dates on phones */
+  .gfx-memo-card { padding: 18px; }
+  .gfx-figs strong { font-size: 1.02rem; }
+  .gfx-cadence { padding: 20px 16px 14px; }
+}
+@media print {
+  .gfx-memo-card, .gfx-float { box-shadow: none; }
+  .gfx-memo, .gfx-cadence, .gfx-ruler { break-inside: avoid; }
+  .gfx-ruler svg { min-width: 0; }
+  .gfx-rule-line, .gfx-tick { stroke: #BDC3C7; }
+  .gfx-mark-top { fill: var(--gold); }
+  .gfx-mark-bot { fill: var(--text); }
+  .gfx-review { fill: #fff; stroke: var(--gold); }
+  .gfx-review-txt { fill: var(--gold); }
+  .gfx-step-ic, .gfx-icon-tile { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

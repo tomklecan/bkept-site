@@ -1,0 +1,53 @@
+---
+// "Not a Side Task" chart: how far behind the books run when bookkeeping is squeezed in,
+// versus a fixed monthly close. Illustrative shape, not client data.
+const W = 720, H = 240, L = 46, R = 16, T = 20, B = 40;
+const pw = W - L - R, ph = H - T - B;
+const maxY = 90;
+const x = (d: number) => L + (d / 365) * pw;
+const y = (v: number) => T + ph - (v / maxY) * ph;
+// Side task: days behind grows, then a catch-up weekend resets it.
+const side = [[0,20],[70,82],[72,6],[150,78],[152,10],[250,86],[253,4],[340,66],[365,74]];
+const sidePath = side.map(([d, v], i) => `${i ? 'L' : 'M'}${x(d).toFixed(1)} ${y(v).toFixed(1)}`).join(' ');
+// Kept: worked through the month and closed by the 10th, so the books never drift far.
+const kept: number[][] = [];
+for (let mth = 0; mth < 12; mth++) { const d0 = mth * 30.4; kept.push([d0, 14], [d0 + 10, 4]); }
+kept.push([365, 14]);
+const closes = Array.from({ length: 12 }, (_, m) => m * 30.4 + 10);
+const keptPath = kept.map(([d, v], i) => `${i ? 'L' : 'M'}${x(d).toFixed(1)} ${y(v).toFixed(1)}`).join(' ');
+const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const catchups = [72, 152, 253];
+---
+<figure class="gfx-cadence">
+  <div class="gfx-cadence-head">
+    <div>
+      <span class="gfx-kicker">How far behind the books run</span>
+      <strong>Squeezed in vs. kept on a calendar</strong>
+    </div>
+    <ul class="gfx-legend">
+      <li><i class="side"></i>Side task</li>
+      <li><i class="kept"></i>Kept by bkept</li>
+    </ul>
+  </div>
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Line chart. When books are a side task, they drift up to three months behind between catch-up weekends. With a monthly close, they are never more than about a month behind.">
+    {[0, 30, 60, 90].map((v) => (
+      <g>
+        <line x1={L} x2={W - R} y1={y(v)} y2={y(v)} stroke="#EEF0F2" />
+        <text x={L - 10} y={y(v) + 4} text-anchor="end" class="gfx-axis">{v}d</text>
+      </g>
+    ))}
+    {months.map((mn, i) => <text x={x(i * 30.4 + 15)} y={H - 14} text-anchor="middle" class="gfx-axis">{mn}</text>)}
+    <path d={sidePath} fill="none" stroke="#BDC3C7" stroke-width="2.5" stroke-linejoin="round" />
+    {catchups.map((d) => (
+      <g>
+        <circle cx={x(d)} cy={y(7)} r="4" fill="#fff" stroke="#9AA3A6" stroke-width="2" />
+      </g>
+    ))}
+    <text x={x(152)} y={y(30)} text-anchor="middle" class="gfx-note">catch-up weekends</text>
+    <line x1={x(152)} x2={x(152)} y1={y(26)} y2={y(10)} stroke="#BDC3C7" stroke-dasharray="2 3" />
+    <path d={keptPath} fill="none" stroke="#8E7338" stroke-width="2.5" stroke-linejoin="round" />
+    {closes.map((d) => <circle cx={x(d)} cy={y(4)} r="3.5" fill="#8E7338" />)}
+    <text x={x(318)} y={y(22)} text-anchor="middle" class="gfx-note gold">closed by the 10th, every month</text>
+  </svg>
+  <figcaption>Illustrative pattern, not client data.</figcaption>
+</figure>

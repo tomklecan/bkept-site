@@ -1,0 +1,27 @@
+---
+// Larger spot illustrations for the "Two Ways In" cards.
+interface Props { kind: 'business' | 'private' }
+const { kind } = Astro.props;
+---
+<svg class="gfx-spot" viewBox="0 0 120 80" aria-hidden="true">
+  <defs><linearGradient id={`gs-${kind}`} x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8E7338"/><stop offset="1" stop-color="#C2A466"/></linearGradient></defs>
+  {kind === 'business' ? (
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="20" y="30" width="34" height="42" rx="2" fill="#FBF6EA" stroke="#8E7338" stroke-width="1.6" />
+      <rect x="54" y="14" width="46" height="58" rx="2" fill={`url(#gs-${kind})`} />
+      {[0,1,2].map((r) => [0,1,2].map((c) => <rect x={61 + c * 12} y={22 + r * 13} width="8" height="7" rx="1" fill="#fff" opacity=".85" />))}
+      <rect x="71" y="60" width="12" height="12" fill="#fff" opacity=".9" />
+      {[0,1,2].map((r) => <path d={`M27 ${40 + r * 10}h20`} stroke="#8E7338" stroke-width="1.6" />)}
+      <path d="M12 72h96" stroke="#2D3436" stroke-width="1.6" />
+    </g>
+  ) : (
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M26 42l30-24 30 24" stroke="#2D3436" stroke-width="1.8" />
+      <rect x="32" y="40" width="48" height="32" fill="#FBF6EA" stroke="#2D3436" stroke-width="1.6" />
+      <rect x="50" y="54" width="12" height="18" fill="#2D3436" />
+      <circle cx="90" cy="30" r="14" fill={`url(#gs-${kind})`} />
+      <path d="M84 30.5l4 4 8-8" stroke="#fff" stroke-width="2.2" />
+      <path d="M14 72h92" stroke="#2D3436" stroke-width="1.6" />
+    </g>
+  )}
+</svg>
