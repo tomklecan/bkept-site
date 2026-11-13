@@ -4,20 +4,20 @@
 
 export const retainerBands = [
   { name: 'Under $500K', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 750 },
-  { name: '$500K to $2M', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 850 },
-  { name: '$2M to $5M', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 1350 },
+  { name: '$500K to $2M', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 1150 },
+  { name: '$2M to $5M', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 1750 },
 ];
 
 // Shown as "From $X" under the bands.
-export const customBand = { name: 'Over $5M', details: 'Larger operations or multiple entities.', from: 1750 };
+export const customBand = { name: 'Over $5M', details: 'Larger operations or multiple entities.', from: 2500 };
 
 export const functions = [
-  { name: 'Accounts Payable', details: 'Bill entry, approval routing and scheduled pay runs.', price: 450 },
-  { name: 'Accounts Receivable', details: 'Invoicing, payment matching and collections follow-up.', price: 400 },
-  { name: 'AP + AR Together', details: 'Both of the above, run as one process.', price: 750 },
+  { name: 'Accounts Payable', details: 'Bill entry, approval routing and scheduled pay runs.', price: 500 },
+  { name: 'Accounts Receivable', details: 'Invoicing, payment matching and collections follow-up.', price: 450 },
+  { name: 'AP + AR Together', details: 'Both of the above, run as one process.', price: 850 },
   { name: 'Payroll Oversight', details: 'Payroll runs reviewed, recorded and checked against filings.', price: 500 },
   { name: 'Sales Tax Oversight', details: 'Filings for up to 2 states. $150/mo for each additional state.', price: 500 },
-  { name: 'Management Reporting', details: 'Budget vs. actual and a monthly KPI pack.', price: 400 },
+  { name: 'Management Reporting', details: 'Budget vs. actual and a monthly KPI pack.', price: 500 },
 ];
 
 // Things that can move a quote. Priced on the intro call, not shown as line items.
@@ -28,7 +28,7 @@ export const complexityFactors = [
   { name: 'Additional Entities', details: 'More than one company kept and closed each month.' },
 ];
 
-export const dormantRate = 450;
+export const dormantRate = 500;
 
 // Optional extras. Set to null to hide them from the Pricing page.
 export const setupFee: number | null = null;
