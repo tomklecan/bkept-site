@@ -3,7 +3,7 @@
 // and a few complexity factors quoted on the intro call.
 
 export const retainerBands = [
-  { name: 'Under $500K', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 550 },
+  { name: 'Under $500K', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 750 },
   { name: '$500K to $2M', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 850 },
   { name: '$2M to $5M', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 1350 },
 ];
