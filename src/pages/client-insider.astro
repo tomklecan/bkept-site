@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
+import { site } from '../data/site';
 ---
 <Base title="Client Insider" description="Access your bkept onboarding track, client hub, and firm materials." noindex>
   <div class="container">
@@ -8,6 +9,9 @@ import Icon from '../components/Icon.astro';
       <span class="eyebrow boxed">Secure Access</span>
       <h1>Client <span class="gold-text">Insider.</span></h1>
       <p class="lead">Everything you need as a client in one place: your onboarding track, the Client Hub and firm materials.</p>
+      <div class="hero-actions">
+        <a href={site.clientHubUrl} class="btn btn-gold" target="_blank" rel="noopener">Log In to the Client Hub</a>
+      </div>
     </section>
     <section class="section">
       <div class="grid-3">
@@ -15,10 +19,10 @@ import Icon from '../components/Icon.astro';
           <div><Icon name="route" /><h3>Onboarding Track</h3><p>Navigate your 30-day integration timeline, submit master data, and review our operational cadence.</p></div>
           <span class="link-row">Open Onboarding <span class="arrow">→</span></span>
         </a>
-        <div class="card top-soft resource" style="background:var(--surface);">
-          <div><Icon name="lock" /><h3 class="muted">The Client Hub</h3><p>Your dedicated workspace for daily financial operations and monthly management review packages.</p></div>
-          <span class="link-row disabled">Coming Soon</span>
-        </div>
+        <a href={site.clientHubUrl} class="card top-gold lift resource" target="_blank" rel="noopener">
+          <div><Icon name="lock" /><h3>The Client Hub</h3><p>Your dedicated workspace for daily financial operations and monthly management review packages.</p></div>
+          <span class="link-row">Log In to the Hub <span class="arrow">→</span></span>
+        </a>
         <a href="/client-directory/" class="card top-gold lift resource">
           <div><Icon name="document" /><h3>Client Materials</h3><p>Portals, vendor forms, financial tools, and your monthly review booking link.</p></div>
           <span class="link-row">View Directory <span class="arrow">→</span></span>
