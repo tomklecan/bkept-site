@@ -1,15 +1,16 @@
 // Published pricing. The Pricing page renders straight from this file.
 // Model set 23 Oct 2026: a base retainer by annual revenue, functions added on top,
 // and a few complexity factors quoted on the intro call.
+// 20 Nov 2026: bands lowered to start at $550, others scaled by the same ratio (550/750).
 
 export const retainerBands = [
-  { name: 'Under $500K', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 750 },
-  { name: '$500K to $2M', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 1150 },
-  { name: '$2M to $5M', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 1750 },
+  { name: 'Under $500K', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 550 },
+  { name: '$500K to $2M', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 850 },
+  { name: '$2M to $5M', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 1300 },
 ];
 
 // Shown as "From $X" under the bands.
-export const customBand = { name: 'Over $5M', details: 'Larger operations or multiple entities.', from: 2500 };
+export const customBand = { name: 'Over $5M', details: 'Larger operations or multiple entities.', from: 1850 };
 
 export const functions = [
   { name: 'Accounts Payable', details: 'Bill entry, approval routing and scheduled pay runs.', price: 500 },
@@ -28,7 +29,7 @@ export const complexityFactors = [
   { name: 'Additional Entities', details: 'More than one company kept and closed each month.' },
 ];
 
-export const dormantRate = 500;
+export const dormantRate = 400;
 
 // Optional extras. Set to null to hide them from the Pricing page.
 export const setupFee: number | null = null;
