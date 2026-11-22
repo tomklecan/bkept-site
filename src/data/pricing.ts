@@ -30,7 +30,7 @@ export const projects = [
   { name: 'Targeted Function Projects', details: 'One process fixed or built: catch-up and cleanup, AP or AR workflows, month-end close.' },
 ];
 
-export const dormantRate = 500;
+export const dormantRate = 250;
 
 export const fromPrice = baseFee;
 
