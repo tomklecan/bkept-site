@@ -3,92 +3,56 @@ import Base from '../layouts/Base.astro';
 import CallBand from '../components/CallBand.astro';
 import Faq from '../components/Faq.astro';
 import { site } from '../data/site';
-import { retainerBands, customBand, functions, complexityFactors, dormantRate, setupFee, cleanupNote, fromPrice, usd } from '../data/pricing';
+import { baseFee, baseIncludes, addOns, projectFrom, projects, dormantRate, fromPrice, usd } from '../data/pricing';
 ---
-<Base title="Bookkeeping Pricing: Monthly Plans & Cleanup Costs" description={`bkept pricing: monthly bookkeeping retainers from ${usd(fromPrice)}/mo, set by business size and the functions you need, plus flat-fee cleanup and QuickBooks projects.`}>
+<Base title="Bookkeeping Pricing: Monthly Plans & Cleanup Costs" description={`bkept pricing: monthly bookkeeping retainers from ${usd(fromPrice)}/mo with add-ons for AP/AR, sales tax, analysis and budgeting, plus one-time projects from $500.`}>
   <div class="container">
     <section class="hero hero-full hero-center">
       <span class="eyebrow boxed">Pricing</span>
       <h1>Fixed Fees. <span class="gold-text">No Surprises.</span></h1>
-      <p class="lead">A monthly base set by the size of your business, the functions you need on top, and one-time projects quoted as a flat fee. Not sure where you fit? A 20-minute call settles it.</p>
+      <p class="lead">One base fee for the monthly essentials, add-ons for the work you want handled, and one-time projects when something needs to be built or fixed. A 20-minute call sets your price.</p>
       <div class="cta-row"><a href={site.introCallUrl} class="btn" target="_blank" rel="noopener">Book a 20-Minute Call</a></div>
     </section>
 
     <div class="tracks">
       <div class="track card top-gold">
         <div class="track-head">
-          <span class="tag">Monthly Retainer</span>
-          <h2>Kept Services</h2>
-          <p>Your accounting run every month on a fixed calendar. One fixed monthly fee, books closed by the 10th.</p>
+          <span class="tag">Monthly</span>
+          <h2>Retainer Services</h2>
+          <p>Your accounting run every month on a fixed calendar, for one fixed monthly fee. Start with the base and add what your business needs.</p>
         </div>
-        <h3 class="subhead-rule">What's Included</h3>
+
+        <div class="tier">
+          <div><div class="tier-name">Base Fee</div><div class="tier-details">The foundation of every retainer.</div></div>
+          <div class="tier-price">{usd(baseFee)}<span>/mo</span></div>
+        </div>
+        <h3 class="subhead-rule">The Base Includes</h3>
         <ul class="def-list">
-          <li><strong>Full-Cycle Bookkeeping</strong> Transactions coded and every bank and card account reconciled.</li>
-          <li><strong>Monthly Close by the 10th</strong> Your P&amp;L, Balance Sheet and Cash Flow Statement, closed and delivered.</li>
-          <li><strong>The Kept Memo &amp; 1:1 Review</strong> Key figures, reconciliation status and notes each month, plus dedicated time to walk through them.</li>
-          <li><strong>CPA Liaison</strong> We hand your CPA a clean year-end package and answer their questions for you.</li>
-          <li><strong>Compliance Tracking</strong> Reminders for business licenses, insurance policies and entity renewals.</li>
+          {baseIncludes.map((i) => (<li><strong>{i.name}</strong> {i.details}</li>))}
         </ul>
 
-        <h3 class="subhead-rule">The Base</h3>
-        <p class="muted">Every retainer starts here. The base covers everything above and is set by annual revenue.</p>
-        {retainerBands.map((b) => (
-          <div class="tier">
-            <div><div class="tier-name">{b.name}</div><div class="tier-details">{b.details}</div></div>
-            <div class="tier-price">{usd(b.price)}<span>/mo</span></div>
-          </div>
-        ))}
-        <div class="tier tier-custom">
-          <div><div class="tier-name">{customBand.name}</div><div class="tier-details">{customBand.details}</div></div>
-          <div class="tier-price">From {usd(customBand.from)}<span>/mo</span></div>
-        </div>
-        {setupFee !== null && (
-          <p class="note-box">One-time onboarding and setup: <strong>{usd(setupFee)}</strong></p>
-        )}
-
-        <h3 class="subhead-rule" id="add-ons" style="margin-top:25px;">Functions</h3>
-        <p class="muted">Add the work you want handled. Each one also runs on its own, without a retainer.</p>
-        {functions.map((f) => (
-          <div class="tier">
-            <div><div class="tier-name">{f.name}</div><div class="tier-details">{f.details}</div></div>
-            <div class="tier-price">{usd(f.price)}<span>/mo</span></div>
-          </div>
-        ))}
-
-        <h3 class="subhead-rule" style="margin-top:25px;">What Can Change It</h3>
-        <p class="muted">A few things add real work each month. If any apply, we price them on the intro call, before you sign.</p>
+        <h3 class="subhead-rule" id="add-ons" style="margin-top:25px;">Add-Ons</h3>
+        <p class="muted">Add the work you want handled. Each is scoped to your business and quoted on the intro call, before you sign.</p>
         <ul class="def-list">
-          {complexityFactors.map((c) => (
-            <li><strong>{c.name}</strong> {c.details}</li>
-          ))}
+          {addOns.map((a) => (<li><strong>{a.name}</strong> {a.details}</li>))}
         </ul>
-        <p class="note-box"><strong>Seasonal Businesses:</strong> We offer a dormant rate starting at {usd(dormantRate)}/mo for off-season businesses.</p>
+        <p class="note-box">Your monthly fee is set on a 20-minute call, based on the size of your business, how much runs through the books and the add-ons you choose. <strong>Seasonal businesses:</strong> a dormant rate from {usd(dormantRate)}/mo covers the off-season.</p>
       </div>
       <div class="track card top-ink">
         <div class="track-head">
-          <span class="tag">One-Time Projects</span>
-          <h2>Concierge Services</h2>
-          <p>Flat-fee projects with a defined scope. For when the books need a catch-up, a cleanup or a new system, on their own or before monthly work begins.</p>
+          <span class="tag">One-Time</span>
+          <h2>Project Services</h2>
+          <p>Defined projects for when something needs to be built, moved or fixed, on their own or before monthly work begins. Fixed price or hourly, your choice.</p>
         </div>
-        <h3 class="subhead-rule ink">Example Engagements</h3>
+        <div class="tier">
+          <div><div class="tier-name">Projects</div><div class="tier-details">Quoted after a short scoping call.</div></div>
+          <div class="tier-price">From {usd(projectFrom)}</div>
+        </div>
+        <h3 class="subhead-rule ink">Projects We Take On</h3>
         <ul class="def-list ink">
-          <li><strong>QuickBooks Setup</strong> A new QuickBooks Online build or a migration from another system, structured for your business.</li>
-          <li><strong>Catch-Up &amp; Cleanup</strong> Months or years of missing or messy books brought current and tax-ready.</li>
-          <li><strong>Workflow Redesign</strong> Clear approval steps and written procedures for bills, expenses and payroll.</li>
-          <li><strong>Audit-Ready Records</strong> Receipts, contracts and statements organized and matched to the books, ready for your CPA.</li>
-          <li><strong>Payroll Platform Move</strong> Your team moved to a modern platform (Gusto, Rippling) without a missed pay run.</li>
+          {projects.map((p) => (<li><strong>{p.name}</strong> {p.details}</li>))}
         </ul>
-        <h3 class="subhead-rule ink">Pricing Variables</h3>
-        <p class="muted">Concierge projects are billed as a <strong>custom flat fee</strong> based on four things:</p>
-        <ul class="def-list ink">
-          <li><strong>Scope of Work</strong> How many accounts, entities and functions the work covers.</li>
-          <li><strong>Months Behind</strong> How many past months or years need to be rebuilt and reconciled.</li>
-          <li><strong>System Complexity</strong> How many separate apps, integrations or older systems are involved.</li>
-          <li><strong>Urgency</strong> Whether a tax, lending or sale deadline needs a faster turnaround.</li>
-        </ul>
-        {cleanupNote && <p class="note-box">{cleanupNote}</p>}
       </div>
-
     </div>
   </div>
 

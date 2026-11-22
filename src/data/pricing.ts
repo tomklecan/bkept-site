@@ -1,39 +1,37 @@
 // Published pricing. The Pricing page renders straight from this file.
-// Model set 23 Oct 2026: a base retainer by annual revenue, functions added on top,
-// and a few complexity factors quoted on the intro call.
+// 22 Nov 2026 (Tom): one published base fee, add-ons quoted privately (no prices shown),
+// projects from $500. Each client's monthly fee is set on the intro call with the
+// internal pricing scorecard (size, activity, complexity, add-ons).
 
-export const retainerBands = [
-  { name: 'Under $500K', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 750 },
-  { name: '$500K to $2M', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 1150 },
-  { name: '$2M to $5M', details: 'Annual revenue. Up to 3 bank and card accounts.', price: 1750 },
+export const baseFee = 550;
+
+export const baseIncludes = [
+  { name: 'Bank & Credit Card Feeds', details: 'Every transaction coded and every bank and credit card account reconciled.' },
+  { name: 'Monthly Financial Reporting', details: 'Your P&L, Balance Sheet and Cash Flow Statement, closed by the 10th and delivered with the Kept Memo.' },
 ];
 
-// Shown as "From $X" under the bands.
-export const customBand = { name: 'Over $5M', details: 'Larger operations or multiple entities.', from: 2500 };
-
-export const functions = [
-  { name: 'Accounts Payable', details: 'Bill entry, approval routing and scheduled pay runs.', price: 500 },
-  { name: 'Accounts Receivable', details: 'Invoicing, payment matching and collections follow-up.', price: 450 },
-  { name: 'AP + AR Together', details: 'Both of the above, run as one process.', price: 850 },
-  { name: 'Payroll Oversight', details: 'Payroll runs reviewed, recorded and checked against filings.', price: 500 },
-  { name: 'Sales Tax Oversight', details: 'Filings for up to 2 states. $150/mo for each additional state.', price: 500 },
-  { name: 'Management Reporting', details: 'Budget vs. actual and a monthly KPI pack.', price: 500 },
+// Shown without prices. Quoted on the intro call.
+export const addOns = [
+  { name: 'Accounts Payable & Receivable', details: 'Bills entered, approved and paid on schedule. Invoices sent, payments matched and collections followed up.' },
+  { name: 'Sales Tax', details: 'Sales tax monitored and filed in every state where you owe it.' },
+  { name: 'Compliance Monitoring', details: 'Business licenses, insurance policies, entity renewals and annual reports tracked so nothing lapses.' },
+  { name: 'Financial Analysis', details: 'Spend and sales analysis, margins and trends, with what they mean for your decisions.' },
+  { name: 'Budgeting', details: 'An annual budget built with you, then tracked against actual results every month.' },
+  { name: 'Expense Management', details: 'Receipts, card spend and reimbursements captured, coded and approved through one process.' },
 ];
 
-// Things that can move a quote. Priced on the intro call, not shown as line items.
-export const complexityFactors = [
-  { name: 'More Accounts', details: 'Bank and card accounts beyond the 3 included.' },
-  { name: 'Inventory', details: 'Inventory and cost of goods tracked in the books.' },
-  { name: 'Job or Class Costing', details: 'Results reported by job, location or class.' },
-  { name: 'Additional Entities', details: 'More than one company kept and closed each month.' },
+export const projectFrom = 500;
+
+export const projects = [
+  { name: 'Chart of Accounts Setup', details: 'A chart of accounts built around how your business runs and what your CPA needs.' },
+  { name: 'QuickBooks Online Implementation', details: 'A new QuickBooks Online build or a move from Desktop or another system.' },
+  { name: 'Other Software Implementation', details: 'Bill pay, expense, payroll and industry tools set up and connected to the books.' },
+  { name: 'Targeted Financial Analysis', details: 'A one-time deep look at one question: pricing, margins, a location, a big decision.' },
+  { name: 'Targeted Function Projects', details: 'One process fixed or built: catch-up and cleanup, AP or AR workflows, month-end close.' },
 ];
 
 export const dormantRate = 500;
 
-// Optional extras. Set to null to hide them from the Pricing page.
-export const setupFee: number | null = null;
-export const cleanupNote: string | null = null;
-
-export const fromPrice = Math.min(...retainerBands.map((b) => b.price));
+export const fromPrice = baseFee;
 
 export const usd = (n: number) => `$${n.toLocaleString('en-US')}`;
