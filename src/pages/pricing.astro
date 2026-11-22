@@ -19,28 +19,34 @@ import { retainerBands, customBand, functions, complexityFactors, dormantRate, s
         <div class="track-head">
           <span class="tag">Monthly Retainer</span>
           <h2>Kept Services</h2>
-          <p>Your accounting run every month on a fixed calendar. One fixed monthly fee, books closed by the 10th.</p>
+          <p>Your accounting run every month on a fixed calendar. One fixed monthly fee, books closed by the 10th or sooner.</p>
         </div>
-        <h3 class="subhead-rule">What's Included</h3>
+        <h3 class="subhead-rule">Every Level Includes</h3>
         <ul class="def-list">
           <li><strong>Full-Cycle Bookkeeping</strong> Transactions coded and every bank and card account reconciled.</li>
-          <li><strong>Monthly Close by the 10th</strong> Your P&amp;L, Balance Sheet and Cash Flow Statement, closed and delivered.</li>
-          <li><strong>The Kept Memo &amp; 1:1 Review</strong> Key figures, reconciliation status and notes each month, plus dedicated time to walk through them.</li>
+          <li><strong>Monthly Close</strong> Your P&amp;L, Balance Sheet and Cash Flow Statement, closed and delivered.</li>
+          <li><strong>The Kept Memo &amp; 1:1 Review</strong> Key figures, reconciliation status and notes each month, plus dedicated time with Tom to walk through them.</li>
           <li><strong>CPA Liaison</strong> We hand your CPA a clean year-end package and answer their questions for you.</li>
           <li><strong>Compliance Tracking</strong> Reminders for business licenses, insurance policies and entity renewals.</li>
         </ul>
 
         <h3 class="subhead-rule">The Base</h3>
-        <p class="muted">Every retainer starts here. The base covers everything above and is set by annual revenue.</p>
+        <p class="muted">Every retainer starts here. Annual revenue sets the base, and each level adds more of our time and attention. No caps on accounts or transactions.</p>
         {retainerBands.map((b) => (
-          <div class="tier">
-            <div><div class="tier-name">{b.name}</div><div class="tier-details">{b.details}</div></div>
-            <div class="tier-price">{usd(b.price)}<span>/mo</span></div>
+          <div class="tier tier-level">
+            <div class="tier-main">
+              <div><div class="tier-level-name">{b.level}</div><div class="tier-name">{b.name}</div><div class="tier-details">{b.details}</div></div>
+              <div class="tier-price">{usd(b.price)}<span>/mo</span></div>
+            </div>
+            <ul class="tier-includes">{b.includes.map((i) => <li>{i}</li>)}</ul>
           </div>
         ))}
-        <div class="tier tier-custom">
-          <div><div class="tier-name">{customBand.name}</div><div class="tier-details">{customBand.details}</div></div>
-          <div class="tier-price">From {usd(customBand.from)}<span>/mo</span></div>
+        <div class="tier tier-level tier-custom">
+          <div class="tier-main">
+            <div><div class="tier-level-name">{customBand.level}</div><div class="tier-name">{customBand.name}</div><div class="tier-details">{customBand.details}</div></div>
+            <div class="tier-price">From {usd(customBand.from)}<span>/mo</span></div>
+          </div>
+          <ul class="tier-includes">{customBand.includes.map((i) => <li>{i}</li>)}</ul>
         </div>
         {setupFee !== null && (
           <p class="note-box">One-time onboarding and setup: <strong>{usd(setupFee)}</strong></p>

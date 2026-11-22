@@ -307,6 +307,13 @@ a.link-row:hover { color: var(--gold); padding-left: 5px; }
 .quote figcaption strong { display: block; color: var(--ink); }
 .quote figcaption span { font-size: .85rem; color: var(--muted); }
 .tier.tier-custom { border-style: dashed; background: #fff; }
+.tier.tier-level { flex-direction: column; align-items: stretch; gap: 12px; }
+.tier-main { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.tier-level-name { font-size: .7rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 2px; }
+.tier-includes { list-style: none; margin: 0; padding: 12px 0 0; border-top: 1px solid var(--border); display: grid; gap: 6px; }
+.tier-includes li { font-size: .85rem; color: var(--ink); padding-left: 18px; position: relative; }
+.tier-includes li::before { content: ''; position: absolute; left: 0; top: .55em; width: 8px; height: 2px; background: var(--gold); }
+@media (max-width: 640px) { .tier-main { flex-direction: column; align-items: flex-start; } }
 .tier.tier-custom .tier-price { font-size: 1rem; }
 .cta-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 30px; }
 .call-card { background: var(--ink); color: #fff; padding: 26px; border-radius: 4px; margin-bottom: 25px; border-top: 4px solid var(--gold); }
